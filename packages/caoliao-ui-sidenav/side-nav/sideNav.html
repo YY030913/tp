@@ -1,0 +1,254 @@
+<template name="sideNav">
+	<aside class="side-nav" role="navigation">
+		<header class="header">
+			{{> accountBox }}
+		</header>
+		{{#if currentUser}}
+			<!-- <div class="unread-rooms top-unread-rooms hidden">
+				{{_ "More_unreads"}} <i class="icon-up-big"></i>
+			</div> -->
+			
+			<div class="rooms-list" aria-label="{{_ "Channels"}}" role="region">
+				<div class="wrapper">
+					<ul id="slide-out" class="fixed leftside-navigation ps-container ps-active-y" style="width: 244px; left: 0px;">
+
+
+						
+						<!-- {{#each roomType}}
+							{{#if canShowRoomType}}
+								{{> Template.dynamic template=templateName }}
+							{{/if}}
+						{{/each}} -->
+
+						<li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu" href="{{pathFor 'typeDebates' type='o'}}"><!-- <i class="mdi-action-view-carousel"></i> --> {{_ "Discory"}}</a>
+									{{#if unreadDiscory}}
+										<span class="new badge">{{unreadDiscory}}</span>
+									{{/if}}
+								</li>
+							</ul>
+						</li>
+
+						{{#each privateTags}}
+							{{#if hasPermission (viewPrivatePermission name)}}
+								<li class="no-padding">
+									<ul class="collapsible collapsible-accordion">
+										<li class="bold">
+											<a class="waves-effect waves-cyan side-menu" href="{{debatePath}}">
+												<!-- <i class="mdi-social-group"></i> --> {{_ name}}
+											</a>
+											{{#if unread _id}}
+												<span class="new badge">{{unread _id}}</span>
+											{{/if}}
+										</li>
+									</ul>
+								</li>
+							{{/if}}
+						{{/each}}
+
+						<li class="li-hover"><div class="divider"></div></li>
+
+						<li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu" href="{{pathFor "messages"}}">
+										<!-- <i class="mdi-social-group"></i> --> {{_ "Message"}}
+									</a>
+								</li>
+							</ul>
+            			</li>
+
+						<!-- <li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu" href="{{pathFor "friend"}}">
+										{{_ "Channels"}}
+									</a>
+								</li>
+							</ul>
+            			</li>
+
+            			<li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu" href="{{pathFor "friend"}}">
+										{{_ "Direct_Messages"}}
+									</a>
+								</li>
+							</ul>
+            			</li>
+
+            			<li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu" href="{{pathFor "friend"}}">
+										{{_ "Private_Groups"}}
+									</a>
+								</li>
+							</ul>
+            			</li> -->
+
+            			<li class="li-hover"><div class="divider"></div></li>
+						<!-- <li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold"><a class="collapsible-header waves-effect waves-cyan side-menu"><i class="mdi-action-view-carousel"></i> {{_ "PK"}}</a>
+									<div class="collapsible-body">
+										<ul>
+											{{#each pkFlag}}
+												<li>
+													<a href="{{debatePath}}" class="menu">{{_ name}}</a>
+												</li>
+												{{#if unread _id}}
+													<span class="new badge">{{unread _id}}</span>
+												{{/if}}
+											{{/each}}
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</li> -->
+						
+						<!-- <li class="bold"><a data-animsition-out="fade-out-down-sm" class="menu waves-effect waves-cyan side-menu" href="{{pathFor "chatChannel"}}">{{_ "Message"}}<i class="mdi-communication-email"></i> {{_ "Message"}} <span class="new badge">{{new_messages_count}}</span></a>
+						</li> -->
+
+
+            			<li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu" href="{{pathFor "friend"}}">
+										<!-- <i class="mdi-social-group"></i> --> {{_ "Follow"}}
+									</a>
+								</li>
+							</ul>
+            			</li>
+
+            			<li class="no-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu" href="{{pathFor 'userFollowing' id=userId}}">
+										<!-- <i class="mdi-social-group"></i> --> {{_ "Following"}}
+									</a>
+									{{#if hasNewFriend}}
+										<span class="new badge">{{newFriendCount}}</span>
+									{{/if}}
+								</li>
+							</ul>
+            			</li>
+
+            			<li class="li-hover"><div class="divider"></div></li>
+
+            			{{#each registeredMenus}}
+            				<li class="no-padding">
+								<ul class="collapsible collapsible-accordion">
+									<li class="bold">
+										<a class="waves-effect waves-cyan side-menu" href="{{pathFor href}}">
+											{{_ name}}
+										</a>
+									</li>
+								</ul>
+							</li>
+						{{/each}}
+
+						<li class="li-hover"><div class="divider"></div></li>
+
+						{{#if showAdminOption }}
+							<li class="no-padding" id="admin">
+								<ul class="collapsible collapsible-accordion">
+									<li class="bold">
+										<a class="waves-effect waves-cyan side-menu">
+											{{_ "Administration"}}
+										</a>
+									</li>
+								</ul>
+							</li>
+						{{/if}}
+
+						<li class="li-hover"><div class="divider"></div></li>
+						
+						<li class="no-padding" id="logout">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold">
+									<a class="waves-effect waves-cyan side-menu">
+										{{_ "Logout"}}
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<!-- <li class="o-padding">
+							<ul class="collapsible collapsible-accordion">
+								<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="icon-users"></i> {{_ "Friend"}} </a>
+									<div class="collapsible-body">
+										<ul>
+											{{#if subReady 'friendSubscriptionData'}}
+												<li>
+													<a data-animsition-out="fade-out-down-sm" class="menu waves-effect waves-cyan" href="{{pathFor "friend"}}">{{_ "Follow"}}</a>
+												</li>
+												<li>
+													<a data-animsition-out="fade-out-down-sm" class="menu waves-effect waves-cyan" href="{{pathFor 'userFollowing' id=userId}}">{{_ "Following"}}</a>
+													{{#if hasNewFriend}}
+														<span class="new badge">{{newFriendCount}}</span>
+													{{/if}}
+												</li>
+											{{else}}
+												<li>
+													{{_ "Loading..."}}
+												</li>
+											{{/if}}
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</li> -->
+
+						<!-- <li class="bold"><a data-animsition-out="fade-out-down-sm" class="waves-effect waves-cyan" href="{{pathFor "channel" name="general"}}">{{_ "Administrator_Notice"}}<i class="mdi-communication-email"></i> {{_ "Administrator_Notice"}} <span class="new badge">{{new_count}}</span></a>
+						</li> -->
+					</ul>
+					<!-- {{ > unreadRooms }}
+					
+
+					<h3 class="menu">
+						
+					</h3>
+
+					<h3 class="menu">
+						<a data-animsition-out="fade-out-down-sm" class="waves-effect waves-cyan" href="{{pathFor "chatChannel"}}">{{_ "Message"}}</a>
+					</h3>
+
+					<h3 class="menu">
+						<a data-animsition-out="fade-out-down-sm" class="waves-effect waves-cyan" href="{{pathFor "friend"}}">{{_ "Friend"}}</a>
+					</h3>
+
+					<h3 class="menu">
+						<a data-animsition-out="fade-out-down-sm" class="waves-effect waves-cyan" href="{{pathFor "channel" name="general"}}">{{_ "Administrator_Notice"}}</a>
+					</h3>
+					{{#each roomType}}
+						{{#if canShowRoomType}}
+							{{> Template.dynamic template=templateName }}
+						{{/if}}
+					{{/each}}
+
+					{{#if canViewHistory}}
+						<h3 class="history-div">
+							<a data-animsition-out="fade-out-down-sm" class="waves-effect waves-cyan" href="{{pathFor 'privateHistory'}}">{{_ "History"}}</a>
+						</h3>
+					{{/if}} -->
+				</div>
+			</div>
+			<!-- <div class="unread-rooms bottom-unread-rooms hidden">
+				{{_ "More_unreads"}} <i class="icon-down-big"></i>
+			</div> -->
+			<div class="flex-nav animated-hidden">
+				<section>
+					{{> Template.dynamic template=flexTemplate data=flexData}}
+				</section>
+			</div>
+			<!-- <span class="arrow bottom"></span> -->
+		{{/if}}
+		<footer class="footer">
+			{{{footer}}}
+		</footer>
+	</aside>
+</template>

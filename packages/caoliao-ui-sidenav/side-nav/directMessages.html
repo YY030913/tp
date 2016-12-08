@@ -1,0 +1,30 @@
+<template name="directMessages">
+	<li class="no-padding {{isActive}}">
+		<ul class="collapsible collapsible-accordion">
+			<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-communication-messenger"></i> {{_ "Direct_Messages"}} </a>
+				<div class="collapsible-body">
+					<ul>
+						{{#each rooms}}
+							{{> chatRoomItem }}
+						{{else}}
+							<p class="empty">{{_ "No_direct_messages_yet" }}</p>
+						{{/each}}
+					</ul>
+				</div>
+			</li>
+			<!-- <button class="more more-direct-messages">{{_ "More_direct_messages"}}...</button> -->
+		</ul>
+	</li>
+	<!-- <h3 class="add-room {{isActive}}">
+		{{_ "Direct_Messages"}}
+		<i class="icon-plus"></i>
+	</h3>
+	<ul>
+		{{#each rooms}}
+			{{> chatRoomItem }}
+		{{else}}
+			<p class="empty">{{_ "No_direct_messages_yet" }}</p>
+		{{/each}}
+		<button class="more more-direct-messages">{{_ "More_direct_messages"}}...</button>
+	</ul> -->
+</template>

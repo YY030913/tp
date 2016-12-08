@@ -1,0 +1,1298 @@
+
+.search-wrapper {
+	.nav {
+		.item {
+		    background: @primary-background-color;
+	    }
+	}
+}
+
+.card4 {
+	background: @primary-background-color;
+}
+
+.container .card11 {
+    .line-separate::before {
+	    background: @primary-font-color;
+	}
+}
+
+.thumb-lg .status {
+	color: @secondary-background-color;
+}
+
+.debate-name {
+	border: 1px solid @quaternary-background-color;
+}
+
+.mobile-debate-name {
+	border: 1px solid @secondary-font-color;
+}
+
+.form-group-material:after {
+	background: @quaternary-background-color;
+}
+
+.form-group-material:before {
+	background: @alert-color;
+}
+
+.form-group-material.error:before {
+	background-color: @alert-color;
+}
+
+.material-label {
+	color: @quaternary-background-color;
+}
+
+
+.btn .circle {
+	background-color: darken(@ocean-color, 10%);
+}
+
+.user-item {
+	// border-bottom-color: @secondary-font-color;
+
+	.unread {
+		background: @tertiary-font-color;
+	}
+}
+.fbtn-container {
+	.fbtn-lg {
+		background-color: @cyan-color;
+		//color: @secondary-background-color !important;
+	}
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search]{
+	border-bottom: 1px solid @secondary-font-color;
+}
+.btn {
+	background-color: @ocean-color;
+	color: @secondary-background-color;
+	box-shadow: 0 2px 0 darken(@ocean-color, 10%);
+}
+
+.active-reaction {
+	color: @active-channel-font-color
+}
+a, h1, h2, h3, h4, h5, input {
+	color: @quaternary-background-color;
+}
+
+.bar-progress {
+	background-color: @alert-color;
+}
+
+.dropdown-content a {
+	color: @secondary-font-color;
+}
+.custom-scroll(@background, @thumb, @width: 8px, @height: 8px) {
+	&::-webkit-scrollbar {
+		height: @height;
+		width: @width;
+		background: @background;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: @thumb;
+		-webkit-border-radius: 50px;
+	}
+	&::-webkit-scrollbar-corner {
+		background-color: @background;
+	}
+}
+
+a {
+	&:hover,
+	&:active {
+		color: @secondary-background-color;
+	}
+}
+
+code {
+	background-color: @code-background;
+	border-color: @code-border;
+	color: @code-color;
+}
+
+blockquote {
+	&:before {
+		background-color: @blockquote-background;
+	}
+}
+
+.login-terms {
+	color: @smallprint-font-color;
+	a {
+		color: @smallprint-font-color;
+		&:hover {
+			color: @smallprint-hover-color;
+		}
+	}
+}
+
+.upload-preview {
+	background-color: @primary-font-color;
+}
+
+.upload-preview-title {
+	background-color: @tertiary-background-color;
+}
+
+.first-unread {
+	&.first-unread-opaque {
+		.body {
+			&::before {
+				//background-color: lighten(@info-font-color, 25%);
+			}
+			&::after {
+				color: @info-font-color;
+			}
+		}
+	}
+	.body {
+		&::before {
+			//background-color: lighten(@info-active-font-color, 25%);
+		}
+		&::after {
+			//background-color: @content-background-color;
+			color: @info-active-font-color;
+		}
+	}
+}
+
+.alert {
+	border-color: rgba(0, 0, 0, 0);
+}
+
+.alert-warning {
+	color: @tertiary-background-color;;
+	background-color: @primary-background-color !important;
+	border-color: @secondary-font-color;
+}
+
+.alert-danger {
+	color: @tertiary-background-color;
+	background-color: @primary-background-color;
+	border-color: 	;
+}
+
+.scrollable {
+	.custom-scroll(transparent, @primary-font-color);
+}
+.content__item{
+  	.custom-scroll(transparent, @primary-font-color);
+}
+ul {
+	.custom-scroll(transparent, @primary-background-color);
+}
+
+.types ul {
+	.custom-scroll(transparent, @primary-background-color, 0px, 0px);
+}
+
+.rocket-form {
+	legend {
+		&:after {
+			background-color: @quaternary-background-color;
+		}
+	}
+	&.request-password {
+		color: white;
+	}
+}
+
+.input-line {
+	.clearfix;
+	&.search {
+		.icon-search {
+			color: @secondary-font-color;
+		}
+	}
+	> label {
+		color: @secondary-background-color;
+	}
+}
+
+.rocket-h2 {
+	color: @secondary-background-color;
+}
+
+.rocket-h3 {
+	color: @secondary-font-color;
+}
+
+html {
+	.custom-scroll(transparent, @custom-scrollbar-color, 3px);
+}
+
+.container {
+	.custom-scroll(transparent, @custom-scrollbar-color, 3px);
+}
+
+body {
+	color: @primary-font-color;
+	//background-color: @primary-background-color;
+}
+
+textarea,
+select,
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='password'] {
+	border-color: @secondary-font-color;
+	//background-color: @primary-font-color;
+}
+
+input.search {
+	&:before {
+		background-color: @tertiary-background-color;
+	}
+}
+
+.form-horizontal .control-label {
+	color: @secondary-background-color;
+}
+
+.-autocomplete-container {
+	p {
+		color: @secondary-font-color;
+	}
+}
+
+.-autocomplete-item {
+	color: @secondary-font-color;
+	i {
+		color: @secondary-font-color;
+	}
+	&.selected {
+		background-color: @tertiary-background-color;
+		color: @secondary-background-color;
+	}
+}
+
+label.required:after {
+	color: red;
+}
+
+.status-offline,
+.icon-at.status-offline {
+	color: @status-offline;
+}
+
+.status-online,
+.icon-at.status-online {
+	color: @status-online;
+}
+
+.status-busy,
+.icon-at.status-busy {
+	color: @status-busy;
+}
+
+.status-away,
+.icon-at.status-away {
+	color: @status-away;
+}
+
+.favorite-room {
+	color: @warn-color;
+}
+
+.toggle-favorite {
+	color: @secondary-font-color;
+}
+
+.btn-loading {
+	color: @secondary-background-color !important;
+	background-color: transparent !important;
+	&:hover {
+		background-color: transparent !important;
+	}
+}
+
+// new layout buttons
+.button {
+	color: rgba(255, 255, 255, 0.85);
+	border: 1px solid @secondary-font-color;
+	//background-color: @action-buttons-color;
+	&:before {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+	&:hover {
+		color: @primary-font-color;
+	}
+	&.secondary {
+		background-color: @tertiary-background-color;
+		color: @secondary-background-color;
+		&:before {
+			background-color: rgba(0, 0, 0, 0.045);
+		}
+	}
+	&.delete,
+	&.remove,
+	&.red {
+		background-color: @tertiary-font-color;
+	}
+}
+
+.burger {
+	i {
+		background-color: @quaternary-background-color;
+	}
+	.unread-burger-alert {
+		background-color: @tertiary-font-color;
+		color: @content-background-color;
+	}
+}
+
+.arrow {
+	&:before,
+	&:after {
+		background-color: mix(@quaternary-font-color, @primary-background-color, 65%);
+	}
+}
+
+.mac-bar {
+	background-color: @tertiary-background-color;
+	i {
+		background-color: @alert-color;
+		&:nth-child(2) {
+			background-color: @warn-color;
+		}
+		&:nth-child(3) {
+			background-color: @success-color;
+		}
+	}
+}
+
+.avatar {
+	.avatar-image {
+		background-color: transparent;
+	}
+	&[initials]:before {
+		color: @primary-font-color;
+	}
+}
+
+#rocket-chat {
+	//background-color: @content-background-color;
+}
+
+
+.avatar-div .status-offline {
+	border-color: darken(@status-offline, 5%);
+	background-color: @status-offline;
+}
+.avatar-div .status-online {
+	border-color: darken(@status-online, 5%);
+	background-color: @status-online;
+}
+.avatar-div .status-away {
+	border-color: darken(@status-away, 5%);
+	background-color: @status-away;
+}
+.avatar-div .status-busy {
+	border-color: darken(@status-busy, 5%);
+	background-color: @status-busy;
+}
+
+.account-box {
+	.info {
+		background-color: @primary-background-color;
+		h4 {
+			//color: mix(@quaternary-font-color, @primary-background-color, 65%);
+		}
+		&.status-offline {
+			.thumb:after {
+				border-color: darken(@status-offline, 5%);
+				background-color: @status-offline;
+			}
+		}
+		&.status-online {
+			.thumb:after {
+				border-color: darken(@status-online, 5%);
+				background-color: @status-online;
+			}
+		}
+		&.status-away {
+			.thumb:after {
+				border-color: darken(@status-away, 5%);
+				background-color: @status-away;
+			}
+		}
+		&.status-busy {
+			.thumb:after {
+				border-color: darken(@status-busy, 5%);
+				background-color: @status-busy;
+			}
+		}
+	}
+	.options {
+		background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, lighten(@primary-background-color, 5%)), color-stop(0.50, @primary-background-color) );
+		.status {
+			&:after {
+				border-color: @secondary-font-color;
+			}
+			&.offline {
+				&:after {
+					border-color: darken(@status-offline, 10%);
+					background-color: @status-offline;
+				}
+			}
+			&.online {
+				&:after {
+					border-color: darken(@status-online, 10%);
+					background-color: @status-online;
+				}
+			}
+			&.away {
+				&:after {
+					border-color: darken(@status-away, 10%);
+					background-color: @status-away;
+				}
+			}
+			&.busy {
+				&:after {
+					border-color: darken(@status-busy, 10%);
+					background-color: @status-busy;
+				}
+			}
+		}
+		span.soon {
+			color: @secondary-font-color;
+		}
+		button, a {
+			//color: fade( @quaternary-font-color, 50%);
+			border-bottom-color: darken(@primary-background-color, 2%);
+			&:hover {
+				background-color: darken(@primary-background-color, 2%);
+				color: fade( @quaternary-font-color, 75%);
+			}
+		}
+	}
+	&.active .info, .info:hover {
+		h4 {
+			color: fade(@quaternary-font-color, 85%);
+		}
+	}
+	.hover {
+		.info h4 {
+			color: fade(@quaternary-font-color, 85%);
+		}
+	}
+}
+
+.flex-nav {
+	//background-color: @primary-background-color;
+	background-color: transparent;
+	color: @tertiary-font-color;
+	.custom-scroll(transparent, @custom-scrollbar-color);
+	header {
+		background-color: @primary-background-color;
+	}
+	footer {
+		background-color: @primary-background-color;
+	}
+	.content {
+		.custom-scroll(transparent, @custom-scrollbar-color);
+		background-color: @primary-background-color;
+		
+	}
+	.input-line {
+		input[type='text'],
+		input[type='password'],
+		select {
+			border-color: @tertiary-font-color;
+			background-color: @primary-background-color;
+			color: @input-font-color;
+		}
+		& label {
+			color: @input-font-color;
+		}
+	}
+	.selected-users {
+		li {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+.side-nav {
+	&:before {
+		background-color: @quaternary-background-color;
+	}
+	.navs-list,.rooms-list {
+		background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, lighten(@primary-background-color, 10%)), color-stop(0.50, lighten(@primary-background-color, 5%)) );
+		.custom-scroll(transparent, @custom-scrollbar-color);
+	}
+	.more {
+		color: @tertiary-font-color;
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+	}
+	.input-error {
+		color: @alert-color;
+	}
+	.empty {
+		color: @tertiary-font-color;
+	}
+	.header {
+		color: @primary-font-color;
+		background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, lighten(@primary-background-color, 5%)), color-stop(0.50, darken(@primary-background-color, 5%)) );
+	}
+	> .arrow {
+		&.hover,
+		&:hover {
+			&:before,
+			&:after {
+				background-color: mix(@quaternary-font-color, @primary-background-color, 85%);
+			}
+		}
+	}
+	.footer {
+		background: lighten(@primary-background-color, 5%);
+		// background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, @primary-background-color), color-stop(0.50, darken(@primary-background-color, 10%)) );
+		small {
+			color: @tertiary-font-color;
+		}
+	}
+	h3 {
+		color: @tertiary-font-color;
+		a {
+			color: inherit;
+		}
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+	}
+	.unread {
+		background-color: @unread-notification-color;
+		color: @primary-font-color;
+	}
+	ul {
+		li {
+			.remove,
+			.erase {
+				color: @secondary-background-color;
+			}
+			&:hover {
+				.opt {
+					background-color: transparent;
+				}
+			}
+			/*
+			&.active {
+				a {
+					background-color: @active-channel-background-color;
+					color: @active-channel-font-color;
+				}
+				.opt {
+					background-color: transparent;
+				}
+			}
+			*/
+			&.has-alert {
+				.name {
+					color: @quaternary-font-color;
+				}
+			}
+			&.away {
+				a {
+					color: @secondary-background-color;
+				}
+			}
+		}
+		a {
+			//color: @tertiary-font-color;
+			/*&:active {
+				color: @success-color;
+			}*/
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.05);
+			}
+		}
+		.opt {
+			background-color: transparent;
+			i {
+				color: fade(@quaternary-font-color, 50%);
+				&:hover {
+					color: fade(@quaternary-font-color, 75%);
+				}
+			}
+		}
+		i {
+			color: fade(@quaternary-font-color, 35%);
+		}
+		input[type=text] {
+			color: @quaternary-font-color;
+		}
+	}
+}
+
+.page-container {
+	.content {
+		.custom-scroll(transparent, @tertiary-background-color);
+	}
+	.container {
+		background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, lighten(@primary-background-color, 10%)), color-stop(0.50, lighten(@primary-background-color, 5%)) );
+	}
+}
+
+.fixed-title {
+	background: @primary-font-color;
+	border-bottom-color: @tertiary-background-color;
+}
+
+.cms-page {
+	color: @secondary-background-color;
+	background-color: @content-background-color;
+}
+
+.spotlight {
+	background-color: rgba(0, 0, 0, .3);
+	> .spotlight-input {
+		color: @secondary-background-color;
+		> i {
+			color: @secondary-font-color;
+		}
+	}
+}
+
+.mobile-message-menu {
+	background-color: rgba(0, 0, 0, .3);
+}
+
+.page-static {
+	.content {
+		.section {
+			.section-content {
+				border-color: @quaternary-background-color;
+			}
+		}
+	}
+}
+
+.page-list {
+	.results {
+		border-bottom-color: @quaternary-background-color;
+		color: @secondary-font-color;
+	}
+	.list {
+		a {
+			color: @secondary-background-color;
+			border-bottom-color: @primary-font-color;
+			&:hover {
+				background-color: @primary-font-color;
+			}
+		}
+		li {
+			color: @secondary-font-color;
+			&:after {
+				background-color: @secondary-font-color;
+			}
+		}
+		.info {
+			a {
+				color: @secondary-background-color;
+			}
+		}
+		.status {
+			color: @secondary-font-color;
+		}
+		table {
+			tbody {
+				tr {
+					&:nth-child(odd) {
+						//background-color: @primary-font-color;
+					}
+
+					&.row-link {
+						cursor: pointer;
+						&:hover {
+							background-color: darken(@primary-background-color, 3%);
+						}
+					}
+				}
+
+				td {
+					a {
+						color: @link-font-color;
+						&:hover {
+							color: darken(@link-font-color, 10%);
+							background-color: transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.image-to-download {
+	background-color: @secondary-font-color;
+	border-color: @quaternary-background-color;
+	color: @secondary-font-color;
+}
+
+.room-not-found {
+	color: orange;
+}
+
+.container-bars {
+	>div {
+		border-color: @primary-font-color;
+	}
+	.upload-progress {
+		background-color: @cyan-color;
+		color: @content-background-color;
+		&.upload-error {
+			background-color: @alert-color;
+			border-color: @tertiary-font-color;
+		}
+		.upload-progress-progress {
+			background-color: @success-color;
+		}
+		> a {
+			&:hover {
+				color: @tertiary-background-color;
+			}
+		}
+	}
+	.unread-bar {
+		background-color: @tertiary-background-color;
+		color: @ocean-color;
+	}
+}
+.videos {
+	.custom-scroll(transparent, rgba(180, 180, 180, .75));
+}
+// change to page-messages
+.messages-container {
+	.edit-room-title {
+		color: @secondary-font-color;
+		&:hover {
+			color: @secondary-background-color;
+		}
+	}
+	.wrapper {
+		.custom-scroll(transparent, rgba(180, 180, 180, .75));
+	}
+	.footer {
+		background: @primary-font-color;
+		border-top-color: @tertiary-background-color;
+	}
+	.message-popup {
+		background: @primary-font-color;
+	}
+	.message-popup-title {
+		background-color: @primary-font-color;
+		border-bottom-color: @tertiary-background-color;
+	}
+	.popup-item {
+		color: @secondary-font-color;
+		&.selected {
+			background-color: @ocean-color;
+			color: @primary-font-color;
+		}
+	}
+	.popup-user-status {
+		border-color: rgba(0, 0, 0, .2);
+	}
+	.popup-user-status-system {
+		border-color: transparent;
+	}
+	.popup-user-status-offline {
+		background-color: @status-offline;
+	}
+	.popup-user-status-online {
+		background-color: @status-online;
+	}
+	.popup-user-status-away {
+		background-color: @status-away;
+	}
+	.popup-user-status-busy {
+		background-color: @status-busy;
+	}
+	.message-form {
+		> .message-input {
+			border-color: @tertiary-background-color;
+			> .file,
+			.message-buttons {
+				color: @secondary-font-color;
+				background-color: @primary-font-color;
+				&:hover {
+					background-color: @primary-font-color;
+					color: @secondary-background-color;
+				}
+			}
+		}
+		textarea {
+			&.editing {
+				background-color: @primary-font-color;
+			}
+		}
+		.users-typing {
+			color: @secondary-font-color;
+			background: @primary-font-color;
+		}
+		.formatting-tips {
+			color: @secondary-background-color;
+			q {
+				border-left-color: @quaternary-background-color;
+			}
+		}
+		.editing-commands {
+			.editing-commands-cancel {
+				color: @secondary-font-color;
+			}
+			.editing-commands-save {
+				color: @secondary-font-color;
+			}
+		}
+	}
+}
+
+.messages-box {
+	.load-more {
+		span {
+			border-color: @quaternary-background-color;
+			background-color: @tertiary-background-color;
+		}
+	}
+	.start {
+		color: @secondary-font-color;
+	}
+	.new-message {
+		background: @ocean-color;
+		color: @primary-font-color;
+	}
+	.editing {
+		.body {
+			background-color: @primary-font-color;
+		}
+	}
+}
+.message.left .body {
+    background: @tertiary-background-color;
+    color: @secondary-background-color;
+}
+
+.message.right .body {
+    background: @grape-color;
+    color: @primary-font-color;
+}
+
+.message {
+	&.new-day {
+		&:before {
+			color: @secondary-font-color;
+			//background-color: @content-background-color;
+		}
+		&:after {
+			border-top-color: @quaternary-background-color;
+		}
+	}
+	.user {
+		color: @secondary-background-color;
+		&:hover {
+			color: @secondary-background-color;
+		}
+	}
+	.info {
+		color: @info-font-color;
+	}
+	&.system {
+		.body {
+			color: @info-font-color;
+			.attachment {
+				color: @secondary-background-color;
+			}
+		}
+	}
+	a {
+		color: @link-font-color;
+		&:hover {
+			color: darken(@link-font-color, 10%);
+		}
+	}
+}
+
+// FLEX-TAB and FLEX-TAB views
+.flex-tab {
+	background-color: @primary-font-color;
+	border-left-color: @tertiary-background-color;
+	.control {
+		background-color: @primary-font-color;
+		&:before {
+			background-color: @tertiary-background-color;
+		}
+		.more {
+			background-color: @tertiary-background-color;
+			border-bottom-color: @tertiary-background-color;
+			color: @secondary-font-color;
+			&:hover {
+				.arrow {
+					.arrow {
+						&:before,
+						&:after {
+							background-color: @secondary-background-color;
+						}
+					}
+				}
+			}
+			.arrow {
+				&:before,
+				&:after {
+					background-color: @secondary-font-color;
+				}
+			}
+			.flex-opened & {
+				background-color: @primary-font-color;
+				&:hover {
+					.arrow {
+						&:before,
+						&:after {
+							background-color: @secondary-font-color;
+						}
+					}
+				}
+			}
+		}
+		.search-form {
+			.icon-plus {
+				color: @secondary-font-color;
+			}
+		}
+		.info-tabs {
+			a {
+				color: inherit;
+				border-left-color: rgb(234, 234, 234);
+				&.active {
+					background-color: @primary-font-color;
+				}
+				&:last-child {
+					border-right-color: rgb(234, 234, 234);
+				}
+			}
+		}
+	}
+	.content {
+		.custom-scroll(transparent, @quaternary-background-color);
+		> div {
+			background-color: @primary-font-color;
+		}
+	}
+	.message {
+		&.new-day {
+			&:before {
+				//background-color: @primary-font-color;
+			}
+			&:after {
+				border-top-color: @tertiary-background-color;
+			}
+		}
+	}
+}
+
+.list-view {
+	-webkit-overflow-scrolling: touch;
+	overflow-y: auto;
+	overflow-x: hidden;
+	.custom-scroll(transparent, @quaternary-background-color);
+	> .status {
+		p {
+			color: @secondary-font-color;
+		}
+		.see-all {
+			color: @secondary-font-color;
+			background-color: transparent;
+		}
+	}
+}
+
+.user-view {
+	-webkit-overflow-scrolling: touch;
+	.custom-scroll(transparent, @quaternary-background-color);
+	.info {
+		h3 {
+			i.status-offline {
+				&:after {
+					border-color: darken(@status-offline, 5%);
+					background-color: @status-offline;
+				}
+			}
+			i.status-online {
+				&:after {
+					border-color: darken(@status-online, 5%);
+					background-color: @status-online;
+				}
+			}
+			i.status-away {
+				&:after {
+					border-color: darken(@status-away, 5%);
+					background-color: @status-away;
+				}
+			}
+			i.status-busy {
+				&:after {
+					border-color: darken(@status-busy, 5%);
+					background-color: @status-busy;
+				}
+			}
+		}
+		p {
+			color: @secondary-font-color;
+		}
+	}
+	.stats {
+		li {
+			background-color: @quaternary-background-color;
+		}
+	}
+	.box {
+		h4 {}
+		&:after {
+			background-color: @quaternary-background-color;
+		}
+	}
+	.tags {
+		li {
+			background-color: @quaternary-background-color;
+		}
+	}
+	.links {
+		a {
+			color: @secondary-font-color;
+			&:hover {
+				background-color: @quaternary-background-color;
+				color: @secondary-background-color;
+			}
+		}
+	}
+	.channels {
+		p {
+			color: @secondary-font-color;
+		}
+		a {
+			color: @secondary-font-color;
+		}
+	}
+	.edit-form {
+		p {
+			color: @secondary-font-color;
+		}
+	}
+}
+
+.user-image-status(@color) {
+	.avatar {
+		&:after {
+			background-color: darken(@color, 5%);
+		}
+	}
+}
+
+.user-image {
+	background-color: @tertiary-background-color;
+	&:hover,
+	&.selected {
+		.avatar {
+			&:after {}
+			.status-offline {
+				&:after {
+					background-color: @status-offline;
+				}
+			}
+			.status-online {
+				&:after {
+					background-color: @status-online;
+				}
+			}
+			.status-away {
+				&:after {
+					background-color: @status-away;
+				}
+			}
+			.status-busy {
+				&:after {
+					background-color: @status-busy;
+				}
+			}
+			p {
+				color: @secondary-background-color;
+			}
+		}
+	}
+	.lines & {
+		background-color: transparent;
+		a {
+			background-color: transparent;
+		}
+		p {
+			color: @secondary-font-color;
+		}
+	}
+	&.status-offline {
+		.user-image-status(@status-offline);
+	}
+	&.status-online {
+		.user-image-status(@status-online);
+	}
+	&.status-away {
+		.user-image-status(@status-away);
+	}
+	&.status-busy {
+		.user-image-status(@status-busy);
+	}
+}
+
+.user-profile {
+	.info {
+		a {
+			color: @secondary-background-color;
+			&:hover {
+				color: @secondary-font-color;
+			}
+		}
+	}
+}
+
+.rocket-modal {
+	background-color: rgba(0, 0, 0, 0.5);
+	&.fluid {
+		.modal {
+			main {
+				.custom-scroll(transparent, @quaternary-background-color);
+			}
+		}
+	}
+	legend {
+		color: @secondary-font-color;
+		&:before {
+			background-color: @quaternary-background-color;
+		}
+	}
+	.modal {
+		background-color: @content-background-color;
+		header {
+			background-color: @quaternary-background-color;
+			.close {
+				i {
+					color: @secondary-font-color;
+				}
+				&:hover {
+					i {
+						color: @secondary-background-color;
+					}
+				}
+			}
+		}
+		main {
+			background-color: @content-background-color;
+		}
+		footer {
+			background-color: @tertiary-background-color;
+		}
+	}
+}
+
+#login-card {
+	color: @tertiary-background-color;
+	h2 {
+		//color: @secondary-background-color;
+		&.error {
+			color: @tertiary-font-color;
+		}
+	}
+	h3 {
+		&.error {
+			color: @tertiary-font-color;
+		}
+	}
+	a {
+		color: @primary-background-color;
+		&:active {
+			color: @primary-background-color;
+		}
+		&:hover {
+			color: darken(@primary-background-color, 10%);
+		}
+	}
+}
+
+.full-page {
+	//background-color: darken(@primary-background-color, 10%);
+	//.background-image(linear-gradient(darken(@primary-background-color, 10%), @primary-background-color));
+
+	.text {
+		color: @primary-font-color;
+		.button {
+			background-color: @tertiary-font-color;
+			color: @primary-font-color;
+		}
+	}
+	footer {
+		color: @primary-font-color;
+		div.switch-language {
+			a {
+				color: @secondary-font-color;
+			}
+		}
+	}
+}
+
+.avatar-suggestion-item {
+	background-color: @primary-font-color;
+	border-color: darken(@primary-font-color, 10%);
+	.avatar {
+		background-size: cover;
+		background-color: @tertiary-background-color;
+	}
+	.question-mark {
+		&::before {
+			color: darken(@tertiary-background-color, 10%);
+		}
+	}
+}
+
+.statistics-table {
+	border-color: @tertiary-background-color;
+}
+
+@media all and(max-width: 780px) {
+	#rocket-chat {
+		.main-content {
+			//fbackground-color: @content-background-color;
+		}
+	}
+}
+
+.dropzone {
+	&.over .dropzone-overlay {
+		background-color: rgba(0, 0, 0, 0.5);
+		color: @content-background-color;
+		> div {
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+	}
+}
+
+.is-cordova {
+	.flex-tab {
+		button.more {
+			background-color: @primary-font-color;
+		}
+	}
+}
+
+.attention-message {
+	color: white;
+}
+
+.green {
+	color: green;
+}

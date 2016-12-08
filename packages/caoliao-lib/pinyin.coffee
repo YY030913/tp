@@ -1,0 +1,1 @@
+pinyin = Npm.require('pinyin')

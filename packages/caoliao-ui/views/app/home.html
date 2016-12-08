@@ -1,0 +1,46 @@
+<template name="home">
+	<section class="page-container page-home page-static">
+		<header class="fixed-title">
+			<div class="header-container">
+			<!-- <header id="header" class="page-topbar"> -->
+				{{> burger}}
+				<div class="pagetitle">
+					<h2>
+						<span class="room-title">{{title}}</span>
+					</h2>
+				</div>
+				
+				<ul class="right">
+	                <li>
+	                    <a href="javascript:void(0);" class="waves-effect waves-block waves-light dropdown-button" data-activates="navigation-dropdown"><i class="mdi-navigation-more-vert"></i></a>
+	                </li>
+	                <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
+	                </li>
+	                <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">{{notificationCount}}</small></i>
+	                        
+	                        </a>
+	                </li>
+	                <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
+	                </li>
+	            </ul>
+	            <!-- navigation-button -->
+	            <ul id="navigation-dropdown" class="dropdown-content">
+	                <li>
+	                    <a href="#!"><img src="images/flag-icons/United-States.png" alt="English" /> <span class="language-select">English</span></a>
+	                </li>
+	                <li>
+	                    <a href="#!"><img src="images/flag-icons/France.png" alt="French" /> <span class="language-select">French</span></a>
+	                </li>
+	                <li>
+	                    <a href="#!"><img src="images/flag-icons/China.png" alt="Chinese" /> <span class="language-select">Chinese</span></a>
+	                </li>
+	                <li>
+	                    <a href="#!"><img src="images/flag-icons/Germany.png" alt="German" /> <span class="language-select">German</span></a>
+	                </li>
+	            </ul>
+	            {{> notification}}
+			</div>
+		</header>
+		<div class="container">{{{body}}}</div>
+	</section>
+</template>

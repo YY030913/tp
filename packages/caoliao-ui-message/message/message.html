@@ -1,0 +1,136 @@
+<template name="message">
+	<li id="{{_id}}" class="message {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}} {{isSequential}} {{system}} {{t}} {{own}} {{isTemp}} {{chatops}} {{customClass}} {{#if currentUser u.username}}right{{else}}left{{/if}}" data-username="{{u.username}}" data-groupable="{{isGroupable}}" data-date="{{date}}{{time}}" data-timestamp="{{timestamp}}">
+		<!-- <div class="{{#if currentUser u.username}}right{{else}}left{{/if}} msg-content"> -->
+			<a href="{{pathFor 'direct' username=u.username}}" class="inline-block {{#if currentUser u.username}}right{{else}}left{{/if}}" style="float: {{#if currentUser u.username}}right{{else}}left{{/if}};">
+				{{#if avatar}}
+					{{#if avatarFromUsername}}
+						<button class="thumb user-card-message {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}" data-username="{{u.username}}" tabindex="1">{{> avatar username=avatarFromUsername}}</button>
+					{{else}}
+						<button class="thumb user-card-message {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}" data-username="{{u.username}}" tabindex="1">
+							<div class="avatar">
+								<div class="avatar-image" style="background-image:url({{avatar}});"></div>
+							</div>
+						</button>
+					{{/if}}
+				{{else}}
+					{{#if emoji}}
+						<button class="thumb user-card-message {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}" data-username="{{u.username}}" tabindex="1">
+							<div class="avatar">
+								{{{getEmoji emoji}}}
+							</div>
+						</button>
+					{{else}}
+						<button class="thumb user-card-message {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}" data-username="{{u.username}}" tabindex="1">{{> avatar username=u.username}}</button>
+					{{/if}}
+				{{/if}}
+			</a>
+			<div class="inline-block" style="width: calc(100% - 60px); word-wrap: break-word; word-break: break-all;    vertical-align: top;">
+				<a href="{{pathFor 'direct' username=u.username}}">
+					{{#if alias}}
+						<button class="user user-card-message {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}" data-username="{{u.username}}" tabindex="1">{{alias}} <span class="message-alias">@{{u.username}}</span></button>
+					{{else}}
+						<button class="user user-card-message {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}" data-username="{{u.username}}" tabindex="1">{{u.username}}</button>
+					{{/if}}
+				</a>
+				<span class="info {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}">
+					{{#each roleTags}}
+						<span class="role-tag" data-role="{{.}}">{{_ .}}</span>
+					{{/each}}
+					{{#if isBot}}
+						<span class="is-bot">BOT</span>
+					{{/if}}
+					{{#if edited}}
+						<span
+							title='{{_ "edited"}} {{_ "at"}} {{editTime}} {{_ "by"}} {{editedBy}}'
+							class="time">
+							{{time}}
+						</span>
+						<span class="edited" title='{{_ "edited"}} {{_ "at"}} {{editTime}} {{_ "by"}} {{editedBy}}' >
+							<i class="icon-edit" aria-label="{{_ "Edited"}}"></i>
+							{{_ "by"}}
+							<button class="thumb thumb-small user-card-message" data-username="{{editedBy}}" tabindex="1">
+								{{> avatar username=editedBy}}
+							</button>
+						</span>
+					{{else}}
+						<!-- <span class="time">{{time}}</span> -->
+					{{/if}}
+					{{#if private}}
+						<span class="private">{{_ "Only_you_can_see_this_message"}}</span>
+					{{/if}}
+
+					<span class="message-cog-container {{hideCog}}">
+						<i class="icon-cog message-cog" aria-label="{{_ "Actions"}}"></i>
+					</span>
+				</span>
+			</div>
+			<div class="{{userMsgClass}} {{#if mobileShowWebrtc}} mobile-show-webrtc{{/if}}" dir="auto">
+				{{{body}}}
+				{{#if hasOembed}}
+					{{#each urls}}
+						{{injectIndex . @index}}
+						{{> oembedBaseWidget}}
+					{{/each}}
+				{{/if}}
+				{{#each attachments}}
+					{{injectIndex . @index}}
+					{{> messageAttachment}}
+				{{/each}}
+			</div>
+			<ul class="reactions {{hideReactions}}">
+				{{#each reaction in reactions}}
+					<li data-emoji="{{reaction.emoji}}" {{markUserReaction reaction}}>
+						<span class="reaction-emoji">{{> emojione reaction.emoji}}</span>
+						<span class="reaction-count">{{reaction.count}}</span>
+						<ul class="people">
+							<span style="font-weight: bold;">
+								{{reaction.usernames}} <span style="color: #aaa;">{{reaction.reaction}}</span>
+							</span>
+						</ul>
+					</li>
+				{{/each}}
+				<li class="add-reaction">
+					<span class="icon-people-plus"></span>
+				</li>
+			</ul>
+			<!-- <ul class="reactions">
+				<li data-id="{{_id}}" id="tip-off-message">
+					<i class="icon-police {{activeTipoff}}" aria-label='{{_ "Tip-off"}}'></i>
+					<span class="reaction-count">{{tipoff.count}}</span>
+					<ul class="people">
+						<span style="font-weight: bold;">
+							{{tipoff.usernames}}
+						</span>
+					</ul>
+				</li>
+				<li data-id="{{_id}}" id="donate-message">
+					<i class="icon-money {{activeDonate}}" aria-label='{{_ "Donate"}}'></i>
+					<span class="reaction-count">{{donate.count}}</span>
+					<ul class="people">
+						<span style="font-weight: bold;">
+							{{donate.usernames}}
+						</span>
+					</ul>
+				</li>
+				<li data-id="{{_id}}" id="downvote-message">
+					<i class="icon-thumbs-down {{activeDownvote}}" aria-label='{{_ "Downvote"}}'></i>
+					<span class="reaction-count">{{downvote.count}}</span>
+					<ul class="people">
+						<span style="font-weight: bold;">
+							{{downvote.usernames}}
+						</span>
+					</ul>
+				</li>
+				<li data-id="{{_id}}" id="upvote-message">
+					<i class="icon-thumbs-up {{activeUpvote}}" aria-label='{{_ "Upvote"}}'></i>
+					<span class="reaction-count">{{upvote.count}}</span>
+					<ul class="people">
+						<span style="font-weight: bold;">
+							{{upvote.usernames}}
+						</span>
+					</ul>
+				</li>
+			</ul> -->
+		<!-- </div> -->
+	</li>
+</template>

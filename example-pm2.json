@@ -1,0 +1,63 @@
+{
+	"apps": [{
+		"name": "caoliao.0",
+		"max_memory_restart": "1024M",
+		"log_date_format": "YYYY-MM-DD HH:mm:ss SSS",
+		"script": "/var/www/caoliao/bundle/main.js",
+		"out_file": "/var/log/caoliao/app.log",
+		"error_file": "/var/log/caoliao/err.log",
+		"port": "8080",
+		"env": {
+			"MONGO_URL": "mongodb://localhost:27017/caoliao",
+			"MONGO_OPLOG_URL": "mongodb://localhost:27017/local",
+			"ROOT_URL": "https://demo.caoliao",
+			"DDP_DEFAULT_CONNECTION_URL": "https://demo.caoliao",
+			"PORT": "8080"
+		}
+	}, {
+		"name": "caoliao.1",
+		"max_memory_restart": "1024M",
+		"log_date_format": "YYYY-MM-DD HH:mm:ss SSS",
+		"script": "/var/www/caoliao/bundle/main.js",
+		"out_file": "/var/log/caoliao/app.log",
+		"error_file": "/var/log/caoliao/err.log",
+		"port": "8081",
+		"env": {
+			"MONGO_URL": "mongodb://localhost:27017/caoliao",
+			"MONGO_OPLOG_URL": "mongodb://localhost:27017/local",
+			"ROOT_URL": "https://demo.caoliao",
+			"DDP_DEFAULT_CONNECTION_URL": "https://demo.caoliao",
+			"PORT": "8081"
+		}
+	}, {
+		"name": "caoliao.2",
+		"max_memory_restart": "1024M",
+		"log_date_format": "YYYY-MM-DD HH:mm:ss SSS",
+		"script": "/var/www/caoliao/bundle/main.js",
+		"out_file": "/var/log/caoliao/app.log",
+		"error_file": "/var/log/caoliao/err.log",
+		"port": "8082",
+		"env": {
+			"MONGO_URL": "mongodb://localhost:27017/caoliao",
+			"MONGO_OPLOG_URL": "mongodb://localhost:27017/local",
+			"ROOT_URL": "https://demo.caoliao",
+			"DDP_DEFAULT_CONNECTION_URL": "https://demo.caoliao",
+			"PORT": "8082"
+		}
+	}, {
+		"name": "caoliao.3",
+		"max_memory_restart": "1024M",
+		"log_date_format": "YYYY-MM-DD HH:mm:ss SSS",
+		"script": "/var/www/caoliao/bundle/main.js",
+		"out_file": "/var/log/caoliao/app.log",
+		"error_file": "/var/log/caoliao/err.log",
+		"port": "8083",
+		"env": {
+			"MONGO_URL": "mongodb://localhost:27017/caoliao",
+			"MONGO_OPLOG_URL": "mongodb://localhost:27017/local",
+			"ROOT_URL": "https://demo.caoliao",
+			"DDP_DEFAULT_CONNECTION_URL": "https://demo.caoliao",
+			"PORT": "8083"
+		}
+	}]
+}

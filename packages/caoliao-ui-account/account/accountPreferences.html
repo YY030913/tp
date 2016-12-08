@@ -1,0 +1,210 @@
+<template name="accountPreferences">
+	<section class="page-container page-home page-static">
+		<header class="fixed-title">
+			<div class="header-container">
+			<!-- <header id="header" class="page-topbar"> -->
+				{{> burger}}
+				<div class="pagetitle">
+					<h2>
+						<span class="room-title">{{_ "Preferences"}}</span>
+					</h2>
+				</div>
+				
+			</div>
+		</header>
+		<div class="container" style="overflow: scroll;">
+			<div class="rocket-form">
+				<fieldset>
+                    <div class="section">
+                        <h1>{{_ "Localization"}}</h1>
+                        <div class="section-content">
+							<div class="input-line">
+								<label for="language">{{_ "Language"}}</label>
+								<div>
+									<select id="language" class="required">
+										{{#each languages}}
+										<option value="{{key}}" selected="{{userLanguage key}}" dir="auto">{{name}}</option>
+										{{/each}}
+									</select>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                    <!-- <div class="section">
+                        <h1>{{_ "Country"}}</h1>
+                        <div class="section-content">
+							<div class="input-line">
+								<label for="country">{{_ "Country"}}</label>
+								<div>
+									<select id="country" class="required">
+										{{#each countries}}
+											<option value="{{name}}" data-code="{{code}}" selected="{{userLocation name}}" dir="auto">
+												{{name}}
+											</option>
+										{{/each}}
+									</select>
+								</div>
+							</div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="section">
+                        <h1>{{_ "Country_State"}}</h1>
+                        <div class="section-content">
+							<div class="input-line">
+								<label for="state">{{_ "Country_State"}}</label>
+								<div>
+									<select id="state" class="required">
+										{{#each stats}}
+											<option value="{{key}}" selected="{{userLanguage key}}" dir="auto">
+												{{name}}
+											</option>
+										{{/each}}
+									</select>
+								</div>
+							</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h1>{{_ "Country_State_City"}}</h1>
+                        <div class="section-content">
+							<div class="input-line">
+								<label for="city">{{_ "Country_State_City"}}</label>
+								<div>
+									<select id="city" class="required">
+										{{#each cities}}
+											<option value="{{key}}" selected="{{userLanguage key}}" dir="auto">
+												{{name}}
+											</option>
+										{{/each}}
+									</select>
+								</div>
+							</div>
+                        </div>
+                    </div>
+
+                    {{#each pics}}
+							<div style="width: 40px;height: 40px;background-image:url(packages/caoliao_theme/assets/flags/4x3/{{.}}.svg)">
+							</div>
+					{{/each}} -->
+					<div class="section">
+						<h1>{{_ "Messages"}}</h1>
+						<div class="section-content">
+							{{#if isAdmin}}
+							<div class="input-line double-col">
+								<label>{{_ "Desktop_Notifications"}}</label>
+								<div>
+									{{#if desktopNotificationEnabled}}
+										<label>{{_ "Desktop_Notifications_Enabled"}}</label>
+										<label><button class="button waves-effect waves-light test-notifications"><i class="icon-comment-empty"></i> <span>{{_ "Test_Desktop_Notifications"}}</span></button></label>
+									{{else}}
+										{{#if desktopNotificationDisabled}}
+											<label>{{_ "Desktop_Notifications_Disabled"}}</label>
+										{{else}}
+											<label><button class="button waves-effect waves-light enable-notifications"><i class="icon-comment-empty"></i> <span>{{_ "Enable_Desktop_Notifications"}}</span></button></label>
+										{{/if}}
+									{{/if}}
+								</div>
+							</div>
+							<div class="input-line double-col">
+								<label>{{_ "Use_Emojis"}}</label>
+								<div>
+									<label><input type="radio" id="useEmojis_1" name="useEmojis" value="1" checked="{{checked 'useEmojis' true true}}" /> <label for="useEmojis_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="useEmojis_0" name="useEmojis" value="0" checked="{{checked 'useEmojis' false}}" /> <label for="useEmojis_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							<div class="input-line double-col" id="convertAsciiEmoji">
+								<label>{{_ "Convert_Ascii_Emojis"}}</label>
+								<div>
+									<label><input type="radio" id="convertAsciiEmoji_1" name="convertAsciiEmoji" value="1" checked="{{checked 'convertAsciiEmoji' true true}}" /> <label for="convertAsciiEmoji_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="convertAsciiEmoji_0" name="convertAsciiEmoji" value="0" checked="{{checked 'convertAsciiEmoji' false}}" /> <label for="convertAsciiEmoji_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							<div class="input-line double-col" id="autoImageLoad">
+								<label>{{_ "Auto_Load_Images"}}</label>
+								<div>
+									<label><input type="radio" id="autoImageLoad_1" name="autoImageLoad" value="1" checked="{{checked 'autoImageLoad' true true}}" /> <label for="autoImageLoad_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="autoImageLoad_0" name="autoImageLoad" value="0" checked="{{checked 'autoImageLoad' false}}" /> <label for="autoImageLoad_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							{{/if}}
+							<div class="input-line double-col" id="saveMobileBandwidth">
+								<label>{{_ "Save_Mobile_Bandwidth"}}</label>
+								<div>
+									<label><input type="radio" id="saveMobileBandwidth_1" name="saveMobileBandwidth" value="1" checked="{{checked 'saveMobileBandwidth' true true}}" /> <label for="saveMobileBandwidth_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="saveMobileBandwidth_0" name="saveMobileBandwidth" value="0" checked="{{checked 'saveMobileBandwidth' false}}" /> <label for="saveMobileBandwidth_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							<div class="input-line double-col" id="collapseMediaByDefault">
+								<label>{{_ "Collapse_Embedded_Media_By_Default"}}</label>
+								<div>
+									<label><input type="radio" id="collapseMediaByDefault_1" name="collapseMediaByDefault" value="1" checked="{{checked 'collapseMediaByDefault' true}}" /> <label for="collapseMediaByDefault_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="collapseMediaByDefault_0" name="collapseMediaByDefault" value="0" checked="{{checked 'collapseMediaByDefault' false true}}" /> <label for="collapseMediaByDefault_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							<div class="input-line double-col" id="compactView">
+								<label>{{_ "Compact_View"}}</label>
+								<div>
+									<label><input type="radio" id="compactView_1" name="compactView" value="1" checked="{{checked 'compactView' true}}" /> <label for="compactView_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="compactView_0" name="compactView" value="0" checked="{{checked 'compactView' false true}}" /> <label for="compactView_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							<div class="input-line double-col" id="unreadRoomsMode">
+								<label>{{_ "Unread_Rooms_Mode"}}</label>
+								<div>
+									<label><input type="radio" id="unreadRoomsMode_1" name="unreadRoomsMode" value="1" checked="{{checked 'unreadRoomsMode' true}}" /> <label for="unreadRoomsMode_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="unreadRoomsMode_0" name="unreadRoomsMode" value="0" checked="{{checked 'unreadRoomsMode' false true}}" /> <label for="unreadRoomsMode_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							<div class="input-line double-col" id="emailNotificationMode">
+								<label>{{_ "Email_Notification_Mode"}}</label>
+								<div>
+									<select class="input-monitor" name="emailNotificationMode">
+										<option value="disabled" selected="{{selected 'emailNotificationMode' 'disabled' false}}">{{_ "Email_Notification_Mode_Disabled"}}</option>
+										<option value="all" selected="{{selected 'emailNotificationMode' 'all' true}}">{{_ "Email_Notification_Mode_All"}}</option>
+									</select>
+								</div>
+								<div class="info">{{_ "You_need_to_verifiy_your_email_address_to_get_notications"}}</div>
+							</div>
+						</div>
+					</div>
+                    <div class="section">
+                        <h1>{{_ "Highlights"}}</h1>
+                        <div class="section-content">
+                            <div class="input-line double-col">
+                                <label>{{_ "Highlights_List"}}</label>
+                                <div>
+                                    <label>{{_ "Highlights_How_To"}}</label>
+                                    <textarea name="highlights" id="highlights" cols="30" rows="10">{{highlights}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div class="section">
+						<h1>{{_ "Sound"}}</h1>
+						<div class="section-content">
+							<div class="input-line double-col">
+								<label>{{_ "New_Room_Notification"}}</label>
+								<div>
+									<label><input type="radio" id="newRoomNotification_1" name="newRoomNotification" value="1" checked="{{checked 'newRoomNotification' true true}}" /> <label for="newRoomNotification_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="newRoomNotification_0" name="newRoomNotification" value="0" checked="{{checked 'newRoomNotification' false}}" /> <label for="newRoomNotification_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+							<div class="input-line double-col">
+								<label>{{_ "New_Message_Notification"}}</label>
+								<div>
+									<label><input type="radio" id="newMessageNotification_1" name="newMessageNotification" value="1" checked="{{checked 'newMessageNotification' true true}}" /> <label for="newMessageNotification_1"> {{_ "True"}} </label> </label>
+									<label><input type="radio" id="newMessageNotification_0" name="newMessageNotification" value="0" checked="{{checked 'newMessageNotification' false}}" /> <label for="newMessageNotification_0"> {{_ "False"}} </label> </label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<div class="submit">
+					<button class="button waves-effect waves-light"><i class="icon-send"></i><span>{{_ "Save_changes"}}</span></button>
+				</div>
+			</div>
+		</div>
+	</section>
+</template>

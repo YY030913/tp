@@ -1,0 +1,54 @@
+{
+  "dependencies": {
+    "countries-cities": {
+      "version": "0.0.11",
+      "resolved": "https://registry.npmjs.org/countries-cities/-/countries-cities-0.0.11.tgz",
+      "from": "countries-cities@0.0.11"
+    },
+    "i18n-iso-countries": {
+      "version": "1.6.0",
+      "resolved": "https://registry.npmjs.org/i18n-iso-countries/-/i18n-iso-countries-1.6.0.tgz",
+      "from": "i18n-iso-countries@1.6.0"
+    },
+    "iso-3166-1-alpha-2": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/iso-3166-1-alpha-2/-/iso-3166-1-alpha-2-1.0.0.tgz",
+      "from": "iso-3166-1-alpha-2@1.0.0"
+    },
+    "lodash": {
+      "version": "4.15.0",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.15.0.tgz",
+      "from": "lodash@4.15.0"
+    },
+    "mout": {
+      "version": "0.11.1",
+      "resolved": "https://registry.npm.taobao.org/mout/download/mout-0.11.1.tgz",
+      "from": "mout@>=0.11.0 <0.12.0"
+    },
+    "node-location": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/node-location/-/node-location-1.0.1.tgz",
+      "from": "node-location@1.0.1"
+    },
+    "pad": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/pad/-/pad-1.0.0.tgz",
+      "from": "pad@1.0.0"
+    },
+    "sax": {
+      "version": "1.2.1",
+      "resolved": "https://registry.npmjs.org/sax/-/sax-1.2.1.tgz",
+      "from": "sax@>=0.6.0"
+    },
+    "xml2js": {
+      "version": "0.4.17",
+      "resolved": "https://registry.npm.taobao.org/xml2js/download/xml2js-0.4.17.tgz",
+      "from": "xml2js@0.4.17"
+    },
+    "xmlbuilder": {
+      "version": "4.2.1",
+      "resolved": "https://registry.npm.taobao.org/xmlbuilder/download/xmlbuilder-4.2.1.tgz",
+      "from": "xmlbuilder@>=4.1.0 <5.0.0"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<template name="avatar">
+	<!-- <div class="avatar circle">
+		<div class="avatar-image" style="{{imageUrl}}"></div>
+	</div> -->
+	<div class="group">
+		{{#each imageUrl}}
+			<div style="background-image:url({{.}})"></div>
+		{{/each}}
+	</div>
+</template>

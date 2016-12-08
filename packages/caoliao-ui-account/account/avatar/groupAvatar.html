@@ -1,0 +1,22 @@
+<template name="groupAvatar">
+	<div class="group">
+	{{#if oneUsers}}
+		
+			<div style="background-image:url(http://i.pravatar.cc/300?1)"></div>
+		</div>
+	{{/if}}
+	{{#if twoUsers}}
+		<div class="group">
+			<div style="background-image:url(http://i.pravatar.cc/300?2)"></div>
+			<div style="background-image:url(http://i.pravatar.cc/300?3)"></div>
+		</div>
+	{{/if}}
+	{{#if threeUsers}}
+		<div class="group">
+			<div style="background-image:url(http://i.pravatar.cc/300?4)"></div>
+			<div style="background-image:url(http://i.pravatar.cc/300?5)"></div>
+			<div style="background-image:url(http://i.pravatar.cc/300?6)"></div>
+		
+	{{/if}}
+	</div>
+</template>

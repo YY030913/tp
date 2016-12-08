@@ -1,0 +1,18 @@
+<template name="pageSettingsContainer">
+	<section class="page-container page-home page-static page-settings">
+		<header class="fixed-title">
+            <div class="header-container">
+            <!-- <header id="header" class="page-topbar"> -->
+                {{> burger}}
+                <div class="pagetitle">
+                    <h2>
+                        <span class="page-title">{{pageTitle}}</span>
+					</h2>
+                </div>
+            </div>
+        </header>
+		<div class="container {{#if noScroll}}no-scroll{{/if}}">
+			{{> Template.dynamic template=pageTemplate}}
+		</div>
+	</section>
+</template>

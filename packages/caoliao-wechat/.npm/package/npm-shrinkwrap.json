@@ -1,0 +1,55 @@
+{
+  "dependencies": {
+    "buffer": {
+      "version": "4.7.0",
+      "resolved": "https://registry.npmjs.org/buffer/-/buffer-4.7.0.tgz",
+      "from": "buffer@4.7.0",
+      "dependencies": {
+        "base64-js": {
+          "version": "1.1.2",
+          "resolved": "https://registry.npmjs.org/base64-js/-/base64-js-1.1.2.tgz",
+          "from": "base64-js@1.1.2"
+        },
+        "ieee754": {
+          "version": "1.1.6",
+          "resolved": "https://registry.npmjs.org/ieee754/-/ieee754-1.1.6.tgz",
+          "from": "ieee754@1.1.6"
+        },
+        "isarray": {
+          "version": "1.0.0",
+          "resolved": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz",
+          "from": "isarray@1.0.0"
+        }
+      }
+    },
+    "sha1": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/sha1/-/sha1-1.0.1.tgz",
+      "from": "sha1@1.0.1",
+      "dependencies": {
+        "charenc": {
+          "version": "0.0.1",
+          "resolved": "https://registry.npmjs.org/charenc/-/charenc-0.0.1.tgz",
+          "from": "charenc@0.0.1"
+        },
+        "crypt": {
+          "version": "0.0.1",
+          "resolved": "https://registry.npmjs.org/crypt/-/crypt-0.0.1.tgz",
+          "from": "crypt@0.0.1"
+        }
+      }
+    },
+    "xml2js": {
+      "version": "0.2.6",
+      "resolved": "https://registry.npmjs.org/xml2js/-/xml2js-0.2.6.tgz",
+      "from": "xml2js@0.2.6",
+      "dependencies": {
+        "sax": {
+          "version": "0.4.2",
+          "resolved": "https://registry.npmjs.org/sax/-/sax-0.4.2.tgz",
+          "from": "sax@0.4.2"
+        }
+      }
+    }
+  }
+}

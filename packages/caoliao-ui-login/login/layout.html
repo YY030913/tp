@@ -1,0 +1,11 @@
+<template name="loginLayout">
+	<section class="full-page">
+		<!-- <img src="{{fixCordovaBg}}" id="parallax-layer" style="width:100%; height:100%;position:fixed;"> -->
+		<canvas id="starbg" style="position:absolute;top:0;left:0;z-index:10;width:100%;height:50%;"></canvas>
+		<div class="wrapper">
+			{{ > loginHeader }}
+			{{> Template.dynamic template=center}}
+			{{ > loginFooter }}
+		</div>
+	</section>
+</template>

@@ -1,0 +1,25 @@
+<template name="adminUserInfo">
+	<section class="page-container page-home page-static" id="debateContainer">
+		<header class="fixed-title cd-auto-hide-header"><!-- fixed-title  -->
+			<div class="header-container">
+			<!-- <header id="header" class="page-topbar"> -->
+				{{> burger}}
+				<div class="pagetitle">
+					<h2>
+						<span class="room-title">{{_ 'User_Info'}}</span>
+					</h2>
+				</div>
+				
+			</div>
+		</header>
+			
+		<div class="container" style="overflow: scroll;">
+			<div class="content">
+				<div class="user-view">
+					{{> userInfo data}}
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</template>

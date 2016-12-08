@@ -1,0 +1,57 @@
+<template name="username">
+	<section class="full-page">
+		<!-- <img src="{{fixCordovaBg}}" id="parallax-layer" style="width:100%; height:100%;position:fixed;"> -->
+		<canvas id="starbg" style="position:absolute;top:0;left:0;z-index:10;width:100%;height:50%;"></canvas>
+		
+		<div class="wrapper">
+			<form id="login-card" method='/'>
+				<header>
+					<h2>{{_ "Username_title"}}</h2>
+					<p>{{_ "Username_description"}}</p>
+				</header>
+				{{#if username.error}}
+					<div class="alert alert-danger">
+						{{{_ "error-field-unavailable" field=username.username}}}
+					</div>
+				{{/if}}
+				{{#if username.invalid}}
+					<div class="alert alert-danger">
+						{{{_ "Username_invalid" username.username}}}
+					</div>
+				{{/if}}
+				{{#if username.invalidLength}}
+					<div class="alert alert-danger">
+						{{{_ "Username_invalid_length" username.username minLength maxLength}}}
+					</div>
+				{{/if}}
+				{{#if username.empty}}
+					<div class="alert alert-danger">
+						{{{_ "Username_cant_be_empty"}}}
+					</div>
+				{{/if}}
+				<div class="fields">
+					<div class='input-field active'>
+						{{#if username.ready}}
+							<span>
+								<input id="username" type="text" name='username' value="{{username.username}}" dir="auto"/>
+								<label for="username" class="center-align">{{_ "Username"}}</label>
+							</span>
+							<i></i>
+						{{else}}
+							{{_ "Loading_suggestion"}}
+						{{/if}}
+					</div>
+				</div>
+
+				{{#if username.ready}}
+					<div class="submit">
+						<button data-loading-text="{{_ "Please_wait"}}..." class='button primary login'>
+							<div class="indeterminate"></div>
+							<span>{{_ "Use_this_username"}}</span>
+						</button>
+					</div>
+				{{/if}}
+			</form>
+		</div>
+	</section>
+</template>

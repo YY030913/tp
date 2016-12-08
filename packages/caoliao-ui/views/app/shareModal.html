@@ -1,0 +1,15 @@
+<template name="shareModal">
+	<div id="shareModal" class="modal full-screen">
+		<div style="height: 61px;width: 100%;background-color: #dedede;text-align: center;">
+			<button class="close-button"><i class="mdi-navigation-close"></i></button>
+			<span style="font-size: 22px;line-height: 61px;">分享到微信</span>
+		</div>
+		
+		{{#if Meteor.isCordova}}
+			<!-- diaoyong cordova -->
+	    {{else}}
+	    	<div id="qrcode"></div>
+	    {{/if}}
+	    <span style="color: #000;">扫描二维码，打开网页后点击右上角“分享按钮”</span>
+	</div>
+</template>

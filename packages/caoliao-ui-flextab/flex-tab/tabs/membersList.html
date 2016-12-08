@@ -1,0 +1,57 @@
+<template name="membersList">
+	<section class="page-container page-home page-static">
+		<header class="fixed-title">
+			<div class="header-container">
+			<!-- <header id="header" class="page-topbar"> -->
+				{{> burger}}
+				<div class="pagetitle">
+					<h2>
+						<span class="room-title">{{_ "Members_List"}}</span>
+					</h2>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+			<!-- {{> videoCall}} -->
+			{{#if isGroupChat}}
+				<div class="list-view animated">
+					{{#with roomUsers}}
+						<div class="title">
+							<!-- <p>
+								{{{_ "Showing_online_users" total_showing=totalShowing total=total}}}
+								<button class="see-all">{{seeAll}}</button>
+							</p> -->
+							<!-- {{> videoButtons}} -->
+							{{#if canAddUser}}
+								<div class="control">
+									<div class="search-form">
+										<div class="input-line search">
+											{{> inputAutocomplete settings=autocompleteSettingsAddUser id="user-add-search" class="search" placeholder=tAddUsers}}
+											<i class="icon-plus"></i>
+										</div>
+									</div>
+								</div>
+							{{/if}}
+						</div>
+						<ul class='list clearfix lines'>
+							{{#each users}}
+								<li class='user-image user-card-room status-{{status}}'>
+									<button data-username="{{username}}" tabindex="0" title="{{username}}">
+										{{> avatar username=username}}
+										<p>{{username}} {{utcOffset}}</p>
+									</button>
+								</li>
+							{{/each}}
+						</ul>
+						{{#if hasMore}}
+							<button class="button waves-effect waves-light show-more-users">{{_ "Show_more"}}</button>
+						{{/if}}
+					{{/with}}
+				</div>
+			{{/if}}
+			<!-- <div class="user-view animated{{#unless showUserInfo}} animated-hidden{{/unless}}">
+				{{> userInfo (userInfoDetail)}}
+			</div> -->
+		</div>
+	</section>
+</template>

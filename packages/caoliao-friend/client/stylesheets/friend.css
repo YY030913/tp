@@ -1,0 +1,35 @@
+.friends, .friend {
+    height: 55px;
+    width: 100%;
+    padding: 15px 15px 0 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.friends .avatar, .friend .avatar {
+    width: 42px;
+    height: 42px;
+}
+#a-z {
+    position: fixed;
+    top: 80px;
+    right: 5px;
+    text-align: center;
+    background: #fff;
+    height: 80%;
+    font-size: 1em;
+}
+#a-z li {
+    height:3.5%;
+}
+#contactsList {
+    width: 100%;
+    position: absolute;
+}
+#shade {
+    background: rgba(0, 0, 0, .5);
+}
+.gap {
+    font-size: 20px;
+    width: 100%;
+    text-indent: 20px;
+    background-color: #ebebeb;
+}

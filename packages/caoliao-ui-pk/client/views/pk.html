@@ -1,0 +1,28 @@
+<template name="pk">
+	<section class="page-container page-list">
+		<header class="fixed-title">
+			<div class="header-container">
+			<!-- <header id="header" class="page-topbar"> -->
+				{{> burger}}
+				<div class="pagetitle">
+					<h2>
+						<span class="room-title">{{pageTitle}}</span>
+					</h2>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+			{{#unless hasPermission 'access-debate-tag'}}
+				<p>{{_ "You_are_not_authorized_to_view_this_page"}}</p>
+			{{else}}
+				<!-- <ParallaxScrollView backgroundColor="blue" contentBackgroundColor="pink" parallaxHeaderHeight=300> -->
+					<ul class="debate-list">
+						{{#each debatesHistory}}
+							{{#nrr nrrargs 'debateItem' .}}{{/nrr}}
+						{{/each}}
+					</ul>
+				<!-- </ParallaxScrollView> -->
+			{{/unless}}
+		</div>
+	</section>
+</template>

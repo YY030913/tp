@@ -1,0 +1,76 @@
+<template name="pushNotificationsFlexTab">
+	<section class="page-container page-home page-static">
+		<header class="fixed-title">
+			<div class="header-container">
+			<!-- <header id="header" class="page-topbar"> -->
+				{{> burger}}
+				<div class="pagetitle">
+					<h2>
+						<span class="room-title">{{_ "Notifications"}}</span>
+					</h2>
+				</div>
+				
+			</div>
+		</header>
+		<div class="container">
+			<div class="list-view push-notifications">
+				<form>
+					<ul class="list clearfix">
+						<li>
+							<label>{{_ "Desktop"}}</label>
+							<div>
+								{{#if editing 'desktopNotifications'}}
+									<label><input type="radio" id="desktopNotifications_1" name="desktopNotifications" value="all" checked="{{$eq desktopNotifications 'all'}}" /> <label for="desktopNotifications_1"> {{_ "All_messages"}} </label> </label>
+									<label><input type="radio" id="desktopNotifications_2" name="desktopNotifications" value="mentions" checked="{{$eq desktopNotifications 'mentions'}}" /> <label for="desktopNotifications_2"> {{_ "Mentions_default"}} </label> </label>
+									<label><input type="radio" id="desktopNotifications_3" name="desktopNotifications" value="nothing" checked="{{$eq desktopNotifications 'nothing'}}" /> <label for="desktopNotifications_3"> {{_ "Nothing"}} </label> </label>
+									<button type="button" class="button waves-effect waves-light secondary cancel">{{_ "Cancel"}}</button>
+									<button type="button" class="button waves-effect waves-light primary save">{{_ "Save"}}</button>
+								{{else}}
+									<span>{{subValue 'desktopNotifications'}} <i class="icon-pencil" data-edit="desktopNotifications"></i></span>
+								{{/if}}
+							</div>
+						</li>
+						<li>
+							<label>{{_ "Mobile_push"}}</label>
+							<div>
+								{{#if editing 'mobilePushNotifications'}}
+									<label><input type="radio" id="mobilePushNotifications_1" name="mobilePushNotifications" value="all" checked="{{$eq mobilePushNotifications 'all'}}" /> <label for="mobilePushNotifications_1"> {{_ "All_messages"}} </label> </label>
+									<label><input type="radio" id="mobilePushNotifications_2" name="mobilePushNotifications" value="mentions" checked="{{$eq mobilePushNotifications 'mentions'}}" /> <label for="mobilePushNotifications_2"> {{_ "Mentions_default"}} </label> </label>
+									<label><input type="radio" id="mobilePushNotifications_3" name="mobilePushNotifications" value="nothing" checked="{{$eq mobilePushNotifications 'nothing'}}" /> <label for="mobilePushNotifications_3"> {{_ "Nothing"}} </label> </label>
+									<button type="button" class="button waves-effect waves-light secondary cancel">{{_ "Cancel"}}</button>
+									<button type="button" class="button waves-effect waves-light primary save">{{_ "Save"}}</button>
+								{{else}}
+									<span>{{subValue 'mobilePushNotifications'}} <i class="icon-pencil" data-edit="mobilePushNotifications"></i></span>
+								{{/if}}
+							</div>
+						</li>
+						<li>
+							<label>{{_ "Email"}}</label>
+							<div>
+								{{#if editing 'emailNotifications'}}
+									<label><input type="radio" id="emailNotifications_1" name="emailNotifications" value="all" checked="{{$eq emailNotifications 'all'}}" /> <label for="emailNotifications_1"> {{_ "All_messages"}} </label> </label>
+									{{#if showEmailMentions}}
+										<label><input type="radio" id="emailNotifications_2" name="emailNotifications" value="mentions" checked="{{$eq emailNotifications 'mentions'}}" /> <label for="emailNotifications_2"> {{_ "Mentions"}} </label> </label>
+									{{/if}}
+									<label><input type="radio" id="emailNotifications_3" name="emailNotifications" value="nothing" checked="{{$eq emailNotifications 'nothing'}}" /> <label for="emailNotifications_3"> {{_ "Nothing"}} </label> </label>
+									<label><input type="radio" id="emailNotifications_4" name="emailNotifications" value="default" checked="{{$eq emailNotifications 'default'}}" /> <label for="emailNotifications_4"> {{_ "Use_account_preference"}} </label> </label>
+									<button type="button" class="button waves-effect waves-light secondary cancel">{{_ "Cancel"}}</button>
+									<button type="button" class="button waves-effect waves-light primary save">{{_ "Save"}}</button>
+								{{else}}
+									<span>{{subValue 'emailNotifications'}} <i class="icon-pencil" data-edit="emailNotifications"></i></span>
+								{{/if}}
+							</div>
+						</li>
+						{{#unless emailVerified}}
+						<li>
+							<div class="alert alert-warning">
+								{{_ "You_wont_receive_email_notifications_because_you_have_not_verified_your_email"}}
+							</div>
+						</li>
+						{{/unless}}
+					</ul>
+				</form>
+			</div>
+		</div>
+	</section>
+</template>

@@ -1,0 +1,46 @@
+.chatList li {
+    position: relative;
+    height: 55px;
+    padding: 5px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    list-style: none;
+}
+.chatList li .avatar-div {
+    width: 45px;
+    height: 45px;
+    float: left;
+    margin-right: 10px;
+}
+.chatList li h5.user {
+    font-size: 20px;
+    font-weight: normal;
+    position: relative;
+    display: inline;
+    line-height: 23px;
+}
+.chatList li p.date {
+    font-size: 12px;
+    float: right;
+    line-height: 22px;
+    color: #bebebe;
+}
+.chatList li p.preview {
+    line-height: 22px;
+    font-size: 15px;
+    position: relative;
+    color: #bfbfbf;
+}
+
+.chatList li .unread {
+    position: absolute;
+    background-color: #f95555;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    left: 50px;
+    top: 0px;
+    display: inline-block;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+}

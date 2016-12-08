@@ -1,0 +1,81 @@
+<template name="loginForm">
+	{{#if showSandstorm}}
+		<div class="alert alert-danger">
+			You must login to Sandstorm (on the top right) in order to access this chat.
+		</div>
+	{{else}}
+	<form id="login-card" method='/' novalidate>
+		{{#if waitActivation}}
+			<header>
+				<h2>{{{_ "Registration_Succeeded"}}}</h2>
+				<p>{{{_ "Wait_activation_warning"}}}</p>
+				<p>{{{_ "Please_wait_activation"}}}</p>
+			</header>
+		{{else}}
+			{{ > loginServices }}
+			<!-- {{#if needsValidateEmail}}
+				<div class="alert alert-danger">
+					{{_ "You_need_confirm_email"}}
+				</div>
+			{{/if}}
+			{{#if showFormLogin}}
+				<div class="fields">
+					<div class='input-field active {{showName}}'>
+						<input id="name" type="text" name='name' dir="auto" />
+						<label for="name" class="center-align">{{namePlaceholder}}</label>
+					</div>
+					<div class='input-field active {{showEmailOrUsername}}'>
+						<input autocomplete="off" id="useraccount" type="text" name='useraccount' autocapitalize="off" autocorrect="off" />
+						<label for="useraccount" class="center-align">{{emailOrUsernamePlaceholder}}</label>
+						{{#if hasOnePassword}}
+							<div class="one-passsword"></div>
+						{{/if}}
+					</div>
+					<div class='input-field active {{showEmail}}'>
+						<input autocomplete="off" id="email" type="email" name='email' />
+						<label for="email" class="center-align">{{_ "Email"}}</label>
+					</div>
+					<div class='input-field active {{showPassword}}'>
+						<input autocomplete="off" id="pp" type="text" name='pp' />
+						<label for="pp" class="center-align">{{passwordPlaceholder}}</label>
+					</div>
+					<div class='input-field active {{showConfirmPassword}}'>
+						<input autocomplete="off" id="confirm-pass" type="text" name='confirm-pass' />
+						<label for="confirm-pass" class="center-align">{{_ "Confirm_password"}}</label>
+					</div>
+				</div>
+				<div class="submit">
+					<button data-loading-text="{{_ "Please_wait"}}..." class='button primary login waves-effect'>
+						<div class="indeterminate"></div>
+						<span>{{btnLoginSave}}</span>
+					</button>
+				</div>
+				{{#if registrationAllowed}}
+				<div class="register {{showRegisterLink}}">
+					<button type="button">{{_ 'Register'}}</button>
+				</div>
+				{{else}}
+					{{#if linkReplacementText}}
+						{{{linkReplacementText}}}
+					{{/if}}
+				{{/if}}
+				{{#if passwordresetAllowed}}
+				<div class="forgot-password {{showForgotPasswordLink}}">
+					<button type="button">{{_ 'Forgot_password'}}</button>
+				</div>
+				{{/if}}
+			{{/if}} -->
+		{{/if}}
+		<!-- <div class="back-to-login {{showBackToLoginLink}}">
+			<button type="button">{{_ 'Back_to_login'}}</button>
+		</div> -->
+	</form>
+	<div class='login-terms'>
+		<!-- {{{loginTerms}}} -->
+
+		<div class="powered-by">
+			@copyright <a href="https://caoliao.net.cn">CaoLiao</a>.
+		</div>
+	</div>
+	{{/if}}
+</template>

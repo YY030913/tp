@@ -1,0 +1,48 @@
+.icon-wechat:before {
+	content: " ";
+	visibility: visible;
+	background-image: url('/images/wechat.png');
+	background-size: 1em;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 1em;
+	height: 1em;
+}
+.icon-weibo::before {
+	content: " ";
+	visibility: visible;
+	background-image: url('/images/weibo.png');
+	background-size: 1em;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 1em;
+	height: 1em;
+}
+.icon-google::before {
+	content: " ";
+	visibility: visible;
+	background-image: url('/images/google.png');
+	background-size: 1em;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 1em;
+	height: 1em;
+}
+:root {
+	--icon-size: 6em;
+	--icon-increase: 2em;
+	--main-color: #111111;
+}
+.social-login .icon {
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 50%;
+	width: 60px !important;
+	height:  60px !important;
+	transition: .5s;
+}
+.social-login .icon:hover {
+	width: 84px !important;
+	height: 84px !important;
+	transition: .5s;
+}

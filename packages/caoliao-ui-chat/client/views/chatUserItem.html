@@ -1,0 +1,32 @@
+<template name="chatUserItem">
+    <li class="link-room-{{rid}} {{#if unread}}has-unread{{/if}} {{#if alert}}has-alert{{/if}}">
+        <a class="open-room" href="{{route}}" title="{{name}}">
+            <div class="avatar-div"> 
+                {{#if name}}
+                    {{> avatar username=name}}
+                {{/if}}
+            </div>
+            {{#if unread}}
+                <span class="unread">{{unread}}</span>
+            {{else}}
+                {{#if alert}}
+                    <span class="unread">{{alert}}</span>
+                {{/if}}
+            {{/if}}
+            <h5 class="user">{{name}}</h5>
+            <!-- {{#if $not unread}}
+            <span class='opt'> <i class="icon-eye-off hide-room" title="{{_ "Hide_room"}}" aria-label="{{_ "Hide_room"}}"></i> -->
+                {{#if canLeave}} <i class="icon-logout leave-room" title="{{_ "Leave_room"}}" aria-label="{{_ "Leave_room"}}"></i>
+                {{/if}}
+            <!-- </span>
+            {{/if}} -->
+            <p class="date">{{lasttime}}</p>
+            <p class="preview">{{lastmsg}}</p>
+        </a>
+        <swipeout right={{swipeoutBtns}}>
+            <View>
+                <Text>Swipe me left</Text>
+            </View>
+        </swipeout>
+    </li>
+</template>

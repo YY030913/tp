@@ -1,0 +1,65 @@
+<template name="survey">
+	<div id="survey">
+		<div class="overlay"></div>
+		<div class="wrapper">
+			<header title="{{_ 'Please_answer_survey'}}">
+				<b>{{_ 'Please_answer_survey'}}</b>
+			</header>
+			<div class="content">
+				<p class="instructions">{{_ 'Survey_instructions'}}</p>
+				<form id="survey" class="livechat-form">
+					<div class="survey-item">
+						<label class="question">
+							{{_ "How_satisfied_were_you_with_this_chat"}}
+						</label>
+						<label class="answer"><input type="radio" name="satisfaction" id="satisfaction_1" value="1" /><label for="satisfaction_1">1</label></label>
+						<label class="answer"><input type="radio" name="satisfaction" id="satisfaction_2" value="2" /><label for="satisfaction_2">2</label></label>
+						<label class="answer"><input type="radio" name="satisfaction" id="satisfaction_3" value="3" /><label for="satisfaction_3">3</label></label>
+						<label class="answer"><input type="radio" name="satisfaction" id="satisfaction_4" value="4" /><label for="satisfaction_4">4</label></label>
+						<label class="answer"><input type="radio" name="satisfaction" id="satisfaction_5" value="5" /><label for="satisfaction_5">5</label></label>
+					</div>
+					<div class="survey-item">
+						<label class="question">
+							{{_ "How_knowledgeable_was_the_chat_agent"}}
+						</label>
+						<label class="answer"><input type="radio" name="agentKnowledge" id="agentKnowledge_1" value="1" /><label for="agentKnowledge_1">1</label></label>
+						<label class="answer"><input type="radio" name="agentKnowledge" id="agentKnowledge_2" value="2" /><label for="agentKnowledge_2">2</label></label>
+						<label class="answer"><input type="radio" name="agentKnowledge" id="agentKnowledge_3" value="3" /><label for="agentKnowledge_3">3</label></label>
+						<label class="answer"><input type="radio" name="agentKnowledge" id="agentKnowledge_4" value="4" /><label for="agentKnowledge_4">4</label></label>
+						<label class="answer"><input type="radio" name="agentKnowledge" id="agentKnowledge_5" value="5" /><label for="agentKnowledge_5">5</label></label>
+					</div>
+					<div class="survey-item">
+						<label class="question">
+							{{_ "How_responsive_was_the_chat_agent"}}
+						</label>
+						<label class="answer"><input type="radio" name="agentResposiveness" id="agentResposiveness_1" value="1" /><label for="agentResposiveness_1">1</label></label>
+						<label class="answer"><input type="radio" name="agentResposiveness" id="agentResposiveness_2" value="2" /><label for="agentResposiveness_2">2</label></label>
+						<label class="answer"><input type="radio" name="agentResposiveness" id="agentResposiveness_3" value="3" /><label for="agentResposiveness_3">3</label></label>
+						<label class="answer"><input type="radio" name="agentResposiveness" id="agentResposiveness_4" value="4" /><label for="agentResposiveness_4">4</label></label>
+						<label class="answer"><input type="radio" name="agentResposiveness" id="agentResposiveness_5" value="5" /><label for="agentResposiveness_5">5</label></label>
+					</div>
+					<div class="survey-item">
+						<label class="question">
+							{{_ "How_friendly_was_the_chat_agent"}}
+						</label>
+						<label class="answer"><input type="radio" name="agentFriendliness" id="agentFriendliness_1" value="1" /><label for="agentFriendliness_1">1</label></label>
+						<label class="answer"><input type="radio" name="agentFriendliness" id="agentFriendliness_2" value="2" /><label for="agentFriendliness_2">2</label></label>
+						<label class="answer"><input type="radio" name="agentFriendliness" id="agentFriendliness_3" value="3" /><label for="agentFriendliness_3">3</label></label>
+						<label class="answer"><input type="radio" name="agentFriendliness" id="agentFriendliness_4" value="4" /><label for="agentFriendliness_4">4</label></label>
+						<label class="answer"><input type="radio" name="agentFriendliness" id="agentFriendliness_5" value="5" /><label for="agentFriendliness_5">5</label></label>
+					</div>
+					<div class="survey-item">
+						<label class="question">
+							{{_ "Additional_Feedback"}}
+						</label>
+						<textarea name="additionalFeedback" rows="5"></textarea>
+					</div>
+				</form>
+			</div>
+			<footer>
+				<button type="button" class="button waves-effect waves-light secondary skip"><span>{{_ "Skip"}}</span></button>
+				<button type="button" class="button waves-effect waves-light send"><span>{{_ "Send"}}</span></button>
+			</footer>
+		</div>
+	</div>
+</template>

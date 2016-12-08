@@ -1,0 +1,11 @@
+{
+  "google" : {
+    "clientId" : "282710845697-rlerblta4drj4qqt7ugsq0jsg0h29j0g.apps.googleusercontent.com",
+    "clientSecret" : "JbGkizq41eZQORnBi8myIEpc"
+  },
+  "kadira": {
+    "appId": "KiLQ7DoEMQL2ixuE4",
+    "appSecret": "46f63baf-c9b4-429e-8752-099d516eae9a"
+  },
+  "MONGO_URL": "mongodb://xiaoyu:yy030913A@ds029456.mlab.com:29456/caoliao"
+}

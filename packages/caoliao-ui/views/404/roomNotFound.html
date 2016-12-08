@@ -1,0 +1,31 @@
+<template name="roomNotFound">
+	<section class="page-container page-list">
+		<header class="fixed-title">
+            <div class="header-container">
+            <!-- <header id="header" class="page-topbar"> -->
+                {{> burger}}
+                <div class="pagetitle">
+                    <h2>
+                        <span class="room-title">{{_ "Room_not_found"}}</span>
+                    </h2>
+                </div>
+            </div>
+        </header>
+		<div class="container room-not-found">
+			<i class="icon-attention"></i>
+			<div>
+				{{#with data}}
+					{{#if $eq type 'c'}}
+						{{{_ 'No_channel_with_name_%s_was_found' name}}}
+					{{/if}}
+					{{#if $eq type 'p'}}
+						{{{_ 'No_group_with_name_%s_was_found' name}}}
+					{{/if}}
+					{{#if $eq type 'd'}}
+						{{{_ 'No_user_with_username_%s_was_found' name}}}
+					{{/if}}
+				{{/with}}
+			</div>
+		</div>
+	</section>
+</template>

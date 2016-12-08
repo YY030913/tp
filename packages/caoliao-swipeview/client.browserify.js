@@ -1,0 +1,1 @@
+webSwipeView = require('web-swipe-view');

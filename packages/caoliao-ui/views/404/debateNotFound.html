@@ -1,0 +1,21 @@
+<template name="debateNotFound">
+	<section class="page-container page-list">
+		<header class="fixed-title">
+            <div class="header-container">
+            <!-- <header id="header" class="page-topbar"> -->
+                {{> burger}}
+                <div class="pagetitle">
+                    <h2>
+                        <span class="room-title">{{_ "Debate_not_found"}}</span>
+                    </h2>
+                </div>
+            </div>
+        </header>
+		<div class="container room-not-found">
+			<i class="icon-attention"></i>
+			<div>
+				{{{_ 'No_debate_You_Wanted_Was_Found'}}}
+			</div>
+		</div>
+	</section>
+</template>

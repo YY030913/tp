@@ -1,0 +1,1 @@
+roomWebrtcStream = new Meteor.Stream('roomWebrtc');

@@ -1,0 +1,16 @@
+<template name="notification">
+	<ul id="notifications-dropdown" class="dropdown-content">
+		<li>
+            <h5>{{_ 'NOTIFICATIONS'}} <span class="new badge">{{msgCount}}</span></h5>
+        </li>
+		<li class="divider"></li>
+		{{#each msgs}}
+			<li>
+	            <a href="#!">
+	            	<i class="mdi-action-add-shopping-cart"></i>{{txt}}
+	            </a>
+	            <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">{{username}}</time>
+	        </li>
+        {{/each}}
+    </ul>
+</template>

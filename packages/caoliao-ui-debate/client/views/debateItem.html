@@ -1,0 +1,159 @@
+<template name="debateItem">
+
+    {{#if onePic}}
+    <div class="debate-item">
+        <div style="vertical-align: middle;display: inline-block;width: calc(100% - 129px);">
+            <h2>
+                <a href="{{pathFor 'debate' slug=_id}}">{{name}}</a>
+            </h2> 
+            <div class="content"> 
+                <div class="avatar">
+                    {{> avatar username=username}}
+                </div>
+                 <a href="{{pathFor 'user-profile' slug=userid}}">
+                    <bdo>
+                        {{username}}<i class="icon_best_pocoer"></i>
+                    </bdo>
+                    <i>{{createtime}}</i>
+                </a>
+                <!-- <span class="src-net"> 
+                    <a href="{{pathFor 'user-profile' slug=userid}}" style="margin-right: 6px;text-decoration: none;color: rgba(0,0,0,0.4);"> 
+                        {{username}}
+                    </a> 
+                </span> 
+                <span>{{createtime}}</span> -->
+            </div>
+        </div>
+        <a target="_blank">
+            <div style="display: inline-block;vertical-align: middle;width: 119px;height: 119px;padding-right: 10px;background-size: 100% 100%;background-image: url({{fixCordova imgs}})">
+            </div>
+        </a>
+    </div>
+    {{/if}}
+    {{#if morePic}}
+    <div class="debate-item">
+        <h2>
+            <a href="{{pathFor 'debate' slug=_id}}">
+                {{name}}
+            </a>
+        </h2>
+        <div class="content"> 
+            <div class="avatar">
+                {{> avatar username=username}}
+            </div>
+            <a href="{{pathFor 'user-profile' slug=userid}}">
+                <bdo>
+                    {{username}}<i class="icon_best_pocoer"></i>
+                </bdo>
+                <i>{{createtime}}</i>
+            </a><!-- 
+            <span> 
+                <a href="{{pathFor 'user-profile' slug=userid}}" style="margin-right: 6px;text-decoration: none;color: rgba(0,0,0,0.4);">{{username}}</a> 
+            </span> 
+            <span>{{createtime}}</span> -->
+        </div>
+        <div class="touch-slider swiper-item-container">
+            <ul class="touch-slider swiper-wrapper">
+                {{#each imgs}}
+                <li class="touch-slider swiper-slide item-img">
+                    <a href="{{fixCordova .}}" target="_blank" style="width: 100%;">
+                        <div style="min-width: 93px;min-height: 93px;background-image: url({{.}});background-size: 100% 100%;" class="touch-slider" >
+                        </div>
+                        <!-- <img src="{{.}}" style="width: 100%;max-width: 119px;">  -->
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    {{/if}}
+    {{#if noPic}}
+    <div class="debate-item">
+        <h2>
+            <a href="{{pathFor 'debate' slug=_id}}">{{name}}
+            </a>
+        </h2>
+        <div class="content"> 
+            <div class="avatar">
+                {{> avatar username=username}}
+            </div>
+            <a href="{{pathFor 'user-profile' slug=userid}}">
+                <bdo>
+                    {{username}}<i class="icon_best_pocoer"></i>
+                </bdo>
+                <i>{{createtime}}</i>
+            </a>
+            <!-- <span> 
+                <a href="{{pathFor 'user-profile' slug=userid}}" style="margin-right: 6px;text-decoration: none;color: rgba(0,0,0,0.4);">{{username}}</a> 
+            </span> 
+            <span>{{createtime}}</span> -->
+        </div>
+    </div>
+    {{/if}}
+
+
+
+    <!-- <div>
+        <figure class="effect-romeo">
+            <div class="entry-thumbnail">
+                <a href="">
+                    <div class="image lazy " data-src="{{coverimg}}" style="height: 220px;" data-width="370" data-height="220">
+                    </div>
+                </a>
+            </div>
+            <div> -->
+                        <!-- <img alt="" src="http://azexo.com/listino/wp-content/uploads/2016/08/linkoln-150x150.jpg" srcset="http://azexo.com/listino/wp-content/uploads/2016/08/linkoln-150x150.jpg 2x" class="avatar avatar-96 photo" height="96" width="96"> -->
+                        <!-- {{> avatarImg username=username}}
+                        <span class="author vcard" style="    vertical-align: middle;">
+                            <label>Agent</label>
+                            <a class="url fn n" href="http://azexo.com/listino/profile/alinkoln/" title="View all posts by Andrew Linkoln" rel="author">{{username}}</a>
+                        </span>
+                        <p>{{{txt}}}
+                        </p>
+                    </span>
+                </div>
+            </div> -->
+            <!-- <img src="{{coverimg}}"/>
+            <figcaption>
+            	<div class="chip">
+                    {{> avatarImg username=username}}
+                    John Doe
+                </div>
+                <h2>{{name}} <span> {{username}}</span></h2>
+                <p>{{{txt}}}</p>
+                <a href="{{pathFor 'debate' slug=_id}}">View more</a>
+                <div class="chip">
+                    {{> avatarImg username=username}}
+                    John Doe
+                </div>
+            </figcaption>     --> 
+        <!-- </figure>
+    </div> -->
+	<!-- <li class="col-md-4 col-sm-6">
+    	<div class="debate-content debate-item">
+    		<div class="author-info">
+				<div class="avatar-block status-{{status}}">
+					{{> avatar username=username}}
+				</div>
+				<a class="author-name blue-link" href="{{pathFor "userProfile"}}">
+					<span>{{_ "Author"}} {{username}}</span>
+				</a>
+				<span class="date">{{_ "Created_at"}} {{createtime}}</span>
+			</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+				</div>
+				<div class="swiper-pagination"></div>
+		    </div>
+		    <div class="debate-item-content">
+				<h2>{{name}}</h2>
+				{{#if imgsexist}}
+					<img class="item-img" src="{{imgs[0].src}}"/>
+				{{/if}}
+      			<p>{{{txt}}}</p>
+      			<p><a href="{{pathFor "debate" slug=_id}}">{{_ "View_All"}}</a></p>
+      		</div>
+    	</div>
+	</li> -->
+
+</template>

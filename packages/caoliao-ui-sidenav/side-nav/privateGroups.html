@@ -1,0 +1,36 @@
+<template name="privateGroups">
+	<li class="no-padding {{isActive}}">
+		<ul class="collapsible collapsible-accordion">
+			<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-communication-vpn-key"></i> {{_ "Private_Groups"}} </a>
+				<div class="collapsible-body">
+					<ul>
+						{{#each rooms}}
+							{{> chatRoomItem }}
+						{{else}}
+							<p class="empty">{{_ "No_groups_yet" }}</p>
+						{{/each}}
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<!-- {{#if $gt total totalOpen}}
+			<button class="more more-groups">{{_ "More_groups"}}...</button>
+		{{/if}} -->
+	</li>
+	<!-- <h3 class="add-room {{isActive}}">
+		{{_ "Private_Groups"}}
+		{{#if hasPermission 'create-p'}}
+			<i class="icon-plus"></i>
+		{{/if}}
+	</h3>
+	<ul>
+		{{#each rooms}}
+			{{> chatRoomItem }}
+		{{else}}
+			<p class="empty">{{_ "No_groups_yet" }}</p>
+		{{/each}}
+	</ul>
+	{{#if $gt total totalOpen}}
+		<button class="more more-groups">{{_ "More_groups"}}...</button>
+	{{/if}} -->
+</template>

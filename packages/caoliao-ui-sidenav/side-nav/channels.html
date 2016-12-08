@@ -1,0 +1,32 @@
+<template name="channels">
+	<li class="no-padding {{isActive}}">
+		<ul class="collapsible collapsible-accordion">
+			<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-communication-forum"></i> {{_ "Channels"}}</a>
+				<div class="collapsible-body">
+					<ul>
+						{{#each rooms}}
+							{{> chatRoomItem }}
+						{{else}}
+							<p class="empty">{{_ "No_channels_yet" }}</p>
+						{{/each}}
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<!-- <button class="more more-channels">{{_ "More_channels"}}...</button> -->
+	</li>
+	<!-- <h3 class="add-room {{isActive}}">
+		{{_ "Channels"}}
+		{{#if hasPermission 'create-c'}}
+			<i class="icon-plus" aria-label="{{_ "Create channel"}}" role="button"></i>
+		{{/if}}
+	</h3>
+	<ul>
+		{{#each rooms}}
+			{{> chatRoomItem }}
+		{{else}}
+			<p class="empty">{{_ "No_channels_yet" }}</p>
+		{{/each}}
+	</ul>
+	<button class="more more-channels">{{_ "More_channels"}}...</button> -->
+</template>

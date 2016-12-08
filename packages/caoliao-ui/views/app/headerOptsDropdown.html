@@ -1,0 +1,11 @@
+<template name="headerOptsDropdown">
+	<div class="header-opts-dropdown">
+		<ul class="dropdown-content">
+			{{#if actions.length}}
+				{{#each actions}}
+					<li class="{{id}} {{classes}} message-action" title="{{_ i18nLabel}}" data-id="{{id}}"><i class="{{icon}}" aria-label="{{_ i18nLabel}}"></i></li>
+				{{/each}}
+			{{/if}}
+		</ul>
+	</div>
+</template>

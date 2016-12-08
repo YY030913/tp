@@ -1,0 +1,130 @@
+<template name="userProfile">
+    <section class="page-container page-home page-static">
+        <header class="fixed-title">
+            <div class="header-container">
+                {{> burger}}
+                <div class="pagetitle">
+                    <h2>
+                        <span class="room-title">{{_ pageTitle}}</span>
+                    </h2>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div id="profile-page" class="section" style="margin-top: 3rem;">
+                <div id="profile-page-header" style="position: relative;">
+                    <figure class="card-profile-image">
+                        {{> avatar username=username}}
+                    </figure>
+                    <div class="card-content">
+                        <div class="row">                    
+                            <div class="col s3 offset-s2">                        
+                                <h4 class="card-title grey-text text-darken-4">{{username}}</h4>
+                                <p class="medium-small grey-text">
+                                    {{#if notcurrentuser}}
+                                        {{#if followed}}
+                                            <a class="btn-xs btn-info m-t-xs unfollow">{{_ "Cancel_Follow"}}</a>
+                                        {{else}}
+                                            <a class="btn-xs btn-info m-t-xs follow">{{_ "Follow"}}</a>
+                                        {{/if}}
+                                    {{/if}}
+                                </p>                        
+                            </div>
+                            <div class="col s2 center-align">
+                                <h4 class="card-title grey-text text-darken-4">{{followerscount}}</h4>
+                                <p class="medium-small grey-text">{{_ "Followers"}}</p>                        
+                            </div>
+                            <div class="col s2 center-align">
+                                <h4 class="card-title grey-text text-darken-4">{{followingcount}}</h4>
+                                <p class="medium-small grey-text">{{_ "Following"}}</p>                        
+                            </div>                        
+                        </div>
+                    </div>
+                    <div class="card-reveal">
+                        <p>
+                            <span class="card-title grey-text text-darken-4">{{username}} <i class="mdi-navigation-close right"></i></span>
+                            <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> {{country}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div id="profile-page-content" class="row">
+                    <div id="profile-page-sidebar" class="col s12 m4">
+                        <div class="card amber darken-2">
+                            <div class="card-content white-text center-align">
+                                <p class="card-title">
+                                    <i class="mdi-social-group-add"></i> {{followerscount}}
+                                </p>
+                                <p>{{_ "Followers"}}</p>
+                            </div>                  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!-- <section class="scrollable">
+                <div class="wrapper">
+                    <section class="panel no-border bg-primary lt">
+                        <div class="panel-body">
+                            <div class="row m-t-xl">
+                                <div class="col-xs-3 text-right padder-v"> <a href="#" class="btn btn-primary btn-icon btn-rounded m-t-xl"><i class="i i-mail2"></i></a> </div>
+                                <div class="col-xs-6 text-center">
+                                    <div class="inline">
+                                        <div class="easypiechart easyPieChart" data-percent="75" data-line-width="6" data-bar-color="#fff" data-track-color="#2796de" data-scale-color="false" data-size="140" data-line-cap="butt" data-animate="1000" style="width: 140px; height: 140px; line-height: 140px;">
+                                            <div class="thumb-lg avatar avatar-div">
+                                                {{> avatar username=username}}
+                                                <span class="status status-{{visualStatus}}"></span>
+                                            </div>
+                                            <canvas width="140" height="140"></canvas>
+                                        </div>
+                                        <div class="h4 m-t m-b-xs font-bold text-lt">{{username}}</div> <small class="text-muted m-b">{{profession}}</small> 
+                                            {{#if notcurrentuser}}
+                                                {{#if followed}}
+                                                    <a class="btn-xs btn-info m-t-xs unfollow">{{_ "Cancle_Follow"}}</a>
+                                                {{else}}
+                                                    <a class="btn-xs btn-info m-t-xs follow">{{_ "Follow"}}</a>
+                                                {{/if}}
+                                            {{/if}}
+                                        </div>
+                                </div>
+                                <div class="col-xs-3 padder-v">
+                                    <a href="#" class="btn btn-primary btn-icon btn-rounded m-t-xl" data-toggle="class:btn-danger"> <i class="i i-phone text"></i> <i class="i i-phone2 text-active"></i> </a>
+                                </div>
+                            </div>
+                            <div class="wrapper m-t-xl m-b">
+                                <div class="row m-b">
+                                    <div class="col-xs-6 text-right"> <small>Cell Phone</small>
+                                        <div class="text-lt font-bold">1243 0303 0333</div>
+                                    </div>
+                                    <div class="col-xs-6"> <small>Family Phone</small>
+                                        <div class="text-lt font-bold">+32(0) 3003 234 543</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 text-right"> <small>Reporter</small>
+                                        <div class="text-lt font-bold">Coch Jose</div>
+                                    </div>
+                                    <div class="col-xs-6"> <small>Manager</small>
+                                        <div class="text-lt font-bold">James Richo</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="panel-footer dk text-center no-border">
+                            <div class="row pull-out">
+                                <div class="col-xs-4">
+                                    <div class="padder-v"> <span class="m-b-xs h3 block text-white">{{followerscount}}</span> <small class="text-muted">{{_ "Followers"}}</small> </div>
+                                </div>
+                                <div class="col-xs-4 dker">
+                                    <div class="padder-v"> <span class="m-b-xs h3 block text-white">{{followingcount}}</span> <small class="text-muted">{{_ "Following"}}</small> </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="padder-v"> <span class="m-b-xs h3 block text-white">2,035</span> <small class="text-muted">Tweets</small> </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </div>
+            </section> -->
+        </div>
+    </section>
+</template>

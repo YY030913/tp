@@ -1,0 +1,99 @@
+<template name="debate">
+	<section class="page-container page-home page-static" id="debateContainer">
+		{{#if isSub}}
+			{{#if isEmpty}}
+				{{> debateNotFound}}
+			{{else}}
+			<header class="fixed-title cd-auto-hide-header"><!-- fixed-title  -->
+				<div class="header-container">
+				<!-- <header id="header" class="page-topbar"> -->
+					{{> burger}}
+					<div class="pagetitle">
+						<h2>
+							<span class="room-title">{{pagetitle}}</span>
+						</h2>
+					</div>
+					
+					<ul class="right">
+						{{#if validEdit}}
+							<li>
+								<a href="{{pathFor 'debate-edit' slug=slug}}" class="waves-effect waves-block waves-light">
+									<i class="icon-edit"></i>
+								</a>
+							</li>
+						{{/if}}
+						<li>
+							<a href="javascript:void(0);" class="icon-comment-a waves-effect waves-block waves-light">
+								<i class="icon-comment"></i>
+							</a>
+						</li>
+		                <li>
+		                	<a href="javascript:void(0);" class="waves-effect waves-block waves-light">
+		                		<i class="icon-share"></i>
+		                	</a>
+		                </li>
+		            </ul>
+				</div>
+			</header>
+			
+			<div class="container">
+				<div id="theGrid" class="main">
+					<section class="content content--show">
+						<div class="scroll-wrap">
+							<article class="content__item content__item--show">
+								<div class="category category--full">
+									{{#each debatetags}}
+										<div class="chip">
+						                    <label data-id="{{_id}}" contenteditable="{{#if $eq userid userId}}true{{else}}false{{/if}}" class="edit-label" >{{_ name}}</label>
+						                    {{#if $eq userid userId}}true{/if}}
+						                    	<i class="material-icons mdi-navigation-close"></i>
+						                    {{/if}}
+						                </div>
+										<!-- <div class="debate-tag-label">
+											<label data-id="{{_id}}" contenteditable="{{#if $eq userid userId}}true{{else}}false{{/if}}" class="edit-label" >{{_ name}}</label>
+											<i></i>
+										</div> -->
+									{{/each}}
+									{{#if hasPermission "update-debate-tag"}}
+										<button class="debate-tag-label add-label" data-toggle="collapse" data-target="#demo">
+											<label>+ {{_ "Tag"}}</label>
+											<i></i>
+										</button>
+										{{> popDebateTagInput}}
+									{{/if}}
+								</div>
+								<h2 class="title title--full">{{pagetitle}}</h2>
+								<div class="meta meta--full">
+									
+									<div class="meta__avatar">
+										<a href="{{pathFor 'user-profile' id=userid}}">
+											{{> avatar username=username}}
+										</a>
+									</div>
+									<a href="{{pathFor 'user-profile' id=userid}}">
+										<span class="meta__author">{{_ "Author"}} {{username}}</span>
+									</a>
+									<span class="meta__date"><i class="fa fa-calendar-o"></i> {{createTime}}</span>
+									{{#if isLiving}}
+									<span class="meta__reading-time"><i class="fa fa-clock-o"></i> {{_ "Living"}}</span>
+									{{/if}}
+									<span class="meta__misc meta__misc--seperator"><i class="fa fa-comments-o"></i>  <!-- {{_ "Comments"}} --></span>
+									<!-- <span class="meta__misc"><i class="fa fa-heart"></i> {{12 favorites}}</span> -->
+									<!-- <nav class="article-nav">
+										<button><i class="fa fa-angle-left"></i> <span>Previous</span></button>
+										<button><span>Next</span> <i class="fa fa-angle-right"></i></button>
+									</nav> -->
+								</div>
+								{{{imageMogr htmlBody}}}
+							</article>
+						</div>
+					</section>
+				</div>
+			</div>
+			{{/if}}
+		{{else}}
+			{{> loading}}
+		{{/if}}
+		<!-- {{> favortie}} --><!-- float,popu -->
+	</section>
+</template>

@@ -1,0 +1,64 @@
+<template name="chatChannel">
+	<section class="page-container page-home page-static">
+		<header class="fixed-title">
+			<div class="header-container">
+			<!-- <header id="header" class="page-topbar"> -->
+				{{> burger}}
+				<div class="pagetitle">
+					<h2>
+						<span class="room-title">{{pageTitle}}</span>
+					</h2>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+
+			<ul class="nav">
+				<li class="nav-tab">{{_ "Chats_Friend"}}</li>
+				<li class="nav-tab">{{_ "Chats_Debate"}}</li>
+				<!-- <li class="nav-tab">{{_ "Chats_Private"}}</li>
+				<li class="nav-tab">{{_ "Chats_System"}}</li> -->
+			</ul>
+			<div class="bar">
+				<div class="bar-progress"></div>
+			</div>
+			<div class="wraper">
+				<div class="panes">
+					<div class="pane">
+						<ul class="chatList">
+							{{#each directRooms}}
+								{{> chatUserItem }}
+							{{else}}
+								<p class="empty">{{_ "No_direct_messages_yet" }}</p>
+							{{/each}}
+						</ul>
+					</div>
+					<div class="pane">
+						<ul class="chatList">
+							{{#each channelRooms}}
+								{{> chatUserItem }}
+							{{else}}
+								<p class="empty">{{_ "No_channels_yet" }}</p>
+							{{/each}}
+						</ul>
+					</div>
+					<!-- <div class="pane">
+						<ul class="chatList">
+							{{#each privateRooms}}
+								{{> chatUserItem }}
+							{{else}}
+								<p class="empty">{{_ "No_groups_yet" }}</p>
+							{{/each}}
+						</ul>
+					</div>
+					<div class="pane">
+						<ul class="chatList">
+							{{> chatUserItem caoliao}}
+						</ul>
+					</div> -->
+				</div>
+			</div>
+
+		</div>
+	</section>
+</template>

@@ -1,0 +1,3 @@
+Meteor.startup ->
+	CaoLiao.settings.add 'MapView_Enabled', true, {type: 'boolean', group: 'Message', section: 'Google Maps', public: true, i18nLabel: 'MapView_Enabled', i18nDescription: 'MapView_Enabled_Description'}
+	CaoLiao.settings.add 'MapView_GMapsAPIKey', 'AIzaSyAegq0fKDw72THnYzNyhDiyAJwFuvUDVIw', {type: 'string', group: 'Message', section: 'Google Maps', public: true, i18nLabel: 'MapView_GMapsAPIKey', i18nDescription: 'MapView_GMapsAPIKey_Description'}

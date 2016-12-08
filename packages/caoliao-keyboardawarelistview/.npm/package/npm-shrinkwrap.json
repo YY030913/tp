@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "react-native-keyboard-aware-scroll-view": {
+      "version": "0.1.2",
+      "resolved": "https://registry.npmjs.org/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.1.2.tgz",
+      "from": "react-native-keyboard-aware-scroll-view@0.1.2",
+      "dependencies": {
+        "react-timer-mixin": {
+          "version": "0.13.3",
+          "resolved": "https://registry.npmjs.org/react-timer-mixin/-/react-timer-mixin-0.13.3.tgz",
+          "from": "react-timer-mixin@0.13.3"
+        }
+      }
+    }
+  }
+}

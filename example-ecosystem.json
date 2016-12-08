@@ -1,0 +1,12 @@
+{
+	"deploy": {
+		"production": {
+			"user": "root",
+			"host": ["caoliao"],
+			"ref": "origin/master",
+			"repo": "https://github.com/CaoLiao/CaoLiao.git",
+			"path": "/var/www/caoliao",
+			"post-deploy": "source build.sh production"
+		}
+	}
+}
