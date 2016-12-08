@@ -42,9 +42,9 @@ CaoLiao.settings.addGroup 'OAuth', ->
 
 	@section 'Facebook', ->
 		enableQuery = { _id: 'Accounts_OAuth_Facebook', value: true }
-		@add 'Accounts_OAuth_Facebook', false, { type: 'boolean', public: true }
-		@add 'Accounts_OAuth_Facebook_id', '', { type: 'string', enableQuery: enableQuery }
-		@add 'Accounts_OAuth_Facebook_secret', '', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_Facebook', true, { type: 'boolean', public: true }
+		@add 'Accounts_OAuth_Facebook_id', '366939546998671', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_Facebook_secret', '0238f396739fbf4a38b054a530e96ff4', { type: 'string', enableQuery: enableQuery }
 		@add 'Accounts_OAuth_Facebook_callback_url', '_oauth/facebook', { type: 'relativeUrl', readonly: true, force: true, enableQuery: enableQuery }
 
 	@section 'WeChat', ->
@@ -56,9 +56,9 @@ CaoLiao.settings.addGroup 'OAuth', ->
 
 	@section 'WeiBo', ->
 		enableQuery = { _id: 'Accounts_OAuth_WeiBo', value: true }
-		@add 'Accounts_OAuth_WeiBo', false, { type: 'boolean', public: true }
-		@add 'Accounts_OAuth_WeiBo_id', '790820950', { type: 'string', enableQuery: enableQuery }
-		@add 'Accounts_OAuth_WeiBo_secret', 'fd1e50a8787dfd58556105b36404e28c', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_WeiBo', true, { type: 'boolean', public: true }
+		@add 'Accounts_OAuth_WeiBo_id', '1500447187', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_WeiBo_secret', '7d87a45193b6d9ec55f94bda20e1a60c', { type: 'string', enableQuery: enableQuery }
 		@add 'Accounts_OAuth_WeiBo_callback_url', '_oauth/weibo', { type: 'relativeUrl', readonly: true, force: true, enableQuery: enableQuery }
 
 	@section 'Google', ->

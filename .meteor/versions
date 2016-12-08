@@ -1,7 +1,9 @@
 accounts-base@1.2.3-beta.16
+accounts-facebook@1.0.6
 accounts-google@1.0.6-beta.16
 accounts-oauth@1.1.9-beta.16
 accounts-password@1.1.5-beta.16
+accounts-weibo@1.0.6
 aldeed:geocoder@0.3.8
 aldeed:simple-schema@1.5.3
 aldeed:template-extension@4.0.0
@@ -134,6 +136,7 @@ ejson@1.0.12
 email@1.1.16
 emojione:emojione@2.1.4
 es5-shim@4.6.15
+facebook@1.2.2
 fastclick@1.0.12
 francocatena:status@1.5.3
 geojson-utils@1.0.9
@@ -237,5 +240,6 @@ underscorestring:underscore.string@3.3.4
 url@1.0.10
 webapp@1.3.10
 webapp-hashing@1.0.9
+weibo@1.1.4
 yasaricli:slugify@0.0.7
 yasinuslu:blaze-meta@0.3.3
