@@ -19,6 +19,11 @@ CaoLiao.deleteUser = function(userId) {
 	CaoLiao.models.Subscriptions.removeByUserId(userId); // Remove user subscriptions
 	CaoLiao.models.Rooms.removeByTypeContainingUsername('d', user.username); // Remove direct rooms with the user
 	CaoLiao.models.Rooms.removeUsernameFromAll(user.username); // Remove user from all other rooms
+	
+	CaoLiao.models.Debates.removeByUserId(userId);
+	CaoLiao.models.DebateSubscriptions.removeByUserId(userId);
+	CaoLiao.models.Score.removeByUserId(userId);
+	CaoLiao.models.Activity.removeByUserId(userId);
 
 	// removes user's avatar
 	if (user.avatarOrigin === 'upload' || user.avatarOrigin === 'url') {

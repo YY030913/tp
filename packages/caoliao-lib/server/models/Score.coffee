@@ -69,3 +69,10 @@ CaoLiao.models.Score = new class extends CaoLiao.models._Base
 				CaoLiao.models.Users.addMedalsByUserId option.userId, "Medal_Engineer"
 
 		return @insert record
+
+
+	removeByUserId: (uid) ->
+		query =
+			userId: userId
+
+		return @remove query

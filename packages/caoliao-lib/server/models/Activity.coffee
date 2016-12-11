@@ -22,3 +22,9 @@ CaoLiao.models.Activity = new class extends CaoLiao.models._Base
 		record = _.extend record, option
 
 		return @insert record
+
+	removeByUserId: (userId) ->
+		query =
+			userId: userId
+
+		return @remove query

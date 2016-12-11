@@ -421,3 +421,9 @@ CaoLiao.models.Debates = new class extends CaoLiao.models._Base
 			}
 
 		return @remove query
+
+	removeByUserId: (uid) ->
+		query =
+			"u._id": userId
+
+		return @remove query

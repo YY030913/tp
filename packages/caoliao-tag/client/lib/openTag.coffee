@@ -7,7 +7,7 @@ currentTracker = undefined
 		currentTracker = Tracker.autorun (c) ->
 			if TagManager.open(type + tag).ready() isnt true
 				# $("body").removeClass("loaded")
-				BlazeLayout.render 'main', {center: 'loading'}
+				BlazeLayout.render 'main', {center: 'pageLoading'}
 				return
 
 			user = Meteor.user()
@@ -23,7 +23,7 @@ currentTracker = undefined
 				BlazeLayout.render 'main', {center: 'tagNotFound'}
 				return
 
-			$('.loader-wrapper').remove();
+			# $('#loader-wrapper').remove();
 			# $("body").addClass("loaded")
 			mainNode = document.querySelector('.main-content')
 			if mainNode?

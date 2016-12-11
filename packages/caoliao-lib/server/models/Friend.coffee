@@ -92,3 +92,13 @@ CaoLiao.models.Friend = new class extends CaoLiao.models._Base
 		}
 
 		return @update query, record
+
+	removeByUserId: (userId) ->
+		query =
+			$or: [
+				"u._id": userId
+				"friend._id": userId
+			]
+			
+
+		return @remove query
