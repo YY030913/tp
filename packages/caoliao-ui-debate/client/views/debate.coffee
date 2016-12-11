@@ -138,7 +138,25 @@ Template.debate.events
 
 	'click .icon-share': (event, instance)->
 		event.preventDefault()
+		options = {
+		    message: 'share this',
+		    subject: 'the subject', 
+		    files: ['', ''],
+		    url: 'https://www.website.com/foo/#bar?a=b',
+		    chooserTitle: 'Pick an app'
+		}
 
+		onSuccess = (result) ->
+		    console.log("Share completed? " + result.completed);
+		    console.log("Shared to app: " + result.app);
+
+
+		onError = (msg) ->
+		    console.log("Sharing failed with message: " + msg);
+
+
+		window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+		###
 		if !Meteor.isCordova
 			$("#qrcode").empty();
 			$("#qrcode").qrcode( 
@@ -152,6 +170,7 @@ Template.debate.events
 				text: "http://caoliao.net.cn/"
 			)
 		$(".social-share-wrap").addClass("active")
+		###
 		###
 		
 		

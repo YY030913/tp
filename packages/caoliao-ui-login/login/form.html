@@ -13,7 +13,7 @@
 			</header>
 		{{else}}
 			{{ > loginServices }}
-			<!-- {{#if needsValidateEmail}}
+			{{#if needsValidateEmail}}
 				<div class="alert alert-danger">
 					{{_ "You_need_confirm_email"}}
 				</div>
@@ -64,11 +64,11 @@
 					<button type="button">{{_ 'Forgot_password'}}</button>
 				</div>
 				{{/if}}
-			{{/if}} -->
+			{{/if}}
 		{{/if}}
-		<!-- <div class="back-to-login {{showBackToLoginLink}}">
+		<div class="back-to-login {{showBackToLoginLink}}">
 			<button type="button">{{_ 'Back_to_login'}}</button>
-		</div> -->
+		</div>
 	</form>
 	<div class='login-terms'>
 		<!-- {{{loginTerms}}} -->

@@ -1,3 +1,20 @@
+.loading-loader {
+	line-height: 80px;
+}
+.loading-image {
+	background: url(/images/logo/58x58.png);
+	background-size: 100% 100%;
+    position: absolute;
+    top: 50px;
+    left: 35%;
+    width: 57px;
+    height: 57px;
+    margin: -40px 0 0 -40px;
+    -webkit-animation: spin 3s ease-in-out infinite;
+    -moz-animation: spin 3s ease-in-out infinite;
+    animation: spin 3s ease-in-out infinite;
+}
+
 
 .social-share-wrap {
 	.social-share-overlay{
@@ -3395,7 +3412,7 @@ a.github-fork {
 	}
 	.footer {
 		position: absolute;
-		padding: 8px;
+		//padding: 8px;
 		border-top: 1px solid;
 		z-index: 100;
 		bottom: 0;
@@ -4238,7 +4255,7 @@ body {
 				.calc(max-width, ~"100% - 50px");
 				text-align: left;
 			}
-			.attachment-image {
+			.attachment-image,.attachment-audio,attachment-video,attachment-fields {
 				margin-left: 60px;
 			}
 		}
@@ -4267,7 +4284,7 @@ body {
 				.calc(max-width, ~"100% - 50px");
 				text-align: left;
 			}
-			.attachment-image {
+			.attachment-image,.attachment-audio,attachment-video,attachment-fields {
 				margin-right: 60px;
 			}
 		}

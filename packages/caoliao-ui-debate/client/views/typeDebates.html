@@ -12,8 +12,8 @@
 				</div>
 				
 				<ul class="right">
-	                <li>
-	                	<a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-search">
+	                <li class="waves-effect waves-block waves-light toggle-search">
+	                	<a href="javascript:void(0);">
 	                		<i class="icon-search"></i>
 	                	</a>
 	                </li>
@@ -70,13 +70,15 @@
 	                {{#if hasMoreNext}}
 						<div class="load-more">
 							{{#if isLoading}}
-								<div class="load-more-loading">{{_ "Loading_more_from_history"}}...</div>
+
+								<!-- <div class="load-more-loading">{{_ "Loading_more_from_history"}}...</div> -->
+								{{> loading}}
 							{{else}}
 								<button>{{_ "Has_more"}}...</button>
 							{{/if}}
 						</div>
 					{{else}}
-						<!-- <p style="text-align:center;">{{_ 'Nothing'}}</p> -->
+						<p style="text-align:center;">{{_ 'Nothing'}}</p>
 					{{/if}}
 	            </div>
             {{/unless}}

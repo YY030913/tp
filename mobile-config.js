@@ -89,4 +89,14 @@ App.accessRule('https://lh3.googleusercontent.com/*');
 App.accessRule('https://quasar.meteor.com/*');
 App.accessRule('blob:*');
 
-
+App.appendToConfig('
+	<feature name="SocialSharing">
+  		<param name="ios-package" value="SocialSharing" />
+	</feature>
+	<feature name="SocialSharing">
+	  	<param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+	</feature>
+	<feature name="SocialSharing">
+	  	<param name="wp-package" value="SocialSharing"/>
+	</feature>
+');

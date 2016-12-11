@@ -24,10 +24,10 @@
 					
 					<ul class="right">
 		                <li>
-		                    <a href="javascript:void(0);" class="waves-effect waves-block waves-light dropdown-button" data-activates="navigation-dropdown"><i class="mdi-navigation-more-vert"></i></a>
+		                    <a href="javascript:void(0);" class="dropdown-button waves-effect waves-block waves-light" data-activates="navigation-dropdown"><i class="mdi-navigation-more-vert"></i></a>
 		                </li>
-		                <li>
-		                    <a href="javascript:void(0);" class="waves-effect waves-block waves-light view-video" style="height: 60px;">
+		                <li class="waves-effect waves-block waves-light view-video">
+		                    <a href="javascript:void(0);" style="height: 60px;">
 		                    	<div style="background:url(images/live.png) no-repeat;line-height: 60px;height: 24px;vertical-align:text-bottom;     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
@@ -40,7 +40,7 @@
 		            <!-- navigation-button -->
 		            <ul id="navigation-dropdown" class="dropdown-content">
 		            	{{#each buttons}}
-							<li class="dropdownItem">
+							<li class="dropdownItem waves-effect waves-block waves-light">
 								{{#if hasAction .}}
 									<a title="{{title}}" id="{{id}}">
 										<i class="{{icon}}" aria-label="{{title}}"></i>

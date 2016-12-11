@@ -38,6 +38,7 @@ Template.typeDebates.events
 		FlowRouter.go "searchs"
 
 	'click .load-more': (e, t)-> #click .load-more > button
+		console.log "load-more"
 		t.loadNextMore(FlowRouter.getParam('type'))
 		
 	'click .new-message': (e) ->
@@ -163,7 +164,7 @@ Template.typeDebates.onRendered ->
 				instance.isLoading.set false
 
 	@loadNextMore = (slug) =>
-		if instance.hasMore.get()
+		if instance.hasMoreNext.get()
 			instance.isLoading.set true
 			lastDebate = CaoLiao.models.Debates.findOne({t: slug}, {sort: {ts: 1}})
 
@@ -173,7 +174,7 @@ Template.typeDebates.onRendered ->
 				end = undefined
 
 			Meteor.call 'loadNextTypeDebates', slug, end, (error, result)->
-				
+				console.log result
 				if !result?.debates? || result?.debates?.length == 0
 					instance.hasMoreNext.set false
 				for item in result?.debates or []
@@ -235,7 +236,7 @@ Template.typeDebates.onCreated ->
 	@unreadCount = new ReactiveVar 0
 
 	@hasMore = new ReactiveVar true
-	@isLoading = new ReactiveVar false
+	@isLoading = new ReactiveVar true
 	@unreadData = new ReactiveVar false
 	@hasMoreNext = new ReactiveVar true
 

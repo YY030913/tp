@@ -59,5 +59,7 @@ Package.onUse(function(api) {
 
         'client/stylesheets/js/plugins.min.js', 
 
+        'client/stylesheets/js/wavesEffect.js'
+
         ], 'client');
 });
