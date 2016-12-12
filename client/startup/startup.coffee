@@ -52,7 +52,7 @@ Meteor.startup ->
 
 		userLocation = Meteor.user()?.shorCountry
 		
-		if !userLocation?
+		if !userLocation? && Meteor.user()
 			console.log "userData subscribe"
 			loc = defaultAppLanguage().split("-")
 			Meteor.call 'setShortCountry', loc[loc.length-1].toLowerCase()

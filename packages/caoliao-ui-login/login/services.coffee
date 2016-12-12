@@ -65,11 +65,56 @@ Template.loginServices.events
 		# login with native facebook app
 
 		if Meteor.isCordova
+			opts = {
+				lines: 13, 
+				length: 11,
+				width: 5, 
+				radius: 17,
+				corners: 1,
+				rotate: 0, 
+				color: '#FFF',
+				speed: 1, 
+				trail: 60, 
+				shadow: false,
+				hwaccel: false, 
+				className: 'spinner',
+				zIndex: 2e9,
+				top: 'auto',
+				left: 'auto'
+			};
+			target = document.createElement("div");
+			document.body.appendChild(target);
+			spinner = new Spinner(opts).spin(target);
+			overlay = window.iosOverlay({
+				text: "Loading",
+				spinner: spinner
+			});
 			if this.service.service is 'facebook'
-				Meteor.loginWithFacebookCordova {}, (error) ->
-					loadingIcon.addClass 'hidden'
-					serviceIcon.removeClass 'hidden'
 
+				CordovaFacebook.login ["public_profile", 'email', 'user_likes'], (success) ->
+					console.log JSON.stringify(success)
+					Meteor.call "createFacebookCordovaAccount", success, (error, result)->
+						if !error?
+							Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
+
+							overlay.update({
+								icon: "img/check.png",
+								text: "Success"
+							});
+							overlay.hide();
+						else
+							toastr.error error
+				, (error)->
+					overlay.hide();
+					toastr.error JSON.stringify(error)
+					if error.reason
+						toastr.error error.reason
+					else
+						toastr.error error.message
+					return
+
+				Meteor.loginWithFacebookCordova {}, (error) ->
+					toastr.success "login facebook"
 					if error
 						toastr.error JSON.stringify(error)
 						if error.reason
@@ -77,6 +122,53 @@ Template.loginServices.events
 						else
 							toastr.error error.message
 						return
+			else if this.service.service is 'weibo'
+				
+				window.weibo.login (success)->
+					
+					options = {
+						data: {
+							uid: success.uid
+							access_token: success.token
+						}
+					};
+					HTTP.call("GET", "https://api.weibo.com/2/eps/user/info.json", options, (result) ->
+						if result.error?
+							toastr.error result.error
+							overlay.hide();
+						else if result.follow == 0
+							toastr.error TAPi18n.__("error-need-follow");
+							overlay.hide();
+						else
+							success = _.extend success, result
+							Meteor.call "createWeiboCordovaAccount", success, (error, result)->
+								console.log arguments
+								if !error?
+									Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
+
+									console.log "login"
+									overlay.update({
+										icon: "img/check.png",
+										text: "Success"
+									});
+									overlay.hide();
+								else
+									toastr.error error
+									overlay.hide();
+						
+					);
+					
+					
+				, (error)->
+					overlay.hide();
+					toastr.error JSON.stringify(error)
+					if error.reason
+						toastr.error error.reason
+					else
+						toastr.error error.message
+					
+					return
+						
 
 			else if this.service.service is 'google'
 				#toastr.error(JSON.stringify(window.plugins))
@@ -97,11 +189,18 @@ Template.loginServices.events
 								Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
 
 								console.log "login"
+								overlay.update({
+									icon: "img/check.png",
+									text: "Success"
+								});
+								overlay.hide();
 							else
 								toastr.error error
+								overlay.hide();
 
 					, (msg) ->
 						console.log "msg"
+						overlay.hide();
 						console.log msg
 						#toastr.error JSON.stringify(msg)
 						if msg == 12501
@@ -114,6 +213,7 @@ Template.loginServices.events
 							toastr.error t("INTERNAL_ERROR")
 						if msg == 7
 							toastr.error t("NETWORK_ERROR")
+
 
 			else if this.service.service is 'wechat'
 				toastr.error "wait wechat debuging"

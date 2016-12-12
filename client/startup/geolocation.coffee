@@ -1,3 +1,4 @@
 Tracker.autorun ->
-	user = Meteor.user()
-	Meteor.call("setUserLocation", Geolocation.latLng())
+	if Meteor.user()
+		user = Meteor.user()
+		Meteor.call("setUserLocation", Geolocation.latLng())

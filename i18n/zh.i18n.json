@@ -1357,5 +1357,9 @@
   "SIGN_IN_FAILED": "12500 该账号不允许登录",
   "SIGN_IN_REQUIRED": "4 登录需要用户",
   "INTERNAL_ERROR": "8 网络错误",
-  "NETWORK_ERROR": "7 网络错误"
+  "NETWORK_ERROR": "7 网络错误",
+
+
+
+  "error-need-follow": "需要勾选关注我们"
 }

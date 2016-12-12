@@ -70,8 +70,6 @@ Package.onUse(function(api) {
 
 	// LIB CORDOVA
 	api.addFiles('lib/cordova/facebook-login.coffee', 'client');
-	api.addFiles('lib/cordova/google-login.coffee', 'client');
-	api.addFiles('lib/cordova/wechat-login.coffee', 'client');
 	api.addFiles('lib/cordova/keyboard-fix.coffee', 'client');
 	api.addFiles('lib/cordova/push.coffee', 'client');
 	api.addFiles('lib/cordova/urls.coffee', 'client');

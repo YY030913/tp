@@ -66,6 +66,19 @@ App.configurePlugin('cordova-plugin-wechat', {
 App.configurePlugin('cordova-plugin-googleplus', {
     'REVERSED_CLIENT_ID': 'com.googleusercontent.apps.282710845697-ev3rm6arn07lmsh83lgpgasq62fmatlt'
 });
+
+App.configurePlugin('cordova-plugin-facebook4', {
+    'APP_ID': '366939546998671',
+    'APP_NAME': 'talk get'
+});
+
+App.configurePlugin('cordova-plugin-facebook', {
+    'FACEBOOK_APP_ID': '366939546998671',
+    'FACEBOOK_DISPLAY_NAME': 'talk get'
+});
+
+
+
 App.setPreference('BackgroundColor', "#404461");
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('Orientation', 'default');
@@ -89,14 +102,15 @@ App.accessRule('https://lh3.googleusercontent.com/*');
 App.accessRule('https://quasar.meteor.com/*');
 App.accessRule('blob:*');
 
-App.appendToConfig('
-	<feature name="SocialSharing">
-  		<param name="ios-package" value="SocialSharing" />
-	</feature>
-	<feature name="SocialSharing">
-	  	<param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-	</feature>
-	<feature name="SocialSharing">
-	  	<param name="wp-package" value="SocialSharing"/>
-	</feature>
-');
+
+// Social sharing
+App.accessRule('*://*.facebook.com/*');
+App.accessRule('*://*.fbcdn.net/*');
+App.accessRule('*://*.gmail.com/*');
+App.accessRule('*://*.google.com/*');
+App.accessRule('*://*.linkedin.com/*');
+App.accessRule('*://*.pinterest.com/*');
+App.accessRule('*://*.twitter.com/*');
+
+App.accessRule('mailto:*');
+App.accessRule('sms:*');

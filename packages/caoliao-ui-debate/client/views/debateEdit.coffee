@@ -170,8 +170,35 @@ Template.debateEdit.onCreated ->
 				imgs: imgs
 			}
 
+			if save == true
+				opts = {
+					lines: 13, 
+					length: 11,
+					width: 5, 
+					radius: 17,
+					corners: 1,
+					rotate: 0, 
+					color: '#FFF',
+					speed: 1, 
+					trail: 60, 
+					shadow: false,
+					hwaccel: false, 
+					className: 'spinner',
+					zIndex: 2e9,
+					top: 'auto',
+					left: 'auto'
+				};
+				target = document.createElement("div");
+				document.body.appendChild(target);
+				spinner = new Spinner(opts).spin(target);
+				overlay = window.iosOverlay({
+					text: "Loading",
+					spinner: spinner
+				});
+
 			Meteor.call("createDebate", temp, (error, result)->
 				Session.set("debateType", null)
+				overlay?.hide()
 				if error?
 					handleError(error)
 					###
