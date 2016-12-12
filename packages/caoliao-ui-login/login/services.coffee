@@ -90,7 +90,7 @@ Template.loginServices.events
 				spinner: spinner
 			});
 			if this.service.service is 'facebook'
-
+				###
 				CordovaFacebook.login ["public_profile", 'email', 'user_likes'], (success) ->
 					console.log JSON.stringify(success)
 					Meteor.call "createFacebookCordovaAccount", success, (error, result)->
@@ -112,8 +112,10 @@ Template.loginServices.events
 					else
 						toastr.error error.message
 					return
+				###
 
 				Meteor.loginWithFacebookCordova {}, (error) ->
+					overlay.hide();
 					toastr.success "login facebook"
 					if error
 						toastr.error JSON.stringify(error)

@@ -67,14 +67,14 @@ App.configurePlugin('cordova-plugin-googleplus', {
     'REVERSED_CLIENT_ID': 'com.googleusercontent.apps.282710845697-ev3rm6arn07lmsh83lgpgasq62fmatlt'
 });
 
-App.configurePlugin('cordova-plugin-facebook4', {
+App.configurePlugin('cordova-plugin-facebook4.4', {
     'APP_ID': '366939546998671',
-    'APP_NAME': 'talk get'
+    'APP_NAME': 'talkget'
 });
 
 App.configurePlugin('cordova-plugin-facebook', {
     'FACEBOOK_APP_ID': '366939546998671',
-    'FACEBOOK_DISPLAY_NAME': 'talk get'
+    'FACEBOOK_DISPLAY_NAME': 'talkget'
 });
 
 
