@@ -90,30 +90,6 @@ Template.loginServices.events
 				spinner: spinner
 			});
 			if this.service.service is 'facebook'
-				###
-				CordovaFacebook.login ["public_profile", 'email', 'user_likes'], (success) ->
-					console.log JSON.stringify(success)
-					Meteor.call "createFacebookCordovaAccount", success, (error, result)->
-						if !error?
-							Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
-
-							overlay.update({
-								icon: "img/check.png",
-								text: "Success"
-							});
-							overlay.hide();
-						else
-							toastr.error error
-				, (error)->
-					overlay.hide();
-					toastr.error JSON.stringify(error)
-					if error.reason
-						toastr.error error.reason
-					else
-						toastr.error error.message
-					return
-				###
-
 				Meteor.loginWithFacebookCordova {}, (error) ->
 					overlay.hide();
 					toastr.success "login facebook"
@@ -127,41 +103,19 @@ Template.loginServices.events
 			else if this.service.service is 'weibo'
 				
 				window.weibo.login (success)->
-					
-					options = {
-						data: {
-							uid: success.uid
-							access_token: success.token
-						}
-					};
-					HTTP.call("GET", "https://api.weibo.com/2/eps/user/info.json", options, (result) ->
-						if result.error?
-							toastr.error result.error
-							overlay.hide();
-						else if result.follow == 0
-							toastr.error TAPi18n.__("error-need-follow");
-							overlay.hide();
-						else
-							success = _.extend success, result
-							Meteor.call "createWeiboCordovaAccount", success, (error, result)->
-								console.log arguments
-								if !error?
-									Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
 
-									console.log "login"
-									overlay.update({
-										icon: "img/check.png",
-										text: "Success"
-									});
-									overlay.hide();
-								else
-									toastr.error error
-									overlay.hide();
-						
-					);
-					
-					
+					Meteor.call "createWeiboCordovaAccount", success, (error, result)->
+						overlay.hide();
+						console.log "arguments",arguments
+						if !error?
+							Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
+
+							toastr.success "login weibo"
+						else
+							toastr.error error
+								
 				, (error)->
+					console.log JSON.stringify(error)
 					overlay.hide();
 					toastr.error JSON.stringify(error)
 					if error.reason

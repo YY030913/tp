@@ -2,7 +2,7 @@
 // the entire section is optional.
 App.info({
 	id: 'cn.net.caoliao',
-	name: 'talkget',
+	name: 'talk get',
 	description: 'feed for brain',
 	author: 'Matt Development Group',
 	email: 'contact@caoliao.net.cn',
@@ -67,14 +67,20 @@ App.configurePlugin('cordova-plugin-googleplus', {
     'REVERSED_CLIENT_ID': 'com.googleusercontent.apps.282710845697-ev3rm6arn07lmsh83lgpgasq62fmatlt'
 });
 
-App.configurePlugin('cordova-plugin-facebook4.4', {
+App.configurePlugin('cordova-plugin-facebook4', {
     'APP_ID': '366939546998671',
-    'APP_NAME': 'talkget'
+    'APP_NAME': 'talk get'
 });
+
+App.configurePlugin('mp-cordova-plugin-facebook', {
+    'APP_ID': '366939546998671',
+    'APP_NAME': 'talk get'
+});
+
 
 App.configurePlugin('cordova-plugin-facebook', {
     'FACEBOOK_APP_ID': '366939546998671',
-    'FACEBOOK_DISPLAY_NAME': 'talkget'
+    'FACEBOOK_DISPLAY_NAME': 'talk get'
 });
 
 

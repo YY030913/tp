@@ -23,7 +23,7 @@ Accounts.registerLoginHandler (loginRequest) ->
 
 getIdentity = (accessToken) ->
 	try
-		return HTTP.get("https://graph.facebook.com/me", {params: {access_token: accessToken}}).data
+		return HTTP.get("https://graph.facebook.com/me", {headers: {Access-Control-Allow-Origin: *}, params: {access_token: accessToken}}).data
 
 	catch err
 		throw _.extend new Error("Failed to fetch identity from Facebook. " + err.message), {response: err.response}

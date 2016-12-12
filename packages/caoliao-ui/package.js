@@ -10,6 +10,9 @@ Package.describe({
 	documentation: 'README.md'
 });
 
+Cordova.depends({
+	'cordova-plugin-facebook4': '1.7.4'
+});
 
 Package.onUse(function(api) {
 	api.versionsFrom('1.2.1');
