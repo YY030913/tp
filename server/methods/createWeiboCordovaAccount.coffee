@@ -1,7 +1,7 @@
 Meteor.methods
 	createWeiboCordovaAccount: (options) ->
 
-		result = HTTP.get("https://api.weibo.com/2/eps/user/info.json",{headers: {Access-Control-Allow-Origin: *}, params: {access_token: options.token,uid: options.uid}}).data;
+		result = HTTP.get("https://api.weibo.com/2/eps/user/info.json",{headers: {"Access-Control-Allow-Origin": "*"}, params: {access_token: options.token,uid: options.uid}}).data;
 
 		console.log "rs",JSON.stringify(result)
 		if result.error?
