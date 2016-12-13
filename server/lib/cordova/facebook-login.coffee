@@ -26,7 +26,7 @@ Accounts.registerLoginHandler (loginRequest) ->
 
 	else if loginRequest.service == "weibo"
 		identity = getWeiboIdentity(loginRequest.token, loginRequest.uid)
-		console.log "identity",identity
+
 		serviceData =
 			accessToken: loginRequest.token
 			expiresAt: (+new Date) + (loginRequest.expire_at)
@@ -40,6 +40,10 @@ Accounts.registerLoginHandler (loginRequest) ->
 		profileFields = _.pick(identity, whitelisted)
 		_.extend(options.profile, profileFields)
 
+		console.log "serviceData",serviceData
+
+		console.log "options",options
+		
 		return Accounts.updateOrCreateUserFromExternalService("weibo", serviceData, options)
 
 	else if loginRequest.service == "google"
