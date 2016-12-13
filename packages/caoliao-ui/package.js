@@ -78,6 +78,9 @@ Package.onUse(function(api) {
 	api.addFiles('lib/cordova/urls.coffee', 'client');
 	api.addFiles('lib/cordova/user-state.coffee', 'client');
 
+	api.addFiles('lib/cordova/google-login.coffee', 'client');
+	api.addFiles('lib/cordova/weibo-login.coffee', 'client');
+
 	// LIB RECORDERJS
 	api.addFiles('lib/recorderjs/audioRecorder.coffee', 'client');
 	api.addFiles('lib/recorderjs/recorder.js', 'client');

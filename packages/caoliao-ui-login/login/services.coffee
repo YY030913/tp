@@ -101,7 +101,17 @@ Template.loginServices.events
 							toastr.error error.message
 						return
 			else if this.service.service is 'weibo'
-				
+				Meteor.loginWithWeiboCordova {}, (error) ->
+					overlay.hide();
+					toastr.success "login weibo"
+					if error
+						toastr.error JSON.stringify(error)
+						if error.reason
+							toastr.error error.reason
+						else
+							toastr.error error.message
+						return
+				###
 				window.weibo.login (success)->
 
 					Meteor.call "createWeiboCordovaAccount", success, (error, result)->
@@ -127,10 +137,20 @@ Template.loginServices.events
 					
 					return
 						
-
+				###
 			else if this.service.service is 'google'
 				#toastr.error(JSON.stringify(window.plugins))
-
+				Meteor.loginWithGoogleCordova {}, (error) ->
+					overlay.hide();
+					toastr.success "login weibo"
+					if error
+						toastr.error JSON.stringify(error)
+						if error.reason
+							toastr.error error.reason
+						else
+							toastr.error error.message
+						return
+				###
 				window.plugins.googleplus.isAvailable (available) ->
 					console.log "isAvailable", available
 				window.plugins.googleplus.login
@@ -172,7 +192,7 @@ Template.loginServices.events
 						if msg == 7
 							toastr.error t("NETWORK_ERROR")
 
-
+				###
 			else if this.service.service is 'wechat'
 				toastr.error "wait wechat debuging"
 				###

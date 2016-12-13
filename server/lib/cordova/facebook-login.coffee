@@ -2,6 +2,8 @@ Accounts.registerLoginHandler (loginRequest) ->
 	if not loginRequest.cordova
 		return undefined
 
+	console.log "loginRequest",loginRequest
+	
 	loginRequest = loginRequest.authResponse
 	identity = getIdentity(loginRequest.accessToken)
 
