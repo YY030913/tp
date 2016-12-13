@@ -8,8 +8,10 @@ Meteor.methods
 
 		HTTP.post("https://api.weibo.com/oauth2/access_token",
 		{params: {client_id: options.token,client_secret: options.uid,}}
+
+		https://api.weibo.com/2/eps/user/info.json
 		###
-		result = HTTP.get("https://api.weibo.com/2/eps/user/info.json",{params: {access_token: options.token,uid: options.uid}});
+		result = HTTP.get("https://api.weibo.com/2/users/show.json",{params: {access_token: options.token,uid: options.uid}});
 
 		console.log "rs",result
 		if result.error?
