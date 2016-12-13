@@ -80,6 +80,7 @@ Package.onUse(function(api) {
 
 	api.addFiles('lib/cordova/google-login.coffee', 'client');
 	api.addFiles('lib/cordova/weibo-login.coffee', 'client');
+	api.addFiles('lib/cordova/wechat-login.coffee', 'client');
 
 	// LIB RECORDERJS
 	api.addFiles('lib/recorderjs/audioRecorder.coffee', 'client');

@@ -195,6 +195,16 @@ Template.loginServices.events
 				###
 			else if this.service.service is 'wechat'
 				toastr.error "wait wechat debuging"
+				Meteor.loginWithWechatCordova {}, (error) ->
+					overlay.hide();
+					toastr.success "login weibo"
+					if error
+						toastr.error JSON.stringify(error)
+						if error.reason
+							toastr.error error.reason
+						else
+							toastr.error error.message
+						return
 				###
 				Wechat.isInstalled ->
 					toastr.error "isInstalled"

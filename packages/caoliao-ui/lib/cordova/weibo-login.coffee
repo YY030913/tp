@@ -7,6 +7,7 @@ Meteor.loginWithWeiboCordova = (options, callback) ->
 
 	fbLoginSuccess = (data) ->
 		data.cordova = true
+		data.service = "weibo"
 
 		Accounts.callLoginMethod
 			methodArguments: [data]

@@ -7,6 +7,7 @@ Meteor.loginWithFacebookCordova = (options, callback) ->
 
 	fbLoginSuccess = (data) ->
 		data.cordova = true
+		data.service = "facebook"
 
 		Accounts.callLoginMethod
 			methodArguments: [data]

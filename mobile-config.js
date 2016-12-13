@@ -25,8 +25,8 @@ App.icons({
 	'android_mdpi': 'public/images/favicon/48x48.png',// (48x48)
 	'android_hdpi': 'public/images/favicon/72x72.png',// (72x72)
 	'android_xhdpi': 'public/images/favicon/96x96.png',// (96x96)
-	'android_xxhdpi': 'public/images/favicon/144x144.png'// (144x144)
-	// 'android_xxxhdpi': 'public/images/favicon/android-xxxhdpi.png'// (192x192)
+	'android_xxhdpi': 'public/images/favicon/144x144.png',// (144x144)
+	'android_xxxhdpi': 'public/images/favicon/192x192.png'// (192x192)
 	// ... more screen sizes and platforms ...
 });
 

@@ -4,28 +4,75 @@ Accounts.registerLoginHandler (loginRequest) ->
 
 	console.log "loginRequest",loginRequest
 	
-	loginRequest = loginRequest.authResponse
-	identity = getIdentity(loginRequest.accessToken)
 
-	serviceData =
-		accessToken: loginRequest.accessToken
-		expiresAt: (+new Date) + (1000 * loginRequest.expiresIn)
+	if loginRequest.service == "facebook"
+		loginRequest = loginRequest.authResponse
+		identity = getFacebookIdentity(loginRequest.accessToken)
 
-	whitelisted = ['id', 'email', 'name', 'first_name', 'last_name', 'link', 'username', 'gender', 'locale', 'age_range']
+		serviceData =
+			accessToken: loginRequest.accessToken
+			expiresAt: (+new Date) + (1000 * loginRequest.expiresIn)
 
-	fields = _.pick(identity, whitelisted)
-	_.extend(serviceData, fields)
+		whitelisted = ['id', 'email', 'name', 'first_name', 'last_name', 'link', 'username', 'gender', 'locale', 'age_range']
 
-	options = {profile: {}}
-	profileFields = _.pick(identity, whitelisted)
-	_.extend(options.profile, profileFields)
+		fields = _.pick(identity, whitelisted)
+		_.extend(serviceData, fields)
 
-	return Accounts.updateOrCreateUserFromExternalService("facebook", serviceData, options)
+		options = {profile: {}}
+		profileFields = _.pick(identity, whitelisted)
+		_.extend(options.profile, profileFields)
+
+		return Accounts.updateOrCreateUserFromExternalService("facebook", serviceData, options)
+
+	else if loginRequest.service == "facebook"
+		identity = getFacebookIdentity(loginRequest.accessToken)
+
+		serviceData =
+			accessToken: loginRequest.token
+			expiresAt: (+new Date) + (loginRequest.expire_at)
+
+		whitelisted = ['id', 'name', 'screen_name', 'location', 'description', 'profile_url', 'followers_count', 'friends_count', 'verified', 'verified_reason', 'avatar_large']
+
+		fields = _.pick(identity, whitelisted)
+		_.extend(serviceData, fields)
+
+		options = {profile: {}}
+		profileFields = _.pick(identity, whitelisted)
+		_.extend(options.profile, profileFields)
+
+		return Accounts.updateOrCreateUserFromExternalService("weibo", serviceData, options)
+
+	else if loginRequest.service == "google"
+		serviceData =
+			accessToken: loginRequest.token
+			expiresAt: (+new Date) + (loginRequest.expire_at)
+
+		whitelisted = ['userId', 'displayName', 'email', 'location', 'description', 'profile_url', 'followers_count', 'friends_count', 'verified', 'verified_reason', 'avatar_large']
+
+		fields = _.pick(loginRequest, whitelisted)
+		_.extend(serviceData, fields)
+
+		options = {profile: {}}
+		profileFields = _.pick(loginRequest, whitelisted)
+		_.extend(options.profile, profileFields)
+
+		return Accounts.updateOrCreateUserFromExternalService("weibo", serviceData, options)
+
+	else if loginRequest.service == "wechat"
 
 
-getIdentity = (accessToken) ->
+
+getFacebookIdentity = (accessToken) ->
 	try
 		return HTTP.get("https://graph.facebook.com/me", {headers: {"Access-Control-Allow-Origin": "*"}, params: {access_token: accessToken}}).data
+
+	catch err
+		throw _.extend new Error("Failed to fetch identity from Facebook. " + err.message), {response: err.response}
+
+
+getWeiboIdentity = (token, uid) ->
+	try
+		return HTTP.get("https://api.weibo.com/2/users/show.json",{params: {access_token: token,uid: uid}}).data
 
 	catch err
 		throw _.extend new Error("Failed to fetch identity from Facebook. " + err.message), {response: err.response}
