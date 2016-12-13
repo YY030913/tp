@@ -81,3 +81,12 @@ getWeiboIdentity = (token, uid) ->
 
 	catch err
 		throw _.extend new Error("Failed to fetch identity from Weibo. " + err.message), {response: err.response}
+
+# 需要scope登录授权，非Cordova中的登录
+getWeiboEmail = (token) ->
+	try
+		return HTTP.get("https://api.weibo.com/2/account/profile/email.json",{params: {access_token: token}}).data
+
+	catch err
+		throw _.extend new Error("Failed to fetch identity from Weibo. " + err.message), {response: err.response}
+

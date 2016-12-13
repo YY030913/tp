@@ -15,10 +15,10 @@
 			service: 'wechat'
 			url: user.services.wechat.picture
 
-	if user.services.weibo?.picture? and Meteor.settings.public.weibo
+	if user.services.weibo?.avatar_large? and Meteor.settings.public.weibo
 		avatars.push
 			service: 'weibo'
-			url: user.services.weibo.picture
+			url: user.services.weibo.avatar_large
 
 	if user.services.github?.username? and CaoLiao.settings.get 'Accounts_OAuth_Github'
 		avatars.push

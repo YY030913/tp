@@ -15,7 +15,7 @@ Package.onUse(function(api) {
 	api.use('service-configuration@1.0.5', 'server');
 	api.use('routepolicy@1.0.6', 'server');
 	api.use('webapp@1.2.3', 'server');
-	api.use('accounts-base@1.2.2', 'server');
+	api.use('accounts-base@1.2.3-beta.16', 'server');
 
 	api.use('underscore@1.0.4');
 	api.use('ecmascript');

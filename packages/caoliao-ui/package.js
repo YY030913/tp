@@ -23,7 +23,7 @@ Package.onUse(function(api) {
 	api.use('webapp@1.2.3');
 
 	api.use([
-		'accounts-base@1.2.2',
+		'accounts-base@1.2.3-beta.16',
 		'mongo@1.1.3',
 		'session@1.1.1',
 		'jquery@1.11.4',

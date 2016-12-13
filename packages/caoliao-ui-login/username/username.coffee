@@ -55,39 +55,40 @@ Template.username.events
 					username.invalidLength = true
 				else
 					username.error = true
-			else
-				Meteor.call 'getAvatarSuggestion', (error, avatars) ->
-				avatar = {}
-				if avatars?.google
-					if avatars?.google.blob
-						avatar.blob = avatars?.google.blob
-						avatar.contentType = avatars?.google.contentType
-						avatar?.service = "blob"
-					else
-						avatar.url = avatars?.google.url
-						avatar.contentType = avatars?.google.contentType
-						avatar?.service = "url"
 
-				else if avatars?.wechat
-					if avatars?.wechat.blob
-						avatar.blob = avatars?.wechat.blob
-						avatar.contentType = avatars?.wechat.contentType
-						avatar?.service = "blob"
-					else
-						avatar.url = avatars?.wechat.url
-						avatar.contentType = avatars?.wechat.contentType
-						avatar?.service = "url"
-
-				
-				if avatar.url?
-					Meteor.call 'setAvatarFromService', avatar?.url, '', 'url', (err) ->
-						if err?.details?.timeToReset?
-							toastr.error t('error-too-many-requests', { seconds: parseInt(err.details.timeToReset / 1000) })
-					
-				if avatar.blob?
-					Meteor.call 'setAvatarFromService', avatar?.blob, avatar?.contentType, "blob", (err) ->
-						if err?.details?.timeToReset?
-							toastr.error t('error-too-many-requests', { seconds: parseInt(err.details.timeToReset / 1000) })
 Template.username.onRendered ->
 	window.canvasStar();
+	Meteor.call 'getAvatarSuggestion', (error, avatars) ->
+		avatar = {}
+		if avatars?.google
+			if avatars?.google.blob
+				avatar.blob = avatars?.google.blob
+				avatar.contentType = avatars?.google.contentType
+				avatar?.service = "blob"
+			else
+				avatar.url = avatars?.google.url
+				avatar.contentType = avatars?.google.contentType
+				avatar?.service = "url"
+
+		else if avatars?.wechat
+			if avatars?.wechat.blob
+				avatar.blob = avatars?.wechat.blob
+				avatar.contentType = avatars?.wechat.contentType
+				avatar?.service = "blob"
+			else
+				avatar.url = avatars?.wechat.url
+				avatar.contentType = avatars?.wechat.contentType
+				avatar?.service = "url"
+
+		
+		if avatar.url?
+			Meteor.call 'setAvatarFromService', avatar?.url, '', 'url', (err) ->
+				if err?.details?.timeToReset?
+					toastr.error t('error-too-many-requests', { seconds: parseInt(err.details.timeToReset / 1000) })
+			
+		if avatar.blob?
+			Meteor.call 'setAvatarFromService', avatar?.blob, avatar?.contentType, "blob", (err) ->
+				if err?.details?.timeToReset?
+					toastr.error t('error-too-many-requests', { seconds: parseInt(err.details.timeToReset / 1000) })
+
 	

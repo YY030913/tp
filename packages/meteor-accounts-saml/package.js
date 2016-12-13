@@ -11,7 +11,7 @@ Package.on_use(function(api) {
 	api.use(['caoliao:lib'], 'server');
 	api.use(['coffeescript@1.0.11'], 'server');
 	api.use(['routepolicy@1.0.6', 'webapp@1.2.3', 'underscore@1.0.4', 'service-configuration@1.0.5'], 'server');
-	api.use(['http@1.1.1', 'accounts-base@1.2.2'], ['client', 'server']);
+	api.use(['http@1.1.1', 'accounts-base@1.2.3-beta.16'], ['client', 'server']);
 
 	api.add_files(['saml_server.js', 'saml_utils.js'], 'server');
 	api.add_files(['saml_caoliao.coffee'], 'server');

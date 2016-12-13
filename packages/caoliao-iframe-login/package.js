@@ -14,7 +14,7 @@ Package.onUse(function(api) {
 	api.use('kadira:flow-router@2.10.1', 'client');
 
 	api.use('caoliao:lib');
-	api.use('accounts-base@1.2.2');
+	api.use('accounts-base@1.2.3-beta.16');
 	api.use('underscore@1.0.4');
 	api.use('ecmascript');
 	api.use('reactive-var@1.0.6');

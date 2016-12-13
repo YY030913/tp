@@ -17,7 +17,7 @@ Package.onUse(function(api) {
 
 	api.use('templating@1.1.5', 'client');
 
-	api.use('accounts-base@1.2.2', 'server');
+	api.use('accounts-base@1.2.3-beta.16', 'server');
 	api.use('accounts-password', 'server');
 
 	api.addFiles('client/loginHelper.js', 'client');
