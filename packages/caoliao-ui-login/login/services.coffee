@@ -107,12 +107,14 @@ Template.loginServices.events
 					Meteor.call "createWeiboCordovaAccount", success, (error, result)->
 						overlay.hide();
 						console.log "arguments",arguments
+
 						if !error?
 							Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
 
 							toastr.success "login weibo"
 						else
-							toastr.error error
+							handleError(error)
+							# toastr.error error
 								
 				, (error)->
 					console.log JSON.stringify(error)
