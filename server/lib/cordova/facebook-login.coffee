@@ -76,4 +76,4 @@ getWeiboIdentity = (token, uid) ->
 		return HTTP.get("https://api.weibo.com/2/users/show.json",{params: {access_token: token,uid: uid}}).data
 
 	catch err
-		throw _.extend new Error("Failed to fetch identity from Facebook. " + err.message), {response: err.response}
+		throw _.extend new Error("Failed to fetch identity from Weibo. " + err.message), {response: err.response}
