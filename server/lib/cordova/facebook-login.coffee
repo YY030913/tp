@@ -24,8 +24,8 @@ Accounts.registerLoginHandler (loginRequest) ->
 
 		return Accounts.updateOrCreateUserFromExternalService("facebook", serviceData, options)
 
-	else if loginRequest.service == "facebook"
-		identity = getFacebookIdentity(loginRequest.accessToken)
+	else if loginRequest.service == "weibo"
+		identity = getWeiboIdentity(loginRequest.token, loginRequest.uid)
 
 		serviceData =
 			accessToken: loginRequest.token
@@ -56,7 +56,7 @@ Accounts.registerLoginHandler (loginRequest) ->
 		profileFields = _.pick(loginRequest, whitelisted)
 		_.extend(options.profile, profileFields)
 
-		return Accounts.updateOrCreateUserFromExternalService("weibo", serviceData, options)
+		return Accounts.updateOrCreateUserFromExternalService("google", serviceData, options)
 
 	else if loginRequest.service == "wechat"
 		console.log "wechat"
