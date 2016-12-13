@@ -59,6 +59,7 @@ Accounts.registerLoginHandler (loginRequest) ->
 		return Accounts.updateOrCreateUserFromExternalService("weibo", serviceData, options)
 
 	else if loginRequest.service == "wechat"
+		console.log "wechat"
 
 
 
