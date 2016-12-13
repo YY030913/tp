@@ -7,6 +7,8 @@ standard-minifier-css   # CSS minifier run for production mode
 standard-minifier-js    # JS minifier run for production mode
 
 caoliao:cors
+accounts-base
+accounts-oauth
 accounts-facebook
 #accounts-github
 accounts-google
