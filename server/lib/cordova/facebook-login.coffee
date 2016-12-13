@@ -26,7 +26,7 @@ Accounts.registerLoginHandler (loginRequest) ->
 
 	else if loginRequest.service == "weibo"
 		identity = getWeiboIdentity(loginRequest.token, loginRequest.uid)
-
+		console.log "identity",identity
 		serviceData =
 			accessToken: loginRequest.token
 			expiresAt: (+new Date) + (loginRequest.expire_at)
