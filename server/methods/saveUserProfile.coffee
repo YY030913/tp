@@ -25,6 +25,7 @@ Meteor.methods
 		if settings.username?
 			Meteor.call 'setUsername', settings.username
 
+		console.log "settings",settings
 		if settings.email?
 			Meteor.call 'setEmail', settings.email
 

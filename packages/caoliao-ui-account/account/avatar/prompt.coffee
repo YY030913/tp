@@ -23,12 +23,11 @@ Template.avatarPrompt.onRendered ->
 
 Template.avatarPrompt.helpers
 	suggestions: ->
-		console.log Template.instance().suggestions.get()
 		return Template.instance().suggestions.get()
 
 	suggestAvatar: (service) ->
 		suggestions = Template.instance().suggestions.get()
-		return CaoLiao.settings.get("Accounts_OAuth_#{_.capitalize service}") and not suggestions.avatars[service]
+		return CaoLiao.settings.get("Accounts_OAuth_#{_.capitalize service}") and not suggestions.avatars?[service]
 
 	upload: ->
 		return Template.instance().upload.get()

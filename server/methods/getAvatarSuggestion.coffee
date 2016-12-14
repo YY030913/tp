@@ -1,5 +1,4 @@
 @getAvatarSuggestionForUser = (user) ->
-	console.log "getAvatarSuggestionForUser", user
 	avatars = []
 	if user.services.facebook?.id? and CaoLiao.settings.get 'Accounts_OAuth_Facebook'
 		avatars.push
@@ -60,21 +59,22 @@
 	
 
 	validAvatars = {}
-	console.log "avatars", avatars
+
 	for avatar in avatars
 		try
 			result = HTTP.get avatar.url, {npmRequestOptions: {encoding: 'binary'}}
-			console.log "result", result
+
 			if result.statusCode is 200
 				blob = "data:#{result.headers['content-type']};base64,"
 				blob += Buffer(result.content, 'binary').toString('base64')
 				avatar.blob = blob
 				avatar.contentType = result.headers['content-type']
 				validAvatars[avatar.service] = avatar
+			
 		catch e
 			console.log "Error while handling the setting of the avatar from a url (#{avatar.url}) for #{user.username}:", e
-			throw new Meteor.Error('error-avatar-url-handling', 'Error while handling avatar setting from a URL ('+ avatar.url +') for ' + user.username, { method: 'getAvatarSuggestion', url: avatar.url, username: user.username });
-			
+			# throw new Meteor.Error('error-avatar-url-handling', 'Error while handling avatar setting from a URL (#{avatar.url}) for ' + user.username, { method: 'getAvatarSuggestion', url: avatar.url, username: user.username });
+		
 	return validAvatars
 
 

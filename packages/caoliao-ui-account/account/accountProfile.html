@@ -37,9 +37,9 @@
 						<label for="introduction">{{_ "Introduction"}}</label>
 						<div>
 						{{#if allowUserIntroductionChange}}
-							<input type="text" name="introduction" id="introduction" />
+							<input type="text" name="introduction" id="introduction" value="{{introduction}}" />
 						{{else}}
-							<input type="text" name="introduction" id="introduction" readonly="readonly" title="{{introductionChangeDisabled}}"/>
+							<input type="text" name="introduction" id="introduction" value="{{introduction}}" readonly="readonly" title="{{introductionChangeDisabled}}"/>
 						{{/if}}
 						</div>
 					</div>

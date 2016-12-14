@@ -69,7 +69,7 @@ Template.username.events
 							avatar.contentType = avatars?.google.contentType
 							avatar?.service = "url"
 
-					if avatars?.facebook
+					else if avatars?.facebook
 						if avatars?.facebook.blob
 							avatar.blob = avatars?.facebook.blob
 							avatar.contentType = avatars?.facebook.contentType
@@ -79,7 +79,7 @@ Template.username.events
 							avatar.contentType = avatars?.facebook.contentType
 							avatar?.service = "url"
 
-					if avatars?.weibo
+					else if avatars?.weibo
 						if avatars?.weibo.blob
 							avatar.blob = avatars?.weibo.blob
 							avatar.contentType = avatars?.weibo.contentType
@@ -97,6 +97,16 @@ Template.username.events
 						else
 							avatar.url = avatars?.wechat.url
 							avatar.contentType = avatars?.wechat.contentType
+							avatar?.service = "url"
+
+					else if avatars?.gravatar
+						if avatars?.gravatar.blob
+							avatar.blob = avatars?.gravatar.blob
+							avatar.contentType = avatars?.gravatar.contentType
+							avatar?.service = "blob"
+						else
+							avatar.url = avatars?.gravatar.url
+							avatar.contentType = avatars?.gravatar.contentType
 							avatar?.service = "url"
 
 					console.log ""

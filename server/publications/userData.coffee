@@ -25,3 +25,4 @@ Meteor.publish 'userData', ->
 			medals: 1
 			createDebateCount: 1
 			shortCountry: 1
+			introduction: 1

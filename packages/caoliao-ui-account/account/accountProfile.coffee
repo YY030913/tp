@@ -14,6 +14,9 @@ Template.accountProfile.helpers
 	emailVerified: ->
 		return  Meteor.user().emails?[0]?.verified
 
+	introduction: ->
+		return Meteor.user().introduction
+
 	allowUserIntroductionChange: ->
 		return CaoLiao.settings.get("Accounts_AllowUserIntroductionChange")
 
@@ -61,7 +64,8 @@ Template.accountProfile.onCreated ->
 			data.newPassword = $('#password').val()
 
 		if _.trim $('#realname').val()
-			data.realname = _.trim $('#realname').val()
+			if _.trim $('#realname').val().lenght > 0 
+				data.realname = _.trim $('#realname').val()
 
 		if _.trim($('#username').val()) isnt Meteor.user().username
 			if !CaoLiao.settings.get("Accounts_AllowUsernameChange")
@@ -70,9 +74,11 @@ Template.accountProfile.onCreated ->
 				instance.clearForm()
 				return
 			else
-				data.username = _.trim $('#username').val()
+				if _.trim $('#username').val() > 0
+					data.username = _.trim $('#username').val()
 
-		data.introduction = _.trim $('#introduction').val()
+		if _.trim $('#introduction').val().length > 0
+			data.introduction = _.trim $('#introduction').val()
 
 		if _.trim($('#email').val()) isnt Meteor.user().emails?[0]?.address
 			if !CaoLiao.settings.get("Accounts_AllowEmailChange")
@@ -81,7 +87,8 @@ Template.accountProfile.onCreated ->
 				instance.clearForm()
 				return
 			else
-				data.email = _.trim $('#email').val()
+				if _.trim $('#email').val() > 0
+					data.email = _.trim $('#email').val()
 
 		Meteor.call 'saveUserProfile', data, (error, results) ->
 			if results
