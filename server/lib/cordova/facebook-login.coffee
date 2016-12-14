@@ -13,7 +13,7 @@ Accounts.registerLoginHandler (loginRequest) ->
 			accessToken: loginRequest.accessToken
 			expiresAt: (+new Date) + (1000 * loginRequest.expiresIn)
 
-		whitelisted = ['id', 'email', 'name', 'first_name', 'last_name', 'link', 'username', 'gender', 'locale', 'age_range']
+		whitelisted = ['id', 'email', 'name', 'first_name', 'last_name', 'link', 'username', 'gender', 'locale', 'age_range', 'picture']
 
 		fields = _.pick(identity, whitelisted)
 		_.extend(serviceData, fields)
@@ -54,10 +54,12 @@ Accounts.registerLoginHandler (loginRequest) ->
 		whitelisted = ['userId', 'displayName', 'email', 'location', 'description', 'profile_url', 'followers_count', 'friends_count', 'verified', 'verified_reason', 'avatar_large']
 
 		fields = _.pick(loginRequest, whitelisted)
+		fields.id = fields.userId
 		_.extend(serviceData, fields)
 
 		options = {profile: {}}
 		profileFields = _.pick(loginRequest, whitelisted)
+		profileFields.id = profileFields.userId
 		_.extend(options.profile, profileFields)
 
 		return Accounts.updateOrCreateUserFromExternalService("google", serviceData, options)
@@ -89,4 +91,14 @@ getWeiboEmail = (token) ->
 
 	catch err
 		throw _.extend new Error("Failed to fetch identity from Weibo. " + err.message), {response: err.response}
+
+getWechatIdentity = (token, openid) ->
+	try
+		return HTTP.get("https://api.weixin.qq.com/cgi-bin/user/info",{params: {access_token:token, openid: openid, lang: "zh_CN"}}).data
+
+	catch err
+		throw _.extend new Error("Failed to fetch identity from Weibo. " + err.message), {response: err.response}
+#http://m.2cto.com/weixin/201604/499478.html
+#http://mp.weixin.qq.com/wiki/14/bb5031008f1494a59c6f71fa0f319c66.html
+#微信 https://api.weixin.qq.com/sns/oauth2/
 

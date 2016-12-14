@@ -927,6 +927,8 @@ window.___E_mod(function (E, $) {
 
 				// input 有文件选中时，显示预览图，提交 form
 				$inputFlie.on('change', function (e) {
+
+					log("change");
 					// 获取配置项内容
 					var config = self.config;
 					var uploadImgUrl = config.uploadImgUrl || '';
@@ -1088,9 +1090,9 @@ window.___E_mod(function (E, $) {
 			            // 添加图片数据
 			            // 1. 图片数据要经过 convertBase64UrlToBlob 转换
 			            // 2. wangEditorMobileFile 要和后台一致
-			            console.log('convertBase64UrlToBlob...');
+			            log('convertBase64UrlToBlob...');
 			            formData.append('wangEditorMobileFile', convertBase64UrlToBlob(base64, fileType));
-			            console.log('准备上传文件...');
+			            log('准备上传文件...');
 			            xhr.send(formData);
 
 					};
@@ -1101,8 +1103,10 @@ window.___E_mod(function (E, $) {
 
 				// 点击菜单，触发 input 事件
 				$trigger.on('singleTap', function (e) {
+					log("singleTap");
 					// singleTap需要验证
 					if (self.checkTapTime(e, 'img') === false) {
+						log("checkTapTime false")
 						return;
 					}
 

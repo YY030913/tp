@@ -132,6 +132,7 @@ Template.debateEdit.onRendered ->
 
 				self.editor.set(editorobj)
 				self.hasEditor.set(true)
+				console.log "mobile editorobj"
 
 		if Session.get("debateType")? && Session.get("debateType")!=undefined && $(".icon-ok-a").hasClass('load-circle')
 			self.createDebate()
@@ -171,6 +172,7 @@ Template.debateEdit.onCreated ->
 			}
 
 			if save == true
+				console.log "save"
 				opts = {
 					lines: 13, 
 					length: 11,

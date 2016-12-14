@@ -66,6 +66,8 @@ usernameIsAvaliable = (username) ->
 			username = item
 			break
 
+	console.log usernames
+
 	if usernames[0]? and usernames[0].length > 0
 		index = 0
 		while not username?

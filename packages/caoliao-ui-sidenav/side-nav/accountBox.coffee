@@ -66,6 +66,11 @@ Template.accountBox.events
 	###
 
 	'click #account': (event) ->
+		menu.close()
+		FlowRouter.go 'account'
+
+	'click .thumb': (event) ->
+		menu.close()
 		FlowRouter.go 'account'
 
 	###

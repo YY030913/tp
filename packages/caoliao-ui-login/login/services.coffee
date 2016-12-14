@@ -92,114 +92,38 @@ Template.loginServices.events
 			if this.service.service is 'facebook'
 				Meteor.loginWithFacebookCordova {}, (error) ->
 					overlay.hide();
-					toastr.success "login facebook"
 					if error
-						toastr.error JSON.stringify(error)
 						if error.reason
 							toastr.error error.reason
 						else
 							toastr.error error.message
 						return
+
 			else if this.service.service is 'weibo'
 				Meteor.loginWithWeiboCordova {}, (error) ->
 					overlay.hide();
-					toastr.success "login weibo"
 					if error
-						toastr.error JSON.stringify(error)
 						if error.reason
 							toastr.error error.reason
 						else
 							toastr.error error.message
 						return
-				###
-				window.weibo.login (success)->
-
-					Meteor.call "createWeiboCordovaAccount", success, (error, result)->
-						overlay.hide();
-						console.log "arguments",arguments
-
-						if !error?
-							Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
-
-							toastr.success "login weibo"
-						else
-							handleError(error)
-							# toastr.error error
-								
-				, (error)->
-					console.log JSON.stringify(error)
-					overlay.hide();
-					toastr.error JSON.stringify(error)
-					if error.reason
-						toastr.error error.reason
-					else
-						toastr.error error.message
-					
-					return
-						
-				###
+				
 			else if this.service.service is 'google'
-				#toastr.error(JSON.stringify(window.plugins))
 				Meteor.loginWithGoogleCordova {}, (error) ->
 					overlay.hide();
-					toastr.success "login weibo"
 					if error
-						toastr.error JSON.stringify(error)
 						if error.reason
 							toastr.error error.reason
 						else
 							toastr.error error.message
 						return
-				###
-				window.plugins.googleplus.isAvailable (available) ->
-					console.log "isAvailable", available
-				window.plugins.googleplus.login
-
-					'scopes': 'profile email'
-					'offline': true, 
-					'webClientId': '282710845697-rlerblta4drj4qqt7ugsq0jsg0h29j0g.apps.googleusercontent.com'
-
-					, (success) ->
-						# succees objec: https://github.com/EddyVerbruggen/cordova-plugin-googleplus#6-usage
-						Meteor.call "createGoogleCordovaAccount", success, (error, result)->
-							console.log arguments
-							if !error?
-								Accounts.makeClientLoggedIn result.id, result.token, result.tokenExpires
-
-								console.log "login"
-								overlay.update({
-									icon: "img/check.png",
-									text: "Success"
-								});
-								overlay.hide();
-							else
-								toastr.error error
-								overlay.hide();
-
-					, (msg) ->
-						console.log "msg"
-						overlay.hide();
-						console.log msg
-						#toastr.error JSON.stringify(msg)
-						if msg == 12501
-							toastr.error t("SIGN_IN_CANCELLED")
-						if msg == 12500
-							toastr.error t("SIGN_IN_FAILED")
-						if msg == 4
-							toastr.error t("SIGN_IN_REQUIRED")
-						if msg == 8
-							toastr.error t("INTERNAL_ERROR")
-						if msg == 7
-							toastr.error t("NETWORK_ERROR")
-
-				###
+				
 			else if this.service.service is 'wechat'
 				toastr.error "wait wechat debuging"
 				Meteor.loginWithWechatCordova {}, (error) ->
 					overlay.hide();
-					toastr.success "login weibo"
 					if error
-						toastr.error JSON.stringify(error)
 						if error.reason
 							toastr.error error.reason
 						else
@@ -267,8 +191,6 @@ Template.loginServices.events
 			loginWithService = "loginWith" + (if this.service.service is 'meteor-developer' then 'MeteorDeveloperAccount' else _.capitalize(this.service.service))
 			serviceConfig = this.service.clientConfig or {}
 			
-			console.log this
-			console.log this.service
 			Meteor[loginWithService] serviceConfig, (error) ->
 				loadingIcon.addClass 'hidden'
 				serviceIcon.removeClass 'hidden'

@@ -8,6 +8,8 @@ Meteor.methods
 
 		user = Meteor.user()
 
+		console.log "arguments", arguments
+
 		if service is 'initials'
 			CaoLiao.models.Users.setAvatarOrigin user._id, service
 			return
@@ -43,7 +45,7 @@ Meteor.methods
 			return
 
 		{image, contentType} = CaoLiaoFile.dataURIParse dataURI
-
+		console.log image
 		rs = CaoLiaoFile.bufferToStream new Buffer(image, 'base64')
 		CaoLiaoFileAvatarInstance.deleteFile encodeURIComponent("#{user.username}.jpg")
 		ws = CaoLiaoFileAvatarInstance.createWriteStream encodeURIComponent("#{user.username}.jpg"), contentType

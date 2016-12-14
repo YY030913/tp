@@ -8,7 +8,7 @@ Template.accountSetting.helpers
 		username = Meteor.user()?.username
 		shortCountry = Meteor.user()?.shortCountry
 		medals = Meteor.user()?.medals
-		introduction = Meteor.user()?.introduction || t("Default_Introduction")
+		introduction = Meteor.user()?.introduction
 		switch Session.get('user_' + username + '_status')
 			when "away"
 				visualStatus = t("away")

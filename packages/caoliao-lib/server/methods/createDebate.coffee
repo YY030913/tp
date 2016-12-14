@@ -40,7 +40,9 @@ Meteor.methods
 		debate = 
 			ts: now
 			usernames: members
-			u: user
+			u:
+				_id: user._id
+				username: user.username
 			tags: []
 
 		if !save?

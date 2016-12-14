@@ -48,18 +48,18 @@ CaoLiao.settings.addGroup 'OAuth', ->
 		@add 'Accounts_OAuth_Facebook_callback_url', '_oauth/facebook', { type: 'relativeUrl', readonly: true, force: true, enableQuery: enableQuery }
 
 	@section 'WeChat', ->
-		enableQuery = { _id: 'Accounts_OAuth_WeChat', value: true }
-		@add 'Accounts_OAuth_WeChat', true, { type: 'boolean', public: true }
-		@add 'Accounts_OAuth_WeChat_id', 'wx0ed57f40d3575ef7', { type: 'string', enableQuery: enableQuery }
-		@add 'Accounts_OAuth_WeChat_secret', '0eda9774836ee729111384e3380c7b26', { type: 'string', enableQuery: enableQuery }
-		@add 'Accounts_OAuth_WeChat_callback_url', '_oauth/wechat?close', { type: 'relativeUrl', readonly: true, force: true, enableQuery: enableQuery }
+		enableQuery = { _id: 'Accounts_OAuth_Wechat', value: true }
+		@add 'Accounts_OAuth_Wechat', true, { type: 'boolean', public: true }
+		@add 'Accounts_OAuth_Wechat_id', 'wx0ed57f40d3575ef7', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_Wechat_secret', '0eda9774836ee729111384e3380c7b26', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_Wechat_callback_url', '_oauth/wechat?close', { type: 'relativeUrl', readonly: true, force: true, enableQuery: enableQuery }
 
 	@section 'WeiBo', ->
-		enableQuery = { _id: 'Accounts_OAuth_WeiBo', value: true }
-		@add 'Accounts_OAuth_WeiBo', true, { type: 'boolean', public: true }
-		@add 'Accounts_OAuth_WeiBo_id', '1500447187', { type: 'string', enableQuery: enableQuery }
-		@add 'Accounts_OAuth_WeiBo_secret', '7d87a45193b6d9ec55f94bda20e1a60c', { type: 'string', enableQuery: enableQuery }
-		@add 'Accounts_OAuth_WeiBo_callback_url', '_oauth/weibo', { type: 'relativeUrl', readonly: true, force: true, enableQuery: enableQuery }
+		enableQuery = { _id: 'Accounts_OAuth_Weibo', value: true }
+		@add 'Accounts_OAuth_Weibo', true, { type: 'boolean', public: true }
+		@add 'Accounts_OAuth_Weibo_id', '1500447187', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_Weibo_secret', '7d87a45193b6d9ec55f94bda20e1a60c', { type: 'string', enableQuery: enableQuery }
+		@add 'Accounts_OAuth_Weibo_callback_url', '_oauth/weibo', { type: 'relativeUrl', readonly: true, force: true, enableQuery: enableQuery }
 
 	@section 'Google', ->
 		enableQuery = { _id: 'Accounts_OAuth_Google', value: true }
@@ -116,7 +116,7 @@ CaoLiao.settings.addGroup 'General', ->
 		@add 'UTF8_Names_MaxLength', '16', { type: 'int', public: true, i18nDescription: 'UTF8_Names_MaxLength'}
 		@add 'UTF8_Names_MinLength', '2', { type: 'int', public: true, i18nDescription: 'UTF8_Names_MinLength'}
 		@add 'UTF8_Names_Validation', '[0-9a-zA-Z-_.]+', { type: 'string', public: true, i18nDescription: 'UTF8_Names_Validation_Description'}
-		@add 'UTF8_Names_Slugify', true, { type: 'boolean', public: true }
+		@add 'UTF8_Names_Slugify', false, { type: 'boolean', public: true }
 
 	@section 'Reporting', ->
 		@add 'Statistics_reporting', true, { type: 'boolean' }

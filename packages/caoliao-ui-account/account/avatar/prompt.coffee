@@ -23,6 +23,7 @@ Template.avatarPrompt.onRendered ->
 
 Template.avatarPrompt.helpers
 	suggestions: ->
+		console.log Template.instance().suggestions.get()
 		return Template.instance().suggestions.get()
 
 	suggestAvatar: (service) ->
@@ -66,21 +67,32 @@ Template.avatarPrompt.events
 					toastr.success t('Avatar_changed_successfully')
 
 	'click .login-with-service': (event, template) ->
-		loginWithService = "loginWith#{_.capitalize(this)}"
+		if Meteor.isCordova 
+			loginWithService = "loginWith#{_.capitalize(this)}Cordova"
+			Meteor[loginWithService] {}, (error) ->
+				if error
+					toastr.error JSON.stringify(error)
+					if error.reason
+						toastr.error error.reason
+					else
+						toastr.error error.message
+					return
+		else
+			loginWithService = "loginWith#{_.capitalize(this)}"
 
-		serviceConfig = {}
+			serviceConfig = {}
 
-		Meteor[loginWithService] serviceConfig, (error) ->
-			if error?.error is 'github-no-public-email'
-				alert t("github_no_public_email")
-				return
+			Meteor[loginWithService] serviceConfig, (error) ->
+				if error?.error is 'github-no-public-email'
+					alert t("github_no_public_email")
+					return
 
-			console.log error
-			if error?
-				toastr.error error.message
-				return
+				console.log error
+				if error?
+					toastr.error error.message
+					return
 
-			template.getSuggestions()
+				template.getSuggestions()
 
 	'change .avatar-file-input': (event, template) ->
 		e = event.originalEvent or event
