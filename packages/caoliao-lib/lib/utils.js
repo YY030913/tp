@@ -37,14 +37,14 @@ CaoLiao.utils.stripImgSrcs = function(s) {
 
 CaoLiao.utils.extendImgSrcs = function(s, extend) {
     return s.replace(/<img src=[\'\"]?([^\'\"]*)[\'\"](?:.|\n)*?>?/igm,function(word){
-      return word.substring(0, word.length-1)+extend+word.substring(word.length-1);
+      return word.substring(0, word.length-2)+extend+word.substring(word.length-2);
     });
 };
 
 CaoLiao.utils.extendRemoveImgSrcs = function(s) {
   return s.replace(/<img src=[\'\"]?([^\'\"]*)[\'\"](?:.|\n)*?>?/igm,function(word){
-    return word.substring(0, word.indexOf("?"))+word.substring(word.length-1);}
-  )
+    return word.substring(0, word.indexOf("?"))+word.substring(word.length-2);
+  })
 }
 
 CaoLiao.utils.stripTextInside = function(s) {

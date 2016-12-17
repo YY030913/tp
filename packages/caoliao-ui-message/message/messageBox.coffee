@@ -133,14 +133,14 @@ Template.messageBox.events
 
 	'click .message-form .stop-mic': (e, t) ->
 		AudioRecorder.stop (blob) ->
-			if CaoLiao.settings.get('FileUpload_Storage_Type') == "QiNiu"
-				t.handler.get().addFile(blob, "#{TAPi18n.__('Audio record')}#{Meteor.userId()}#{(new Date()).getTime()}" + '.wav')
-			else
-				fileUpload [{
-					file: blob
-					type: 'audio'
-					name: TAPi18n.__('Audio record') + '.wav'
-				}]
+			#if CaoLiao.settings.get('FileUpload_Storage_Type') == "QiNiu"
+			#	t.handler.get().addFile(blob, "#{TAPi18n.__('Audio record')}#{Meteor.userId()}#{(new Date()).getTime()}" + '.wav')
+			#else
+			fileUpload [{
+				file: blob
+				type: 'audio'
+				name: TAPi18n.__('Audio record') + '.wav'
+			}]
 		t.$('.stop-mic').addClass('hidden')
 		t.$('.mic').removeClass('hidden')
 

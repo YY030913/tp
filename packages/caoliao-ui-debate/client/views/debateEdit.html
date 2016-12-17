@@ -16,6 +16,14 @@
                                 <i class="mdi-action-done"></i>
                             </a>
                         </li>
+                        {{#if cordova}}
+                            <li>
+                                <a href="javascript:void(0);" class="add-img waves-effect waves-block waves-light">
+                                    <i class="icon-wangEditor-m-picture"></i>
+                                    <input type="file" accept="{{fileUploadAllowedMediaTypes}}">
+                                </a>
+                            </li>
+                        {{/if}}
                     </ul>
                 </div>
             </header>

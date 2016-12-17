@@ -50,6 +50,17 @@ readAsArrayBuffer = (file, callback) ->
 					</div>
 					<div class='upload-preview-title'>#{Handlebars._escape(file.name)}</div>
 				"""
+			else if file.type is 'video'
+				text = """
+					<div class='upload-preview'>
+						<video  style="width: 100%;" controls="controls">
+							<source src="#{fileContent}" type="video/webm">
+							Your browser does not support the video element.
+						</video>
+					</div>
+					<div class='upload-preview-title'>#{Handlebars._escape(file.name)}</div>
+				"""
+
 			else
 				text = """
 					<div class='upload-preview'>
@@ -71,61 +82,61 @@ readAsArrayBuffer = (file, callback) ->
 				if isConfirm isnt true
 					return
 
-				readAsArrayBuffer file.file, (data) ->
-					record =
-						name: file.name or file.file.name
-						size: file.file.size
-						type: file.file.type
-						rid: roomId
+				record =
+					name: file.name or file.file.name
+					size: file.file.size
+					type: file.file.type
+					rid: roomId
 
-					upload = fileUploadHandler record, file.file, data
 
-					# // Reactive method to get upload progress
-					Tracker.autorun (c) ->
-						uploading = undefined
-						cancel = undefined
+				upload = fileUploadHandler record, file.file, file
 
-						Tracker.nonreactive ->
-							cancel = Session.get "uploading-cancel-#{upload.id}"
-							uploading = Session.get 'uploading'
+				# // Reactive method to get upload progress
+				Tracker.autorun (c) ->
+					uploading = undefined
+					cancel = undefined
 
-						if cancel
-							return c.stop()
-
-						uploading ?= []
-
-						item = _.findWhere(uploading, {id: upload.id})
-
-						if not item?
-							item =
-								id: upload.id
-								name: upload.getFileName()
-
-							uploading.push item
-
-						item.percentage = Math.round(upload.getProgress() * 100) or 0
-						Session.set 'uploading', uploading
-
-					upload.start();
-
-					Tracker.autorun (c) ->
+					Tracker.nonreactive ->
 						cancel = Session.get "uploading-cancel-#{upload.id}"
-						if cancel
-							upload.stop()
-							c.stop()
+						uploading = Session.get 'uploading'
 
+					if cancel
+						return c.stop()
+
+					uploading ?= []
+
+					item = _.findWhere(uploading, {id: upload.id})
+
+					if not item?
+						item =
+							id: upload.id
+							name: upload.getFileName()
+
+						uploading.push item
+
+					item.percentage = Math.round(upload.getProgress() * 100) or 0
+					Session.set 'uploading', uploading
+
+				upload.start();
+
+				Tracker.autorun (c) ->
+					cancel = Session.get "uploading-cancel-#{upload.id}"
+					if cancel
+						upload.stop()
+						c.stop()
+
+						uploading = Session.get 'uploading'
+						if uploading?
+							item = _.findWhere(uploading, {id: upload.id})
+							if item?
+								item.percentage = 0
+							Session.set 'uploading', uploading
+
+						Meteor.setTimeout ->
 							uploading = Session.get 'uploading'
 							if uploading?
 								item = _.findWhere(uploading, {id: upload.id})
-								if item?
-									item.percentage = 0
-								Session.set 'uploading', uploading
-
-							Meteor.setTimeout ->
-								uploading = Session.get 'uploading'
-								if uploading?
-									item = _.findWhere(uploading, {id: upload.id})
-									Session.set 'uploading', _.without(uploading, item)
-							, 1000
+								Session.set 'uploading', _.without(uploading, item)
+						, 1000
 
 	consume()

@@ -7,9 +7,9 @@ Package.describe({
 });
 
 
-Npm.depends({
-  'qiniu': '6.1.9'
-});
+// Npm.depends({
+//   'qiniu': '6.1.9'
+// });
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
@@ -29,6 +29,7 @@ Package.onUse(function(api) {
       ], ['server']);
 
   api.addFiles([
+      'lib/qiniu.js',
       'lib/plupload/moxie.js',
       'lib/plupload/plupload.dev.js',
       'lib/QiniuJsSDK.js'

@@ -306,12 +306,12 @@ window.___E_mod(function (E, $) {
 		self.menus = {};		
 		self.addMenuBold('bold');
 		self.addMenuHead('head');
-		self.addMenuColor('color');
+		// self.addMenuColor('color');
 		self.addMenuQuote('quote');
-		self.addMenuList('list');
-		self.addMenuCheck('check');
+		// self.addMenuList('list');
+		// self.addMenuCheck('check');
 		// self.addMenuHappy('happy');
-		self.addMenuImg('img');
+		// self.addMenuImg('img');
 	};
 
 });
@@ -646,10 +646,11 @@ window.___E_mod(function (E, $) {
 						return;
 					}
 
+					checkId = 'check' + Math.random().toString().slice(2);
 					// 构建dom结构
-					var $checkbox = $('<input type="checkbox"/>');
+					var $checkbox = $('<input type="checkbox" id=' + checkId + '/>');
 					var $content = $('<p></p>');
-					$content.append($checkbox).append('&nbsp;&nbsp;');
+					$content.append($checkbox).append('<label for="' + checkId + '">&nbsp;&nbsp;');
 
 					// 初始化 checkbox 事件
 					$checkbox.on('singleTap', function (e) {
@@ -896,6 +897,7 @@ window.___E_mod(function (E, $) {
 
 			// 绑定菜单事件
 			bindEvent: function (editor) {
+				console.log("image bindEvent")
 				var menuData = this;
 				var $trigger = menuData.$trigger;
 
@@ -1229,7 +1231,7 @@ window.___E_mod(function (E, $) {
 		var $menuContainer = self.$menuContainer;
 		var menuContainer = $menuContainer.get(0);
 		var srollTime = Date.now();
-
+		console.log("txt",$txt);
 		// 处理点击 $txt 的选区
 		// $txt 的 tap 事件中调用
 		function selectionHeadle () {
@@ -1255,6 +1257,7 @@ window.___E_mod(function (E, $) {
 
 		// tap时，记录选区，并显示菜单
 		$txt.on('focus', function () {
+			console.log("facus");
 			// 记录编辑器区域已经focus
 			self.isFocus = true;
 		});
@@ -1326,6 +1329,7 @@ window.___E_mod(function (E, $) {
 
 		// 打字时隐藏菜单栏
 		$txt.on('keydown', function (e) {
+			console.log("on('keydown'");
 			// 隐藏菜单
 			self.hideMenuContainer();
 
@@ -1338,6 +1342,7 @@ window.___E_mod(function (E, $) {
 
 		// longtap doubletap 隐藏菜单
 		$txt.on('longTap, doubleTap', function () {
+			console.log("on('longTap, doubleTap'")
 			// 隐藏菜单
 			self.hideMenuContainer();
 		});
@@ -1345,6 +1350,8 @@ window.___E_mod(function (E, $) {
 		// blur时，隐藏菜单栏
 		// 存储源代码
 		$txt.on('blur', function (e) {
+
+			console.log("blur",menuContainer,explicitOriginalTarget,self);
 
 			// 记录编辑区域已经 blur
 			self.isFocus = false;

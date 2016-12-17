@@ -341,6 +341,7 @@ Template.room.events
 		, 10
 
 	'scroll .wrapper': _.throttle (e, instance) ->
+		$('div:not(.audioplayer)>audio').audioPlayer();
 		if RoomHistoryManager.isLoading(@_id) is false and (RoomHistoryManager.hasMore(@_id) is true or RoomHistoryManager.hasMoreNext(@_id) is true)
 			if RoomHistoryManager.hasMore(@_id) is true and e.target.scrollTop is 0
 				RoomHistoryManager.getMore(@_id)
@@ -706,6 +707,13 @@ Template.room.onRendered ->
 					CaoLiao.TabBar.setTemplate 'membersList'
 					CaoLiao.TabBar.openFlex()
 
+	audioInterval = Meteor.setInterval( ->
+		if $('div:not(.audioplayer)>audio').length > 0
+			Meteor.clearInterval(audioInterval);
+			$('div:not(.audioplayer)>audio').audioPlayer();
+
+	,100)
+	
 Template.room.onDestroyed ->
 	console.log "onDestroyed stop-call"
 	WebRTC.getInstanceByRoomId(Session.get('openedRoom'))?.stop()

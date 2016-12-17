@@ -64,7 +64,7 @@ Template.accountProfile.onCreated ->
 			data.newPassword = $('#password').val()
 
 		if _.trim $('#realname').val()
-			if _.trim $('#realname').val().lenght > 0 
+			if _.trim $('#realname').val().length > 0 
 				data.realname = _.trim $('#realname').val()
 
 		if _.trim($('#username').val()) isnt Meteor.user().username
@@ -87,8 +87,11 @@ Template.accountProfile.onCreated ->
 				instance.clearForm()
 				return
 			else
-				if _.trim $('#email').val() > 0
+				if _.trim $('#email').val().length > 0
+					console.log $('#email').val().length 
 					data.email = _.trim $('#email').val()
+
+		console.log "data",data
 
 		Meteor.call 'saveUserProfile', data, (error, results) ->
 			if results

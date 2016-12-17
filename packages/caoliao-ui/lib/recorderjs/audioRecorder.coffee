@@ -5,7 +5,8 @@
 			navigator.getUserMedia = navigator.getUserMedia or navigator.webkitGetUserMedia
 			window.URL = window.URL or window.webkitURL
 
-			@audio_context = new AudioContext
+			if !@audio_context?
+				@audio_context = new AudioContext
 
 			ok = (stream) =>
 				@startUserMedia(stream)
@@ -49,9 +50,10 @@
 
 		@recorder.clear()
 
-		delete @audio_context
+		# delete @audio_context
 		delete @recorder
 		delete @stream
+		console.log @audio_context
 
 	getBlob: (cb) ->
 		@recorder.exportWAV cb

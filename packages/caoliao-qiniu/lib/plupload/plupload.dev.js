@@ -902,7 +902,8 @@ function log() {
 		function uploadNext() {
 			var file, count = 0,
 				i;
-
+			console.log("uploadNext", this.state, plupload.STARTED);
+			console.log("files.length", files.length);
 			if (this.state == plupload.STARTED) {
 				// Find first QUEUED file
 				for (i = 0; i < files.length; i++) {
@@ -1861,6 +1862,7 @@ function log() {
 					}
 				}
 			},
+
 
 			/**
 			 * Adds file to the queue programmatically. Can be native file, instance of Plupload.File,

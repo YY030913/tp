@@ -5,7 +5,7 @@ CaoLiao._setEmail = function(userId, email) {
 	}
 
 	if (!email) {
-		throw new Meteor.Error('error-invalid-email', 'Invalid email', { function: '_setEmail' });
+		throw new Meteor.Error('error-invalid-email', 'Invalid email', { function: '_setEmail', field: email });
 	}
 
 	CaoLiao.validateEmailDomain(email);

@@ -43,7 +43,7 @@ Template.debate.helpers
 		return false;
 
 	imageMogr: (html)->
-		width = $(window).width()
+		width = $(window).width() - 50
 		return CaoLiao.utils.extendImgSrcs(html, "?imageMogr2/thumbnail/#{width}/quality/100")
 
 Template.debate.onCreated ->

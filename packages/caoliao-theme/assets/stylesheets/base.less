@@ -1,18 +1,62 @@
+.left {
+	.audioplayer-playpause {
+		width: 2.5em; 
+		cursor: pointer;
+		position: relative;
+		float: left;
+
+		background-image: url("images/leftvoice.png");
+		background-size: contain;
+		height: 20px;
+		background-repeat: no-repeat;
+		margin: 5px 10px;
+		z-index: 2;
+	}
+
+	.audioplayer-playing {
+		.audioplayer-playpause {
+			background-image: url("images/leftvoice.gif");
+		}
+	}
+}
+
+.right {
+	.audioplayer-playpause {
+		width: 2.5em; 
+		cursor: pointer;
+		position: relative;
+		float: right;
+
+		background-image: url("images/rightvoice.png");
+		background-size: contain;
+		height: 20px;
+		background-repeat: no-repeat;
+		margin: 5px 10px;
+		z-index: 2;
+	}
+
+	.audioplayer-playing {
+		.audioplayer-playpause {
+			background-image: url("images/rightvoice.gif");
+		}
+	}
+}
+
 .loading-loader {
 	line-height: 80px;
 }
 .loading-image {
 	background: url(/images/logo/58x58.png);
 	background-size: 100% 100%;
-    position: absolute;
-    top: 50px;
-    left: 35%;
-    width: 36px;
-    height: 36px;
-    margin: -40px 0 0 -40px;
-    -webkit-animation: spin 3s ease-in-out infinite;
-    -moz-animation: spin 3s ease-in-out infinite;
-    animation: spin 3s ease-in-out infinite;
+	position: absolute;
+	top: 50px;
+	left: 35%;
+	width: 36px;
+	height: 36px;
+	margin: -40px 0 0 -40px;
+	-webkit-animation: spin 3s ease-in-out infinite;
+	-moz-animation: spin 3s ease-in-out infinite;
+	animation: spin 3s ease-in-out infinite;
 }
 
 
@@ -174,7 +218,7 @@ header .logo {
 		}
 	}
 	.content {
-		padding-top: 36px;
+		padding-top: 41px;
 
 		.avatar {
 			display: inline-block;
@@ -1296,18 +1340,28 @@ pre {
 	width: 100%;
 }
 blockquote {
+	padding: 10px 15px;
+	margin-bottom: 20px;
+	background-color: @secondary-background-color;
+	border-left: 4px solid @quaternary-background-color;
+	word-break: break-word;
+	font-size: 15px;
+	font-weight: normal;
+	line-height: 30px;
+
+
 	padding-left: 10px;
 	position: relative;
 
-	&:before {
-		content: ' ';
-		width: 4px;
-		position: absolute;
-		border-radius: 2px;
-		left: 0px;
-		top: -1px;
-		bottom: -1px;
-	}
+	//&:before {
+	//	content: ' ';
+	//	width: 4px;
+	//	position: absolute;
+	//	border-radius: 2px;
+	//	left: 0px;
+	//	top: -1px;
+	//	bottom: -1px;
+	//}
 }
 .login-terms {
 	font-size: smaller;
@@ -1639,11 +1693,11 @@ html {
 }
 body {
 	font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif, "Meiryo UI";
-	font-size: 0.875rem;
+	font-size: 1rem;
 	height: 100%;
 	width: 100%;
 	-webkit-font-smoothing: antialiased;
-	line-height: 1rem;
+	line-height: 1.2rem;
 	padding: 0;
 	overflow: visible;
 	position: absolute;
@@ -2095,6 +2149,18 @@ a.github-fork {
 
 			&:hover, &:active {
 				background-color: rgba(0, 0, 0, 0.1);
+			}
+
+			input {
+				position: absolute;
+				top: 0;
+				left: -12px;
+				right: 0;
+				bottom: 0;
+				overflow: hidden;
+				width: 44px;
+				opacity: 0;
+				cursor: pointer;
 			}
 		}
 		a {
@@ -3513,7 +3579,7 @@ a.github-fork {
 				.inner-right-toolbar {
 					position: absolute;
 					right: 10px;
-					top: 3px;
+					top: 9px;
 					line-height: 26px;
 				}
 			}
@@ -3558,7 +3624,7 @@ a.github-fork {
 		textarea {
 			display: block;
 			margin: 0px;
-			padding-top: 9px;
+			padding-top: 13px;
 			padding-bottom: 9px;
 			padding-right: 38px;
 			border-radius: 0;
@@ -4234,8 +4300,11 @@ body {
 			}
 		}
 		audio {
-			width: 100%;
-			.calc(max-width, ~"100% - 10px");
+			width: 0px;
+			height: 0px;
+			visibility: hidden;
+			//width: 100%;
+			//.calc(max-width, ~"100% - 10px");
 		}
 		&.left {
 			float: left;

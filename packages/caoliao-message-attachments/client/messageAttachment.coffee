@@ -47,3 +47,8 @@ Template.messageAttachment.helpers
 
 	time: ->
 		return moment(@ts).format(CaoLiao.settings.get('Message_TimeFormat'))
+
+
+Template.messageAttachment.onRendered ->
+	console.log "onRendered"
+	$('.wrapper audio').audioPlayer();

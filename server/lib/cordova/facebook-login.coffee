@@ -1,8 +1,6 @@
 Accounts.registerLoginHandler (loginRequest) ->
 	if not loginRequest.cordova
 		return undefined
-
-	console.log "loginRequest",loginRequest
 	
 
 	if loginRequest.service == "facebook"
@@ -40,10 +38,6 @@ Accounts.registerLoginHandler (loginRequest) ->
 		profileFields = _.pick(identity, whitelisted)
 		_.extend(options.profile, profileFields)
 
-		console.log "serviceData",serviceData
-
-		console.log "options",options
-		
 		return Accounts.updateOrCreateUserFromExternalService("weibo", serviceData, options)
 
 	else if loginRequest.service == "google"

@@ -37,12 +37,66 @@ FlowRouter.triggers.exit([exitPage]);
 
 ###
 
+@defaultAppLanguage = ->
+	lng = window.navigator.userLanguage || window.navigator.language || 'en'
+	# Fix browsers having all-lowercase language settings eg. pt-br, en-us
+	re = /([a-z]{2}-)([a-z]{2})/
+	if re.test lng
+		lng = lng.replace re, (match, parts...) -> return parts[0] + parts[1].toUpperCase()
+	return lng
+
+@defaultUserLanguage = ->
+	return CaoLiao.settings.get('Language') || defaultAppLanguage()
+
+loadedLanguages = []
+
+@setLanguage = (language) ->
+	if !language
+		return
+
+	if loadedLanguages.indexOf(language) > -1
+		return
+
+	loadedLanguages.push language
+
+	if isRtl language
+		$('html').addClass "rtl"
+	else
+		$('html').removeClass "rtl"
+
+	language = language.split('-').shift()
+	TAPi18n.setLanguage(language)
+
+	language = language.toLowerCase()
+	if language isnt 'en'
+		Meteor.call 'loadLocale', language, (err, localeFn) ->
+			Function(localeFn)()
+			moment.locale(language)
+
+
 FlowRouter.subscriptions = ->
 	Tracker.autorun =>
 		RoomManager.init()
 		TagManager.init()
 		@register 'ads', Meteor.subscribe('ads')
-		@register 'userData', Meteor.subscribe('userData')
+		@register 'userData', Meteor.subscribe('userData', () ->
+
+			userLanguage = Meteor.user()?.language
+			userLanguage ?= defaultUserLanguage()
+
+			userLocation = Meteor.user()?.shorCountry
+			
+			if !userLocation? && Meteor.user()
+				console.log "userData subscribe"
+				loc = defaultAppLanguage().split("-")
+				Meteor.call 'setShortCountry', loc[loc.length-1].toLowerCase()
+			
+			if localStorage.getItem('userLanguage') isnt userLanguage
+				localStorage.setItem('userLanguage', userLanguage)
+
+			setLanguage userLanguage
+
+		)
 		@register 'friendSubscriptionData', Meteor.subscribe('friendSubscriptionData')
 		@register 'activeUsers', Meteor.subscribe('activeUsers')
 		@register 'admin-settings', Meteor.subscribe('admin-settings')

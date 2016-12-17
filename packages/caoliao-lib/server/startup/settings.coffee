@@ -9,7 +9,7 @@ CaoLiao.settings.addGroup 'Accounts', ->
 	@add 'Accounts_AllowUserProfileChange', true, { type: 'boolean', public: true }
 	@add 'Accounts_AllowUserAvatarChange', true, { type: 'boolean', public: true }
 	@add 'Accounts_AllowUsernameChange', true, { type: 'boolean', public: true }
-	@add 'Accounts_AllowEmailChange', true, { type: 'boolean', public: true }
+	@add 'Accounts_AllowEmailChange', false, { type: 'boolean', public: true }
 	@add 'Accounts_AllowPasswordChange', true, { type: 'boolean', public: true }
 	@add 'Accounts_RequireNameForSignUp', true, { type: 'boolean', public: true }
 	@add 'Accounts_LoginExpiration', 90, { type: 'int', public: true }

@@ -5,7 +5,7 @@ Meteor.methods
 
 		user = Meteor.user()
 		unless user.emails?[0]?.address
-			throw new Meteor.Error 'error-invalid-email', "Invalid email", { method: 'sendSMTPTestEmail' }
+			throw new Meteor.Error 'error-invalid-email', "Invalid email", { method: 'sendSMTPTestEmail', field: email }
 
 		this.unblock()
 
