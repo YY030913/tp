@@ -341,5 +341,6 @@ WebApp.connectHandlers.use(connect.bodyParser()).use(function(req, res, next) {
 	// else is wrapping this in a fiber automatically
 	fiber(function() {
 		middleware(req, res, next);
+		console.log("saml", req.body);
 	}).run();
 });

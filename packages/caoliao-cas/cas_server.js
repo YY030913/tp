@@ -83,11 +83,13 @@ var middleware = function(req, res, next) {
 };
 
 // Listen to incoming OAuth http requests
-WebApp.connectHandlers.use(function(req, res, next) {
+WebApp.connectHandlers.use((req, res, next) => {
 	// Need to create a fiber since we're using synchronous http calls and nothing
 	// else is wrapping this in a fiber automatically
 	fiber(function() {
+		console.log("cas req",req.body);
 		middleware(req, res, next);
+
 	}).run();
 });
 

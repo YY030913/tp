@@ -147,6 +147,7 @@ Template.messageBox.events
 Template.messageBox.onRendered ->
 	instance = this
 	instance.nooverride = true
+	###
 	if CaoLiao.settings.get('FileUpload_Storage_Type') == "QiNiu"
 
 		$("input[type=file]").attr("disabled", "disabled")
@@ -259,7 +260,7 @@ Template.messageBox.onRendered ->
 		});
 
 		instance.handler.set(uploadHandler)
-
+	###
 
 Template.messageBox.onCreated ->
 	@handler = new ReactiveVar {}

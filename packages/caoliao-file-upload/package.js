@@ -10,19 +10,20 @@ Package.describe({
 
 
 Package.onUse(function(api) {
+
 	api.versionsFrom('1.2.1');
 	api.use('ecmascript');
 	api.use('caoliao:file');
-	api.use('jalik:ufs@0.5.5');
-	api.use('jalik:ufs-local@0.2.5');
+	api.use('jalik:ufs');
+	api.use('jalik:ufs-local');
+	api.use('jalik:ufs-gridfs');
 	api.use('edgee:slingshot@0.7.1');
-	// api.use('peerlibrary:aws-sdk@2.2.42_1');
 	api.use('caoliao:lib');
 	api.use('caoliao:qiniu');
-	api.use('random@1.0.5');
-	api.use('underscore@1.0.4');
-	api.use('tracker@1.0.9');
-	api.use('webapp@1.2.3');
+	api.use('random');
+	api.use('underscore');
+	api.use('tracker');
+	api.use('webapp');
 
 	api.addFiles('globalFileRestrictions.js');
 
@@ -50,4 +51,9 @@ Package.onUse(function(api) {
 
 	api.export('fileUploadHandler');
 	api.export('FileUpload');
+});
+
+Npm.depends({
+	'mime-types': '2.1.11',
+	'filesize': '3.3.0'
 });

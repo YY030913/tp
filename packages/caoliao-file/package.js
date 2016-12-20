@@ -11,7 +11,7 @@ Package.onUse(function(api) {
 
 	api.use('caoliao:lib');
 	api.use('caoliao:version');
-	api.use('coffeescript@1.0.11');
+	api.use('coffeescript');
 
 	api.addFiles('file.server.coffee', 'server');
 

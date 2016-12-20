@@ -4,6 +4,7 @@ var zlib = Npm.require('zlib');
 
 // code from: https://github.com/jalik/jalik-ufs/blob/master/ufs-server.js#L91
 var readFromGridFS = function(storeName, fileId, file, headers, req, res) {
+	console.log("readFromGridFS", arguments);
 	var store = UploadFS.getStore(storeName);
 	var rs = store.getReadStream(fileId, file);
 	var ws = new stream.PassThrough();
@@ -47,8 +48,10 @@ var readFromGridFS = function(storeName, fileId, file, headers, req, res) {
 
 FileUpload.addHandler('caoliao_uploads', {
 	get(file, req, res) {
+		file = FileUpload.addExtensionTo(file);
+		console.log(file);
 		let headers = {
-			'Content-Disposition': 'attachment; filename="' + encodeURIComponent(file.name) + '"',
+			'Content-Disposition': `attachment; filename*=UTF-8''${encodeURIComponent(file.name)}`,
 			'Last-Modified': file.uploadedAt.toUTCString(),
 			'Content-Type': file.type,
 			'Content-Length': file.size

@@ -4,6 +4,10 @@ Package.describe({
 	version: '1.0.0'
 });
 
+Npm.depends({
+	'connect': '2.7.10'
+});
+
 Package.onUse(function(api) {
 	api.versionsFrom('1.0');
 
@@ -13,7 +17,7 @@ Package.onUse(function(api) {
 	api.use('caoliao:lib');
 	api.use('caoliao:api');
 	api.use('caoliao:theme');
-	api.use('caoliao:oauth2-server');
+	api.use('rocketchat:oauth2-server');
 
 	api.use('templating@1.1.5', 'client');
 	api.use('kadira:flow-router@2.10.1', 'client');

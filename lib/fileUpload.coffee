@@ -13,7 +13,7 @@ if UploadFS?
 		cookie = new Cookies()
 		if Meteor.isClient
 			document.cookie = 'rc_uid=' + escape(Meteor.userId()) + '; path=/'
-			document.cookie = 'rc_token=' + escape(Meteor._localStorage.getItem('Meteor.loginToken')) + '; path=/'
+			document.cookie = 'rc_token=' + escape(Accounts._storedLoginToken()) + '; path=/'
 
 		Meteor.fileStore = new UploadFS.store.GridFS
 			collection: CaoLiao.models.Uploads.model
@@ -22,6 +22,11 @@ if UploadFS?
 			filter: new UploadFS.Filter
 				onCheck: FileUpload.validateFileUpload
 			transformWrite: (readStream, writeStream, fileId, file) ->
+
+				console.log "transformWrite", file
+				console.log "readStream", readStream
+				console.log "writeStream", writeStream
+
 				if CaoLiaoFile.enabled is false or not /^image\/.+/.test(file.type)
 					return readStream.pipe writeStream
 
@@ -43,6 +48,9 @@ if UploadFS?
 				stream = CaoLiaoFile.gm(readStream).identify(identify).stream()
 
 			onRead: (fileId, file, req, res) ->
+			
+				console.log "onRead", file
+
 				if CaoLiao.settings.get 'FileUpload_ProtectFiles'
 					rawCookies = req.headers.cookie if req?.headers?.cookie?
 					uid = cookie.get('rc_uid', rawCookies) if rawCookies?

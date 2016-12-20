@@ -1,4 +1,6 @@
 /* globals FileUpload:true */
+const mime = Npm.require('mime-types');
+
 FileUpload.handlers = {};
 
 FileUpload.addHandler = function(store, handler) {
@@ -6,6 +8,7 @@ FileUpload.addHandler = function(store, handler) {
 };
 
 FileUpload.delete = function(fileId) {
+	console.log("FileUpload.delete",arguments);
 	let file = CaoLiao.models.Uploads.findOneById(fileId);
 
 	if (!file) {
@@ -25,4 +28,17 @@ FileUpload.get = function(file, req, res, next) {
 		res.end();
 		return;
 	}
+};
+
+FileUpload.addExtensionTo = function(file) {
+	if (mime.lookup(file.name) === file.type) {
+		return file;
+	}
+
+	const ext = mime.extension(file.type);
+	if (ext && false === new RegExp(`\.${ext}$`, 'i').test(file.name)) {
+		file.name = `${file.name}.${ext}`;
+	}
+
+	return file;
 };

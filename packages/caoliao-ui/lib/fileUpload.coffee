@@ -1,6 +1,7 @@
 readAsDataURL = (file, callback) ->
 	reader = new FileReader()
 	reader.onload = (ev) ->
+		console.log "ev",ev
 		callback ev.target.result, file
 
 	reader.readAsDataURL file
@@ -27,8 +28,9 @@ readAsArrayBuffer = (file, callback) ->
 			if not CaoLiao.fileUploadIsValidContentType file.file.type
 				swal
 					title: t('FileUpload_MediaType_NotAccepted')
+					text: file.file.type || "*.#{s.strRightBack(file.file.name, '.')}"
 					type: 'error'
-					timer: 1000
+					timer: 3000
 				return
 
 			if file.file.size is 0
@@ -60,7 +62,6 @@ readAsArrayBuffer = (file, callback) ->
 					</div>
 					<div class='upload-preview-title'>#{Handlebars._escape(file.name)}</div>
 				"""
-
 			else
 				text = """
 					<div class='upload-preview'>
@@ -88,22 +89,11 @@ readAsArrayBuffer = (file, callback) ->
 					type: file.file.type
 					rid: roomId
 
+				console.log record
+				upload = fileUploadHandler record, file.file
 
-				upload = fileUploadHandler record, file.file, file
-
-				# // Reactive method to get upload progress
-				Tracker.autorun (c) ->
-					uploading = undefined
-					cancel = undefined
-
-					Tracker.nonreactive ->
-						cancel = Session.get "uploading-cancel-#{upload.id}"
-						uploading = Session.get 'uploading'
-
-					if cancel
-						return c.stop()
-
-					uploading ?= []
+				upload.onProgress = (progress) ->
+					uploading = Session.get('uploading') or []
 
 					item = _.findWhere(uploading, {id: upload.id})
 
@@ -114,10 +104,10 @@ readAsArrayBuffer = (file, callback) ->
 
 						uploading.push item
 
-					item.percentage = Math.round(upload.getProgress() * 100) or 0
+					item.percentage = Math.round(progress * 100) or 0
 					Session.set 'uploading', uploading
 
-				upload.start();
+				upload.start()
 
 				Tracker.autorun (c) ->
 					cancel = Session.get "uploading-cancel-#{upload.id}"

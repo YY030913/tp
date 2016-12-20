@@ -12,12 +12,15 @@ Package.describe({
 
 Npm.depends({
   'qiniu': '6.1.9',
-  'connect-multiparty': '2.0.0'
+  // slove 1
+  // 'connect-multiparty': '2.0.0'
+
   // 'formidable': '1.0.17',
-  // 'multiparty': '4.1.2',
-  // 'on-finished': '2.3.0',
-  // 'qs': '4.0.0',
-  // 'type-is': '1.6.4',
+  // slove 2
+  'multiparty': '4.1.2',
+  'on-finished': '2.3.0',
+  'qs': '4.0.0',
+  'type-is': '1.6.4',
   // "multer": "1.2.0"
 });
 

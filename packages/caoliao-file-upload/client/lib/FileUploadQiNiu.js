@@ -21,6 +21,7 @@ var uploader = function(options) {
 
 	self.onComplete = options.onComplete;
 	self.onStop = options.onStop;
+	self.onProgress = options.onProgress;
 
 	var Qiniu_upload = function(token) {
 		uploading = true;
@@ -70,8 +71,11 @@ var uploader = function(options) {
 
         xhr.onreadystatechange = function(response) {
             if (xhr.readyState == 4 && xhr.status == 200 && xhr.responseText != "") {
+            	self.onProgress(file, self.getProgress());
+
                 var blkRet = JSON.parse(xhr.responseText);
                 console && console.log(blkRet);
+
             } else if (xhr.status != 200 && xhr.responseText) {
 
             }
@@ -103,6 +107,9 @@ uploader.prototype.onStop = function (file) {
 uploader.prototype.onComplete = function (file) {
 };
 
+uploader.prototype.onProgress = function (file, progress) {
+};
+
 FileUpload.QiNiu = class FileUploadQiNiu extends FileUploadBase {
 	
 	constructor(meta, file, data) {
@@ -132,6 +139,9 @@ FileUpload.QiNiu = class FileUploadQiNiu extends FileUploadBase {
 						}
 					}, 2000);
 				});
+			},
+			onProgress: function(file, progress) {
+				self.onProgress(progress);
 			}
 		});
 	}
@@ -146,6 +156,10 @@ FileUpload.QiNiu = class FileUploadQiNiu extends FileUploadBase {
 				self.handler.start(data.uptoken);
 			}
 		});
+	}
+
+	onProgress() {
+
 	}
 
 	getProgress() {

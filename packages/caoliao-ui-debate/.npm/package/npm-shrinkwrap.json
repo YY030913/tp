@@ -5,11 +5,6 @@
       "resolved": "https://registry.npmjs.org/buffer-concat/-/buffer-concat-0.0.1.tgz",
       "from": "buffer-concat@0.0.1"
     },
-    "connect-multiparty": {
-      "version": "2.0.0",
-      "resolved": "https://registry.npmjs.org/connect-multiparty/-/connect-multiparty-2.0.0.tgz",
-      "from": "connect-multiparty@2.0.0"
-    },
     "crc32": {
       "version": "0.2.2",
       "resolved": "https://registry.npmjs.org/crc32/-/crc32-0.2.2.tgz",
@@ -46,24 +41,24 @@
       "from": "mime@1.2.9"
     },
     "mime-db": {
-      "version": "1.24.0",
-      "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.24.0.tgz",
-      "from": "mime-db@>=1.24.0 <1.25.0"
+      "version": "1.25.0",
+      "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.25.0.tgz",
+      "from": "mime-db@>=1.25.0 <1.26.0"
     },
     "mime-types": {
-      "version": "2.1.12",
-      "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.12.tgz",
-      "from": "mime-types@>=2.1.11 <2.2.0"
+      "version": "2.1.13",
+      "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.13.tgz",
+      "from": "mime-types@>=2.1.2 <2.2.0"
     },
     "multiparty": {
       "version": "4.1.2",
       "resolved": "https://registry.npmjs.org/multiparty/-/multiparty-4.1.2.tgz",
-      "from": "multiparty@>=4.1.2 <4.2.0"
+      "from": "multiparty@4.1.2"
     },
     "on-finished": {
       "version": "2.3.0",
       "resolved": "https://registry.npmjs.org/on-finished/-/on-finished-2.3.0.tgz",
-      "from": "on-finished@>=2.3.0 <2.4.0"
+      "from": "on-finished@2.3.0"
     },
     "pause-stream": {
       "version": "0.0.11",
@@ -83,7 +78,7 @@
     "qs": {
       "version": "4.0.0",
       "resolved": "https://registry.npmjs.org/qs/-/qs-4.0.0.tgz",
-      "from": "qs@>=4.0.0 <4.1.0"
+      "from": "qs@4.0.0"
     },
     "through": {
       "version": "2.3.8",
@@ -91,9 +86,9 @@
       "from": "through@>=2.3.0 <2.4.0"
     },
     "type-is": {
-      "version": "1.6.13",
-      "resolved": "https://registry.npmjs.org/type-is/-/type-is-1.6.13.tgz",
-      "from": "type-is@>=1.6.4 <1.7.0"
+      "version": "1.6.4",
+      "resolved": "https://registry.npmjs.org/type-is/-/type-is-1.6.4.tgz",
+      "from": "type-is@1.6.4"
     },
     "urllib": {
       "version": "0.5.1",

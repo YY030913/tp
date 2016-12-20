@@ -1,3 +1,6 @@
+#fiber = Npm.require('fibers');
+#connect = Npm.require('connect');
+
 oauth2server = new OAuth2Server
 	accessTokensCollectionName: 'caoliao_oauth_access_tokens'
 	refreshTokensCollectionName: 'caoliao_oauth_refresh_tokens'
@@ -7,7 +10,12 @@ oauth2server = new OAuth2Server
 
 
 WebApp.connectHandlers.use oauth2server.app
-
+###
+WebApp.connectHandlers.use connect.bodyParser().use (req, res, next) ->
+	fiber ->
+		oauth2server.app
+		console.log("oauth2server", req.body);
+###
 
 Meteor.publish 'oauthClient', (clientId) ->
 	unless @userId

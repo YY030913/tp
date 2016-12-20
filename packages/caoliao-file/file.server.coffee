@@ -22,7 +22,6 @@ CaoLiaoFile =
 
 detectGM = ->
 	exec 'gm version', Meteor.bindEnvironment (error, stdout, stderr) ->
-		console.log stdout
 		if not error? and stdout.indexOf('GraphicsMagick') > -1
 			CaoLiaoFile.enable()
 
@@ -30,9 +29,8 @@ detectGM = ->
 				enabled: true
 				version: stdout
 		else
-			if CaoLiao.Info?
-				CaoLiao.Info.GraphicsMagick =
-					enabled: false
+			CaoLiao.Info.GraphicsMagick =
+				enabled: false
 
 		exec 'convert -version', Meteor.bindEnvironment (error, stdout, stderr) ->
 			if not error? and stdout.indexOf('ImageMagick') > -1
@@ -48,9 +46,8 @@ detectGM = ->
 				if CaoLiaoFile.enabled isnt true
 					CaoLiaoFile.disable()
 
-				if CaoLiao.Info?
-					CaoLiao.Info.ImageMagick =
-						enabled: false
+				CaoLiao.Info.ImageMagick =
+					enabled: false
 
 detectGM()
 
@@ -93,6 +90,8 @@ CaoLiaoFile.GridFS = class
 		this.store = new Grid(db, mongo)
 		this.findOneSync = Meteor.wrapAsync this.store.collection(this.name).findOne.bind this.store.collection(this.name)
 		this.removeSync = Meteor.wrapAsync this.store.remove.bind this.store
+
+		this.getFileSync = Meteor.wrapAsync this.getFile.bind this
 
 	findOne: (fileName) ->
 		return this.findOneSync {_id: fileName}
@@ -146,6 +145,23 @@ CaoLiaoFile.GridFS = class
 			uploadDate: file.uploadDate
 		}
 
+	getFile: (fileName, cb) ->
+		file = this.getFileWithReadStream(fileName)
+
+		if not file
+			return cb()
+
+		data = []
+		file.readStream.on 'data', Meteor.bindEnvironment (chunk) ->
+			data.push chunk
+
+		file.readStream.on 'end', Meteor.bindEnvironment ->
+			cb null,
+				buffer: Buffer.concat(data)
+				contentType: file.contentType
+				length: file.length
+				uploadDate: file.uploadDate
+
 	deleteFile: (fileName) ->
 		file = this.findOne fileName
 		if not file?
@@ -173,6 +189,8 @@ CaoLiaoFile.FileSystem = class
 		mkdirp.sync this.absolutePath
 		this.statSync = Meteor.wrapAsync fs.stat.bind fs
 		this.unlinkSync = Meteor.wrapAsync fs.unlink.bind fs
+
+		this.getFileSync = Meteor.wrapAsync this.getFile.bind this
 
 	createWriteStream: (fileName, contentType) ->
 		self = this
@@ -213,6 +231,22 @@ CaoLiaoFile.FileSystem = class
 			}
 		catch e
 			return undefined
+
+	getFile: (fileName, cb) ->
+		file = this.getFileWithReadStream(fileName)
+
+		if not file
+			return cb()
+
+		data = []
+		file.readStream.on 'data', Meteor.bindEnvironment (chunk) ->
+			data.push chunk
+
+		file.readStream.on 'end', Meteor.bindEnvironment ->
+			buffer: Buffer.concat(data)
+				contentType: file.contentType
+				length: file.length
+				uploadDate: file.uploadDate
 
 	deleteFile: (fileName) ->
 		try
